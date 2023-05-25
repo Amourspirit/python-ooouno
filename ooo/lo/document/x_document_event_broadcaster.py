@@ -74,3 +74,4 @@ class XDocumentEventBroadcaster(ABC):
 
 __all__ = ['XDocumentEventBroadcaster']
 
+

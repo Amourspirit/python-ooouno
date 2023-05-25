@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,60 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class LineStyle(metaclass=UnoEnumMeta, type_name="com.sun.star.drawing.LineStyle", name_space="com.sun.star.drawing"):
         """Dynamically created class that represents ``com.sun.star.drawing.LineStyle`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.drawing.LineStyle import DASH as LINE_STYLE_DASH
-        from com.sun.star.drawing.LineStyle import NONE as LINE_STYLE_NONE
-        from com.sun.star.drawing.LineStyle import SOLID as LINE_STYLE_SOLID
+    from ...lo.drawing.line_style import LineStyle as LineStyle
 
-        class LineStyle(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API LineStyle <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a86e0f5648542856159bb40775c854aa7>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.drawing.LineStyle', value)
-
-            __ooo_ns__: str = 'com.sun.star.drawing'
-            __ooo_full_ns__: str = 'com.sun.star.drawing.LineStyle'
-            __ooo_type_name__: str = 'enum'
-
-            DASH = LINE_STYLE_DASH
-            """
-            the line use dashes.
-            """
-            NONE = LINE_STYLE_NONE
-            """
-            the area is not filled.
-
-            The text size is only defined by the font properties.
-
-            Don't animate this text.
-
-            the line is hidden.
-
-            the joint between lines will not be connected
-
-            the line has no special end.
-            """
-            SOLID = LINE_STYLE_SOLID
-            """
-            use a solid color to fill the area.
-
-            the line is solid.
-            """
-    else:
-        # keep document generators happy
-        from ...lo.drawing.line_style import LineStyle as LineStyle
-
-
-__all__ = ['LineStyle']
+__all__ = ["LineStyle"]

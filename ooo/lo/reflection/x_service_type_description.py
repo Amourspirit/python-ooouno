@@ -79,3 +79,4 @@ class XServiceTypeDescription(XTypeDescription_3c210fb1):
 
 __all__ = ['XServiceTypeDescription']
 
+

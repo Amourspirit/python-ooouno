@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.registry
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.registry.RegistryKeyType import RegistryKeyTypeProto
+
 
 class RegistryKeyType(Enum):
     """
@@ -32,20 +30,20 @@ class RegistryKeyType(Enum):
     See Also:
         `API RegistryKeyType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1registry.html#a096c2bade01504c38ba808bfeadff2b2>`_
     """
-    __ooo_ns__: str = 'com.sun.star.registry'
-    __ooo_full_ns__: str = 'com.sun.star.registry.RegistryKeyType'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.registry"
+    __ooo_full_ns__: str = "com.sun.star.registry.RegistryKeyType"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.registry.RegistryKeyType'
+        return "com.sun.star.registry.RegistryKeyType"
 
-    KEY = cast("RegistryKeyTypeProto", 'KEY')
+    KEY = "KEY"
     """
     """
-    LINK = cast("RegistryKeyTypeProto", 'LINK')
+    LINK = "LINK"
     """
     """
 
-__all__ = ['RegistryKeyType']
+__all__ = ["RegistryKeyType"]
 

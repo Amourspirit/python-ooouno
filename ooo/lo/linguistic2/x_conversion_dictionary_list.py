@@ -26,7 +26,8 @@ if typing.TYPE_CHECKING:
     from ..container.x_name_container import XNameContainer as XNameContainer_cb90e47
     from ..lang.locale import Locale as Locale_70d308fa
     from .x_conversion_dictionary import XConversionDictionary as XConversionDictionary_a04e1209
-    from com.sun.star.linguistic2.ConversionDirection import ConversionDirectionProto
+    from com.sun.star.linguistic2.ConversionDirection import ConversionDirectionProto  # type: ignore
+    from com.sun.star.linguistic2.ConversionDirection import ConversionDirectionProto  # type: ignore
 
 class XConversionDictionaryList(XInterface_8f010a43):
     """
@@ -94,4 +95,3 @@ class XConversionDictionaryList(XInterface_8f010a43):
         ...
 
 __all__ = ['XConversionDictionaryList']
-

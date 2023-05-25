@@ -36,3 +36,4 @@ class XDrawPage(XShapes_9a800ab0):
 
 __all__ = ['XDrawPage']
 
+

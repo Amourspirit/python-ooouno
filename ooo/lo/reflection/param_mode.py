@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.reflection
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.reflection.ParamMode import ParamModeProto
+
 
 class ParamMode(Enum):
     """
@@ -32,26 +30,26 @@ class ParamMode(Enum):
     See Also:
         `API ParamMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1reflection.html#ada880a15fc14bc0e53c3dd7c3c8a34eb>`_
     """
-    __ooo_ns__: str = 'com.sun.star.reflection'
-    __ooo_full_ns__: str = 'com.sun.star.reflection.ParamMode'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.reflection"
+    __ooo_full_ns__: str = "com.sun.star.reflection.ParamMode"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.reflection.ParamMode'
+        return "com.sun.star.reflection.ParamMode"
 
-    IN = cast("ParamModeProto", 'IN')
+    IN = "IN"
     """
     parameter serves as pure input for a called method
     """
-    INOUT = cast("ParamModeProto", 'INOUT')
+    INOUT = "INOUT"
     """
     parameter serves as input as well as output; data can transferred in both directions
     """
-    OUT = cast("ParamModeProto", 'OUT')
+    OUT = "OUT"
     """
     parameter serves as pure output for the callee (in addition to the return value)
     """
 
-__all__ = ['ParamMode']
+__all__ = ["ParamMode"]
 

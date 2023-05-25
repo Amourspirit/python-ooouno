@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,53 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class InteractionClassification(metaclass=UnoEnumMeta, type_name="com.sun.star.task.InteractionClassification", name_space="com.sun.star.task"):
         """Dynamically created class that represents ``com.sun.star.task.InteractionClassification`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.task.InteractionClassification import ERROR as INTERACTION_CLASSIFICATION_ERROR
-        from com.sun.star.task.InteractionClassification import INFO as INTERACTION_CLASSIFICATION_INFO
-        from com.sun.star.task.InteractionClassification import QUERY as INTERACTION_CLASSIFICATION_QUERY
-        from com.sun.star.task.InteractionClassification import WARNING as INTERACTION_CLASSIFICATION_WARNING
+    from ...lo.task.interaction_classification import InteractionClassification as InteractionClassification
 
-        class InteractionClassification(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API InteractionClassification <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1task.html#ab0d207be361f7bd99bb18090b7a9e47b>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.task.InteractionClassification', value)
-
-            __ooo_ns__: str = 'com.sun.star.task'
-            __ooo_full_ns__: str = 'com.sun.star.task.InteractionClassification'
-            __ooo_type_name__: str = 'enum'
-
-            ERROR = INTERACTION_CLASSIFICATION_ERROR
-            """
-            An error.
-            """
-            INFO = INTERACTION_CLASSIFICATION_INFO
-            """
-            Some information for the client/user (which will typically lead to the selection of an com.sun.star.task.XInteractionApprove continuation).
-            """
-            QUERY = INTERACTION_CLASSIFICATION_QUERY
-            """
-            A query for the client/user (which will typically lead to the selection of an com.sun.star.task.XInteractionApprove or com.sun.star.task.XInteractionDisapprove continuation).
-            """
-            WARNING = INTERACTION_CLASSIFICATION_WARNING
-            """
-            A warning, less severe than an error.
-            """
-    else:
-        # keep document generators happy
-        from ...lo.task.interaction_classification import InteractionClassification as InteractionClassification
-
-
-__all__ = ['InteractionClassification']
+__all__ = ["InteractionClassification"]

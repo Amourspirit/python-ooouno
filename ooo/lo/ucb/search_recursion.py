@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.ucb
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.ucb.SearchRecursion import SearchRecursionProto
+
 
 class SearchRecursion(Enum):
     """
@@ -32,26 +30,26 @@ class SearchRecursion(Enum):
     See Also:
         `API SearchRecursion <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1ucb.html#a8f357eda7c29e9601428bdc8834c7bd8>`_
     """
-    __ooo_ns__: str = 'com.sun.star.ucb'
-    __ooo_full_ns__: str = 'com.sun.star.ucb.SearchRecursion'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.ucb"
+    __ooo_full_ns__: str = "com.sun.star.ucb.SearchRecursion"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.ucb.SearchRecursion'
+        return "com.sun.star.ucb.SearchRecursion"
 
-    DEEP = cast("SearchRecursionProto", 'DEEP')
+    DEEP = "DEEP"
     """
     Searches through the complete hierarchy of all sub-objects.
     """
-    NONE = cast("SearchRecursionProto", 'NONE')
+    NONE = "NONE"
     """
     Does not search through any sub-objects.
     """
-    ONE_LEVEL = cast("SearchRecursionProto", 'ONE_LEVEL')
+    ONE_LEVEL = "ONE_LEVEL"
     """
     Only searches through sub-objects of the first hierarchy level.
     """
 
-__all__ = ['SearchRecursion']
+__all__ = ["SearchRecursion"]
 

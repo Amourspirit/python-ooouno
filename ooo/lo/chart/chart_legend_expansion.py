@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.chart
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.chart.ChartLegendExpansion import ChartLegendExpansionProto
+
 
 class ChartLegendExpansion(Enum):
     """
@@ -32,34 +30,34 @@ class ChartLegendExpansion(Enum):
     See Also:
         `API ChartLegendExpansion <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart.html#ab1908f844354e32092fdec03c1b9b513>`_
     """
-    __ooo_ns__: str = 'com.sun.star.chart'
-    __ooo_full_ns__: str = 'com.sun.star.chart.ChartLegendExpansion'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.chart"
+    __ooo_full_ns__: str = "com.sun.star.chart.ChartLegendExpansion"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.chart.ChartLegendExpansion'
+        return "com.sun.star.chart.ChartLegendExpansion"
 
-    BALANCED = cast("ChartLegendExpansionProto", 'BALANCED')
+    BALANCED = "BALANCED"
     """
     The legend entries are arranged in a way that the aspect ratio of the resulting legend is as near to 1 as possible.
     """
-    CUSTOM = cast("ChartLegendExpansionProto", 'CUSTOM')
+    CUSTOM = "CUSTOM"
     """
     The size of the legend is given explicitly.
     """
-    HIGH = cast("ChartLegendExpansionProto", 'HIGH')
+    HIGH = "HIGH"
     """
     The legend entries are stacked in a single column if possible.
     
     If not enough space is available further columns are added.
     """
-    WIDE = cast("ChartLegendExpansionProto", 'WIDE')
+    WIDE = "WIDE"
     """
     The legend entries are arranged in a single row if possible.
     
     If not enough space is available further rows are added.
     """
 
-__all__ = ['ChartLegendExpansion']
+__all__ = ["ChartLegendExpansion"]
 

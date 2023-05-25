@@ -25,7 +25,7 @@ from ...awt.uno_control_image_control_model import UnoControlImageControlModel a
 from ..form_control_model import FormControlModel as FormControlModel_e2990d22
 from ..x_image_producer_supplier import XImageProducerSupplier as XImageProducerSupplier_37df0f8f
 if typing.TYPE_CHECKING:
-    from com.sun.star.form.FormButtonType import FormButtonTypeProto
+    from com.sun.star.form.FormButtonType import FormButtonTypeProto  # type: ignore
 
 class ImageButton(UnoControlImageControlModel_7b36111c, FormControlModel_e2990d22, XImageProducerSupplier_37df0f8f):
     """
@@ -71,4 +71,3 @@ class ImageButton(UnoControlImageControlModel_7b36111c, FormControlModel_e2990d2
 
 
 __all__ = ['ImageButton']
-

@@ -23,7 +23,7 @@ import typing
 from abc import abstractproperty, ABC
 if typing.TYPE_CHECKING:
     from .point_sequence_sequence import PointSequenceSequence as PointSequenceSequence_5c591070
-    from com.sun.star.drawing.PolygonKind import PolygonKindProto
+    from com.sun.star.drawing.PolygonKind import PolygonKindProto  # type: ignore
 
 class PolyPolygonDescriptor(ABC):
     """
@@ -63,4 +63,3 @@ class PolyPolygonDescriptor(ABC):
 
 
 __all__ = ['PolyPolygonDescriptor']
-

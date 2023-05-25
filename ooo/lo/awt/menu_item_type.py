@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.awt
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.awt.MenuItemType import MenuItemTypeProto
+
 
 class MenuItemType(Enum):
     """
@@ -32,36 +30,36 @@ class MenuItemType(Enum):
     See Also:
         `API MenuItemType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1awt.html#a0014b68cdf9686458deff56691368317>`_
     """
-    __ooo_ns__: str = 'com.sun.star.awt'
-    __ooo_full_ns__: str = 'com.sun.star.awt.MenuItemType'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.awt"
+    __ooo_full_ns__: str = "com.sun.star.awt.MenuItemType"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.awt.MenuItemType'
+        return "com.sun.star.awt.MenuItemType"
 
-    DONTKNOW = cast("MenuItemTypeProto", 'DONTKNOW')
+    DONTKNOW = "DONTKNOW"
     """
     specifies a font with an unknown slant.
     
     specifies that the menu item type is unknown.
     """
-    IMAGE = cast("MenuItemTypeProto", 'IMAGE')
+    IMAGE = "IMAGE"
     """
     specifies that the menu item has an image.
     """
-    SEPARATOR = cast("MenuItemTypeProto", 'SEPARATOR')
+    SEPARATOR = "SEPARATOR"
     """
     specifies that the menu item is a separator.
     """
-    STRING = cast("MenuItemTypeProto", 'STRING')
+    STRING = "STRING"
     """
     specifies that the menu item has a text.
     """
-    STRINGIMAGE = cast("MenuItemTypeProto", 'STRINGIMAGE')
+    STRINGIMAGE = "STRINGIMAGE"
     """
     specifies that the menu item has a text and an image.
     """
 
-__all__ = ['MenuItemType']
+__all__ = ["MenuItemType"]
 

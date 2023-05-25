@@ -26,7 +26,7 @@ if typing.TYPE_CHECKING:
     from ..lang.locale import Locale as Locale_70d308fa
     from .x_dictionary_entry import XDictionaryEntry as XDictionaryEntry_49ef0ff5
     from .x_dictionary_event_listener import XDictionaryEventListener as XDictionaryEventListener_d74c132b
-    from com.sun.star.linguistic2.DictionaryType import DictionaryTypeProto
+    from com.sun.star.linguistic2.DictionaryType import DictionaryTypeProto  # type: ignore
 
 class XDictionary(XNamed_a6520b08):
     """
@@ -140,4 +140,3 @@ class XDictionary(XNamed_a6520b08):
         ...
 
 __all__ = ['XDictionary']
-

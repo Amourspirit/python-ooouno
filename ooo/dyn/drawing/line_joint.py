@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,72 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class LineJoint(metaclass=UnoEnumMeta, type_name="com.sun.star.drawing.LineJoint", name_space="com.sun.star.drawing"):
         """Dynamically created class that represents ``com.sun.star.drawing.LineJoint`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.drawing.LineJoint import BEVEL as LINE_JOINT_BEVEL
-        from com.sun.star.drawing.LineJoint import MIDDLE as LINE_JOINT_MIDDLE
-        from com.sun.star.drawing.LineJoint import MITER as LINE_JOINT_MITER
-        from com.sun.star.drawing.LineJoint import NONE as LINE_JOINT_NONE
-        from com.sun.star.drawing.LineJoint import ROUND as LINE_JOINT_ROUND
+    from ...lo.drawing.line_joint import LineJoint as LineJoint
 
-        class LineJoint(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API LineJoint <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#aa36e7b530c7d0049f623b0effe54d04f>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.drawing.LineJoint', value)
-
-            __ooo_ns__: str = 'com.sun.star.drawing'
-            __ooo_full_ns__: str = 'com.sun.star.drawing.LineJoint'
-            __ooo_type_name__: str = 'enum'
-
-            BEVEL = LINE_JOINT_BEVEL
-            """
-            the edges of the thick lines will be joined by lines
-            """
-            MIDDLE = LINE_JOINT_MIDDLE
-            """
-            the middle value between the joints is used
-            """
-            MITER = LINE_JOINT_MITER
-            """
-            the lines join at intersections
-            """
-            NONE = LINE_JOINT_NONE
-            """
-            the area is not filled.
-
-            The text size is only defined by the font properties.
-
-            Don't animate this text.
-
-            the line is hidden.
-
-            the joint between lines will not be connected
-
-            the line has no special end.
-            """
-            ROUND = LINE_JOINT_ROUND
-            """
-            the dash is a point
-
-            the lines join with an arc
-
-            the line will get a half circle as additional cap
-            """
-    else:
-        # keep document generators happy
-        from ...lo.drawing.line_joint import LineJoint as LineJoint
-
-
-__all__ = ['LineJoint']
+__all__ = ["LineJoint"]

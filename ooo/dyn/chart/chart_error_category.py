@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,71 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class ChartErrorCategory(metaclass=UnoEnumMeta, type_name="com.sun.star.chart.ChartErrorCategory", name_space="com.sun.star.chart"):
         """Dynamically created class that represents ``com.sun.star.chart.ChartErrorCategory`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.chart.ChartErrorCategory import CONSTANT_VALUE as CHART_ERROR_CATEGORY_CONSTANT_VALUE
-        from com.sun.star.chart.ChartErrorCategory import ERROR_MARGIN as CHART_ERROR_CATEGORY_ERROR_MARGIN
-        from com.sun.star.chart.ChartErrorCategory import NONE as CHART_ERROR_CATEGORY_NONE
-        from com.sun.star.chart.ChartErrorCategory import PERCENT as CHART_ERROR_CATEGORY_PERCENT
-        from com.sun.star.chart.ChartErrorCategory import STANDARD_DEVIATION as CHART_ERROR_CATEGORY_STANDARD_DEVIATION
-        from com.sun.star.chart.ChartErrorCategory import VARIANCE as CHART_ERROR_CATEGORY_VARIANCE
+    from ...lo.chart.chart_error_category import ChartErrorCategory as ChartErrorCategory
 
-        class ChartErrorCategory(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API ChartErrorCategory <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart.html#a5dc5747cfef559a2185b3400717ee431>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.chart.ChartErrorCategory', value)
-
-            __ooo_ns__: str = 'com.sun.star.chart'
-            __ooo_full_ns__: str = 'com.sun.star.chart.ChartErrorCategory'
-            __ooo_type_name__: str = 'enum'
-
-            CONSTANT_VALUE = CHART_ERROR_CATEGORY_CONSTANT_VALUE
-            """
-            displays the same lower and upper error indicators for all data points.
-
-            The values for these are given as absolute numbers in ChartStatistics.ConstantErrorLow and ChartStatistics.ConstantErrorHigh
-            """
-            ERROR_MARGIN = CHART_ERROR_CATEGORY_ERROR_MARGIN
-            """
-            The length of the error indicators for all data points is calculated by taking the percentage given as ChartStatistics.ErrorMargin of the largest data point value.
-            """
-            NONE = CHART_ERROR_CATEGORY_NONE
-            """
-            error indicators are not displayed.
-
-            displays no regression curve.
-
-            no chart legend is displayed.
-
-            displays no error indicators.
-            """
-            PERCENT = CHART_ERROR_CATEGORY_PERCENT
-            """
-            The length of the error indicators is calculated for each data point by taking the percentage given as ChartStatistics.PercentageError of its value.
-            """
-            STANDARD_DEVIATION = CHART_ERROR_CATEGORY_STANDARD_DEVIATION
-            """
-            displays error indicators for the standard deviation (square root of variance) of the data row.
-            """
-            VARIANCE = CHART_ERROR_CATEGORY_VARIANCE
-            """
-            displays error indicators for the variance of the data row.
-            """
-    else:
-        # keep document generators happy
-        from ...lo.chart.chart_error_category import ChartErrorCategory as ChartErrorCategory
-
-
-__all__ = ['ChartErrorCategory']
+__all__ = ["ChartErrorCategory"]

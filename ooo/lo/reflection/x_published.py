@@ -50,3 +50,4 @@ class XPublished(ABC):
 
 __all__ = ['XPublished']
 
+

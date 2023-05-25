@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.ucb
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.ucb.FolderListCommand import FolderListCommandProto
+
 
 class FolderListCommand(Enum):
     """
@@ -32,28 +30,28 @@ class FolderListCommand(Enum):
     See Also:
         `API FolderListCommand <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1ucb.html#aa1260fc093737bd1d1134fba75333247>`_
     """
-    __ooo_ns__: str = 'com.sun.star.ucb'
-    __ooo_full_ns__: str = 'com.sun.star.ucb.FolderListCommand'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.ucb"
+    __ooo_full_ns__: str = "com.sun.star.ucb.FolderListCommand"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.ucb.FolderListCommand'
+        return "com.sun.star.ucb.FolderListCommand"
 
-    GET = cast("FolderListCommandProto", 'GET')
+    GET = "GET"
     """
     Get a list of all folders.
     
     HTTP request method as defined in RFC 2616: Hypertext Transfer Protocol – HTTP/1.1
     """
-    GET_SUBSCRIBED = cast("FolderListCommandProto", 'GET_SUBSCRIBED')
+    GET_SUBSCRIBED = "GET_SUBSCRIBED"
     """
     Get a list of subscribed folders.
     """
-    SET = cast("FolderListCommandProto", 'SET')
+    SET = "SET"
     """
     Set a list of folders.
     """
 
-__all__ = ['FolderListCommand']
+__all__ = ["FolderListCommand"]
 

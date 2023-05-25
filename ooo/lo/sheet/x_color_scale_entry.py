@@ -70,3 +70,4 @@ class XColorScaleEntry(ABC):
 
 __all__ = ['XColorScaleEntry']
 
+

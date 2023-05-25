@@ -48,3 +48,4 @@ class XComponentEnumeration(XEnumeration_f2180daa):
 
 __all__ = ['XComponentEnumeration']
 
+

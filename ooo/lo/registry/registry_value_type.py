@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.registry
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.registry.RegistryValueType import RegistryValueTypeProto
+
 
 class RegistryValueType(Enum):
     """
@@ -32,46 +30,46 @@ class RegistryValueType(Enum):
     See Also:
         `API RegistryValueType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1registry.html#a62fb96939bafde3da828f782a8433ac3>`_
     """
-    __ooo_ns__: str = 'com.sun.star.registry'
-    __ooo_full_ns__: str = 'com.sun.star.registry.RegistryValueType'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.registry"
+    __ooo_full_ns__: str = "com.sun.star.registry.RegistryValueType"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.registry.RegistryValueType'
+        return "com.sun.star.registry.RegistryValueType"
 
-    ASCII = cast("RegistryValueTypeProto", 'ASCII')
+    ASCII = "ASCII"
     """
     the type of the key is ASCII.
     """
-    ASCIILIST = cast("RegistryValueTypeProto", 'ASCIILIST')
+    ASCIILIST = "ASCIILIST"
     """
     the type of the key is an ASCIILIST.
     """
-    BINARY = cast("RegistryValueTypeProto", 'BINARY')
+    BINARY = "BINARY"
     """
     the type of the key is binary.
     """
-    LONG = cast("RegistryValueTypeProto", 'LONG')
+    LONG = "LONG"
     """
     the type of the key is long.
     """
-    LONGLIST = cast("RegistryValueTypeProto", 'LONGLIST')
+    LONGLIST = "LONGLIST"
     """
     the type of the key is LONGLIST.
     """
-    NOT_DEFINED = cast("RegistryValueTypeProto", 'NOT_DEFINED')
+    NOT_DEFINED = "NOT_DEFINED"
     """
     the type of the key is not defined.
     """
-    STRING = cast("RegistryValueTypeProto", 'STRING')
+    STRING = "STRING"
     """
     the type of the key is a string.
     """
-    STRINGLIST = cast("RegistryValueTypeProto", 'STRINGLIST')
+    STRINGLIST = "STRINGLIST"
     """
     the type of the key is a STRINGLIST.
     """
 
-__all__ = ['RegistryValueType']
+__all__ = ["RegistryValueType"]
 

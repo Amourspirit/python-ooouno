@@ -86,3 +86,4 @@ class XFormulaOpCodeMapper(ABC):
 
 __all__ = ['XFormulaOpCodeMapper']
 
+

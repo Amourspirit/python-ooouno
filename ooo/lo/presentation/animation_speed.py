@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.presentation
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.presentation.AnimationSpeed import AnimationSpeedProto
+
 
 class AnimationSpeed(Enum):
     """
@@ -32,26 +30,26 @@ class AnimationSpeed(Enum):
     See Also:
         `API AnimationSpeed <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1presentation.html#a07b64dc4a366b20ad5052f974ffdbf62>`_
     """
-    __ooo_ns__: str = 'com.sun.star.presentation'
-    __ooo_full_ns__: str = 'com.sun.star.presentation.AnimationSpeed'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.presentation"
+    __ooo_full_ns__: str = "com.sun.star.presentation.AnimationSpeed"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.presentation.AnimationSpeed'
+        return "com.sun.star.presentation.AnimationSpeed"
 
-    FAST = cast("AnimationSpeedProto", 'FAST')
+    FAST = "FAST"
     """
     set the speed from the animation/fade to fast.
     """
-    MEDIUM = cast("AnimationSpeedProto", 'MEDIUM')
+    MEDIUM = "MEDIUM"
     """
     set the speed from the animation/fade to medium.
     """
-    SLOW = cast("AnimationSpeedProto", 'SLOW')
+    SLOW = "SLOW"
     """
     set the speed from the animation/fade to slow.
     """
 
-__all__ = ['AnimationSpeed']
+__all__ = ["AnimationSpeed"]
 

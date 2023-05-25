@@ -50,3 +50,4 @@ class XSourceInitialization(XInterface_8f010a43):
 
 __all__ = ['XSourceInitialization']
 
+

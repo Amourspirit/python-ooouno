@@ -59,3 +59,4 @@ class XFormulaParser(XPropertySet_bc180bfa, XComponent_98dc0ab5, XFormulaParser_
 
 __all__ = ['XFormulaParser']
 
+

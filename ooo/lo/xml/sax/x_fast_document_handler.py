@@ -84,3 +84,4 @@ class XFastDocumentHandler(XFastContextHandler_361e0f5c):
 
 __all__ = ['XFastDocumentHandler']
 
+

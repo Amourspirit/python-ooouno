@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.drawing
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.drawing.LineJoint import LineJointProto
+
 
 class LineJoint(Enum):
     """
@@ -32,27 +30,27 @@ class LineJoint(Enum):
     See Also:
         `API LineJoint <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#aa36e7b530c7d0049f623b0effe54d04f>`_
     """
-    __ooo_ns__: str = 'com.sun.star.drawing'
-    __ooo_full_ns__: str = 'com.sun.star.drawing.LineJoint'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.drawing"
+    __ooo_full_ns__: str = "com.sun.star.drawing.LineJoint"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.drawing.LineJoint'
+        return "com.sun.star.drawing.LineJoint"
 
-    BEVEL = cast("LineJointProto", 'BEVEL')
+    BEVEL = "BEVEL"
     """
     the edges of the thick lines will be joined by lines
     """
-    MIDDLE = cast("LineJointProto", 'MIDDLE')
+    MIDDLE = "MIDDLE"
     """
     the middle value between the joints is used
     """
-    MITER = cast("LineJointProto", 'MITER')
+    MITER = "MITER"
     """
     the lines join at intersections
     """
-    NONE = cast("LineJointProto", 'NONE')
+    NONE = "NONE"
     """
     the area is not filled.
     
@@ -66,7 +64,7 @@ class LineJoint(Enum):
     
     the line has no special end.
     """
-    ROUND = cast("LineJointProto", 'ROUND')
+    ROUND = "ROUND"
     """
     the dash is a point
     
@@ -75,5 +73,5 @@ class LineJoint(Enum):
     the line will get a half circle as additional cap
     """
 
-__all__ = ['LineJoint']
+__all__ = ["LineJoint"]
 

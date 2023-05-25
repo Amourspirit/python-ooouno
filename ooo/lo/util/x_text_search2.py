@@ -52,3 +52,4 @@ class XTextSearch2(XTextSearch_a56a0b19):
 
 __all__ = ['XTextSearch2']
 
+

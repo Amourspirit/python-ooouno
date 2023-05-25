@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,65 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class DataPointCustomLabelFieldType(metaclass=UnoEnumMeta, type_name="com.sun.star.chart2.DataPointCustomLabelFieldType", name_space="com.sun.star.chart2"):
         """Dynamically created class that represents ``com.sun.star.chart2.DataPointCustomLabelFieldType`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.chart2.DataPointCustomLabelFieldType import CATEGORYNAME as DATA_POINT_CUSTOM_LABEL_FIELD_TYPE_CATEGORYNAME
-        from com.sun.star.chart2.DataPointCustomLabelFieldType import CELLRANGE as DATA_POINT_CUSTOM_LABEL_FIELD_TYPE_CELLRANGE
-        from com.sun.star.chart2.DataPointCustomLabelFieldType import CELLREF as DATA_POINT_CUSTOM_LABEL_FIELD_TYPE_CELLREF
-        from com.sun.star.chart2.DataPointCustomLabelFieldType import NEWLINE as DATA_POINT_CUSTOM_LABEL_FIELD_TYPE_NEWLINE
-        from com.sun.star.chart2.DataPointCustomLabelFieldType import PERCENTAGE as DATA_POINT_CUSTOM_LABEL_FIELD_TYPE_PERCENTAGE
-        from com.sun.star.chart2.DataPointCustomLabelFieldType import SERIESNAME as DATA_POINT_CUSTOM_LABEL_FIELD_TYPE_SERIESNAME
-        from com.sun.star.chart2.DataPointCustomLabelFieldType import TEXT as DATA_POINT_CUSTOM_LABEL_FIELD_TYPE_TEXT
-        from com.sun.star.chart2.DataPointCustomLabelFieldType import VALUE as DATA_POINT_CUSTOM_LABEL_FIELD_TYPE_VALUE
+    from ...lo.chart2.data_point_custom_label_field_type import DataPointCustomLabelFieldType as DataPointCustomLabelFieldType
 
-        class DataPointCustomLabelFieldType(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API DataPointCustomLabelFieldType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart2.html#a364615e20b0759c6c5100f6a47add923>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.chart2.DataPointCustomLabelFieldType', value)
-
-            __ooo_ns__: str = 'com.sun.star.chart2'
-            __ooo_full_ns__: str = 'com.sun.star.chart2.DataPointCustomLabelFieldType'
-            __ooo_type_name__: str = 'enum'
-
-            CATEGORYNAME = DATA_POINT_CUSTOM_LABEL_FIELD_TYPE_CATEGORYNAME
-            """
-            """
-            CELLRANGE = DATA_POINT_CUSTOM_LABEL_FIELD_TYPE_CELLRANGE
-            """
-            """
-            CELLREF = DATA_POINT_CUSTOM_LABEL_FIELD_TYPE_CELLREF
-            """
-            """
-            NEWLINE = DATA_POINT_CUSTOM_LABEL_FIELD_TYPE_NEWLINE
-            """
-            """
-            PERCENTAGE = DATA_POINT_CUSTOM_LABEL_FIELD_TYPE_PERCENTAGE
-            """
-            """
-            SERIESNAME = DATA_POINT_CUSTOM_LABEL_FIELD_TYPE_SERIESNAME
-            """
-            """
-            TEXT = DATA_POINT_CUSTOM_LABEL_FIELD_TYPE_TEXT
-            """
-            """
-            VALUE = DATA_POINT_CUSTOM_LABEL_FIELD_TYPE_VALUE
-            """
-            """
-    else:
-        # keep document generators happy
-        from ...lo.chart2.data_point_custom_label_field_type import DataPointCustomLabelFieldType as DataPointCustomLabelFieldType
-
-
-__all__ = ['DataPointCustomLabelFieldType']
+__all__ = ["DataPointCustomLabelFieldType"]

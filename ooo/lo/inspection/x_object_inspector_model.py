@@ -130,3 +130,4 @@ class XObjectInspectorModel(ABC):
 
 __all__ = ['XObjectInspectorModel']
 
+

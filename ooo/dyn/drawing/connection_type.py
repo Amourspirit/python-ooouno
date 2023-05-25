@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,83 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class ConnectionType(metaclass=UnoEnumMeta, type_name="com.sun.star.drawing.ConnectionType", name_space="com.sun.star.drawing"):
         """Dynamically created class that represents ``com.sun.star.drawing.ConnectionType`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.drawing.ConnectionType import AUTO as CONNECTION_TYPE_AUTO
-        from com.sun.star.drawing.ConnectionType import BOTTOM as CONNECTION_TYPE_BOTTOM
-        from com.sun.star.drawing.ConnectionType import LEFT as CONNECTION_TYPE_LEFT
-        from com.sun.star.drawing.ConnectionType import RIGHT as CONNECTION_TYPE_RIGHT
-        from com.sun.star.drawing.ConnectionType import SPECIAL as CONNECTION_TYPE_SPECIAL
-        from com.sun.star.drawing.ConnectionType import TOP as CONNECTION_TYPE_TOP
+    from ...lo.drawing.connection_type import ConnectionType as ConnectionType
 
-        class ConnectionType(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API ConnectionType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#aa1f0e2efd52935fd01bfece0fbead81f>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.drawing.ConnectionType', value)
-
-            __ooo_ns__: str = 'com.sun.star.drawing'
-            __ooo_full_ns__: str = 'com.sun.star.drawing.ConnectionType'
-            __ooo_type_name__: str = 'enum'
-
-            AUTO = CONNECTION_TYPE_AUTO
-            """
-            the connection point is chosen automatically,
-
-            Set this to have the application select the best horizontal position for the text.
-            """
-            BOTTOM = CONNECTION_TYPE_BOTTOM
-            """
-            the connection line leaves the connected object from the bottom,
-
-            The text is positioned below the main line.
-
-            The bottom edge of the text is adjusted to the bottom edge of the shape.
-            """
-            LEFT = CONNECTION_TYPE_LEFT
-            """
-            the connection line leaves the connected object to the left,
-
-            The left edge of the text is adjusted to the left edge of the shape.
-
-            The text is positioned to the left.
-            """
-            RIGHT = CONNECTION_TYPE_RIGHT
-            """
-            the connection line leaves the connected object to the right,
-
-            The right edge of the text is adjusted to the right edge of the shape.
-
-            The text is positioned to the right.
-            """
-            SPECIAL = CONNECTION_TYPE_SPECIAL
-            """
-            not implemented, yet.
-
-            deprecated
-            """
-            TOP = CONNECTION_TYPE_TOP
-            """
-            the connection line leaves the connected object from the top,
-
-            The text is positioned above the main line.
-
-            The top edge of the text is adjusted to the top edge of the shape.
-            """
-    else:
-        # keep document generators happy
-        from ...lo.drawing.connection_type import ConnectionType as ConnectionType
-
-
-__all__ = ['ConnectionType']
+__all__ = ["ConnectionType"]

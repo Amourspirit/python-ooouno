@@ -27,9 +27,9 @@ if typing.TYPE_CHECKING:
     from .hatch import Hatch as Hatch_859b09dc
     from ..text.graphic_crop import GraphicCrop as GraphicCrop_a58e0b1f
     from ..util.color import Color as Color_68e908c5
-    from com.sun.star.drawing.BitmapMode import BitmapModeProto
-    from com.sun.star.drawing.RectanglePoint import RectanglePointProto
-    from com.sun.star.drawing.FillStyle import FillStyleProto
+    from com.sun.star.drawing.BitmapMode import BitmapModeProto  # type: ignore
+    from com.sun.star.drawing.RectanglePoint import RectanglePointProto  # type: ignore
+    from com.sun.star.drawing.FillStyle import FillStyleProto  # type: ignore
 
 class FillProperties(ABC):
     """
@@ -278,4 +278,3 @@ class FillProperties(ABC):
 
 
 __all__ = ['FillProperties']
-

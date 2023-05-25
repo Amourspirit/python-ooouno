@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.security
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.security.ExtAltNameType import ExtAltNameTypeProto
+
 
 class ExtAltNameType(Enum):
     """
@@ -32,60 +30,60 @@ class ExtAltNameType(Enum):
     See Also:
         `API ExtAltNameType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1security.html#a5c5a31742567126d2ba88393b05efa3f>`_
     """
-    __ooo_ns__: str = 'com.sun.star.security'
-    __ooo_full_ns__: str = 'com.sun.star.security.ExtAltNameType'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.security"
+    __ooo_full_ns__: str = "com.sun.star.security.ExtAltNameType"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.security.ExtAltNameType'
+        return "com.sun.star.security.ExtAltNameType"
 
-    DIRECTORY_NAME = cast("ExtAltNameTypeProto", 'DIRECTORY_NAME')
+    DIRECTORY_NAME = "DIRECTORY_NAME"
     """
     Currently unsupported.
     """
-    DNS_NAME = cast("ExtAltNameTypeProto", 'DNS_NAME')
+    DNS_NAME = "DNS_NAME"
     """
     The entry contains a dns name.
     
     The value of CertAltNameEntry contains a OUString.
     """
-    EDI_PARTY_NAME = cast("ExtAltNameTypeProto", 'EDI_PARTY_NAME')
+    EDI_PARTY_NAME = "EDI_PARTY_NAME"
     """
     Currently unsupported.
     """
-    IP_ADDRESS = cast("ExtAltNameTypeProto", 'IP_ADDRESS')
+    IP_ADDRESS = "IP_ADDRESS"
     """
     The entry contains an IP address.
     
     The value of CertAltNameEntry contains a Sequence of sal_Int8.
     """
-    OTHER_NAME = cast("ExtAltNameTypeProto", 'OTHER_NAME')
+    OTHER_NAME = "OTHER_NAME"
     """
     Customize name/value pair The value of CertAltNameEntry contains a NamedValue.
     """
-    REGISTERED_ID = cast("ExtAltNameTypeProto", 'REGISTERED_ID')
+    REGISTERED_ID = "REGISTERED_ID"
     """
     The entry contains a registered id.
     
     The value of CertAltNameEntry contains a OUString.
     """
-    RFC822_NAME = cast("ExtAltNameTypeProto", 'RFC822_NAME')
+    RFC822_NAME = "RFC822_NAME"
     """
     The entry contains rfc822 name.
     
     The value of CertAltNameEntry contains an OUString.
     """
-    URL = cast("ExtAltNameTypeProto", 'URL')
+    URL = "URL"
     """
     The entry contains a URL.
     
     The value of CertAltNameEntry contains a OUString.
     """
-    X400_ADDRESS = cast("ExtAltNameTypeProto", 'X400_ADDRESS')
+    X400_ADDRESS = "X400_ADDRESS"
     """
     Currently unsupported.
     """
 
-__all__ = ['ExtAltNameType']
+__all__ = ["ExtAltNameType"]
 

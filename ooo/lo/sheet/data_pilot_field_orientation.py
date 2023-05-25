@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.sheet
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.sheet.DataPilotFieldOrientation import DataPilotFieldOrientationProto
+
 
 class DataPilotFieldOrientation(Enum):
     """
@@ -32,38 +30,38 @@ class DataPilotFieldOrientation(Enum):
     See Also:
         `API DataPilotFieldOrientation <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1sheet.html#a686c797e7cb837947558aa11c946245a>`_
     """
-    __ooo_ns__: str = 'com.sun.star.sheet'
-    __ooo_full_ns__: str = 'com.sun.star.sheet.DataPilotFieldOrientation'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.sheet"
+    __ooo_full_ns__: str = "com.sun.star.sheet.DataPilotFieldOrientation"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.sheet.DataPilotFieldOrientation'
+        return "com.sun.star.sheet.DataPilotFieldOrientation"
 
-    COLUMN = cast("DataPilotFieldOrientationProto", 'COLUMN')
+    COLUMN = "COLUMN"
     """
     the field is used as a column field.
     
     is applied to the columns.
     """
-    DATA = cast("DataPilotFieldOrientationProto", 'DATA')
+    DATA = "DATA"
     """
     the field is used as a data field.
     """
-    HIDDEN = cast("DataPilotFieldOrientationProto", 'HIDDEN')
+    HIDDEN = "HIDDEN"
     """
     the field is not used in the table.
     """
-    PAGE = cast("DataPilotFieldOrientationProto", 'PAGE')
+    PAGE = "PAGE"
     """
     the field is used as a page field.
     """
-    ROW = cast("DataPilotFieldOrientationProto", 'ROW')
+    ROW = "ROW"
     """
     the field is used as a row field.
     
     is applied to the rows.
     """
 
-__all__ = ['DataPilotFieldOrientation']
+__all__ = ["DataPilotFieldOrientation"]
 

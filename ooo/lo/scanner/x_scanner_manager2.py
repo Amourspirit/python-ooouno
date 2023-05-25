@@ -53,3 +53,4 @@ class XScannerManager2(XScannerManager_fd640dcf):
 
 __all__ = ['XScannerManager2']
 
+

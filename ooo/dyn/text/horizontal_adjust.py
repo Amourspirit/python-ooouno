@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,58 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class HorizontalAdjust(metaclass=UnoEnumMeta, type_name="com.sun.star.text.HorizontalAdjust", name_space="com.sun.star.text"):
         """Dynamically created class that represents ``com.sun.star.text.HorizontalAdjust`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.text.HorizontalAdjust import CENTER as HORIZONTAL_ADJUST_CENTER
-        from com.sun.star.text.HorizontalAdjust import LEFT as HORIZONTAL_ADJUST_LEFT
-        from com.sun.star.text.HorizontalAdjust import RIGHT as HORIZONTAL_ADJUST_RIGHT
+    from ...lo.text.horizontal_adjust import HorizontalAdjust as HorizontalAdjust
 
-        class HorizontalAdjust(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API HorizontalAdjust <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1text.html#a8105146481666b39ebbd63a934576b6c>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.text.HorizontalAdjust', value)
-
-            __ooo_ns__: str = 'com.sun.star.text'
-            __ooo_full_ns__: str = 'com.sun.star.text.HorizontalAdjust'
-            __ooo_type_name__: str = 'enum'
-
-            CENTER = HORIZONTAL_ADJUST_CENTER
-            """
-            the object is adjusted to the center.
-
-            centric adjusted.
-            """
-            LEFT = HORIZONTAL_ADJUST_LEFT
-            """
-            the object is left adjusted.
-
-            text flows to the left side of the object.
-
-            adjusted to the left.
-            """
-            RIGHT = HORIZONTAL_ADJUST_RIGHT
-            """
-            the object is right adjusted.
-
-            text flows to the right side of the object.
-
-            adjusted to the right.
-            """
-    else:
-        # keep document generators happy
-        from ...lo.text.horizontal_adjust import HorizontalAdjust as HorizontalAdjust
-
-
-__all__ = ['HorizontalAdjust']
+__all__ = ["HorizontalAdjust"]

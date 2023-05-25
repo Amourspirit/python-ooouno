@@ -24,7 +24,7 @@ from abc import abstractproperty
 from .x_text_columns import XTextColumns as XTextColumns_b17f0bab
 if typing.TYPE_CHECKING:
     from ..util.color import Color as Color_68e908c5
-    from com.sun.star.style.VerticalAlignment import VerticalAlignmentProto
+    from com.sun.star.style.VerticalAlignment import VerticalAlignmentProto  # type: ignore
 
 class TextColumns(XTextColumns_b17f0bab):
     """
@@ -101,4 +101,3 @@ class TextColumns(XTextColumns_b17f0bab):
 
 
 __all__ = ['TextColumns']
-

@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.text
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.text.TextContentAnchorType import TextContentAnchorTypeProto
+
 
 class TextContentAnchorType(Enum):
     """
@@ -32,34 +30,34 @@ class TextContentAnchorType(Enum):
     See Also:
         `API TextContentAnchorType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1text.html#a470b1caeda4ff15fee438c8ff9e3d834>`_
     """
-    __ooo_ns__: str = 'com.sun.star.text'
-    __ooo_full_ns__: str = 'com.sun.star.text.TextContentAnchorType'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.text"
+    __ooo_full_ns__: str = "com.sun.star.text.TextContentAnchorType"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.text.TextContentAnchorType'
+        return "com.sun.star.text.TextContentAnchorType"
 
-    AS_CHARACTER = cast("TextContentAnchorTypeProto", 'AS_CHARACTER')
+    AS_CHARACTER = "AS_CHARACTER"
     """
     The object is anchored instead of a character.
     """
-    AT_CHARACTER = cast("TextContentAnchorTypeProto", 'AT_CHARACTER')
+    AT_CHARACTER = "AT_CHARACTER"
     """
     The object is anchored to a character.
     """
-    AT_FRAME = cast("TextContentAnchorTypeProto", 'AT_FRAME')
+    AT_FRAME = "AT_FRAME"
     """
     The object is anchored to a text frame.
     """
-    AT_PAGE = cast("TextContentAnchorTypeProto", 'AT_PAGE')
+    AT_PAGE = "AT_PAGE"
     """
     The object is anchored to the page.
     """
-    AT_PARAGRAPH = cast("TextContentAnchorTypeProto", 'AT_PARAGRAPH')
+    AT_PARAGRAPH = "AT_PARAGRAPH"
     """
     The anchor of the object is set at the top left position of the paragraph.
     """
 
-__all__ = ['TextContentAnchorType']
+__all__ = ["TextContentAnchorType"]
 

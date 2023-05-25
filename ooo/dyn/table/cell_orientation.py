@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,57 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class CellOrientation(metaclass=UnoEnumMeta, type_name="com.sun.star.table.CellOrientation", name_space="com.sun.star.table"):
         """Dynamically created class that represents ``com.sun.star.table.CellOrientation`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.table.CellOrientation import BOTTOMTOP as CELL_ORIENTATION_BOTTOMTOP
-        from com.sun.star.table.CellOrientation import STACKED as CELL_ORIENTATION_STACKED
-        from com.sun.star.table.CellOrientation import STANDARD as CELL_ORIENTATION_STANDARD
-        from com.sun.star.table.CellOrientation import TOPBOTTOM as CELL_ORIENTATION_TOPBOTTOM
+    from ...lo.table.cell_orientation import CellOrientation as CellOrientation
 
-        class CellOrientation(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API CellOrientation <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1table.html#ae84a4c3547c7628fcc19bdf41cc93c60>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.table.CellOrientation', value)
-
-            __ooo_ns__: str = 'com.sun.star.table'
-            __ooo_full_ns__: str = 'com.sun.star.table.CellOrientation'
-            __ooo_type_name__: str = 'enum'
-
-            BOTTOMTOP = CELL_ORIENTATION_BOTTOMTOP
-            """
-            contents are printed from bottom to top.
-            """
-            STACKED = CELL_ORIENTATION_STACKED
-            """
-            contents are printed from top to bottom with individual characters in normal (horizontal) orientation.
-            """
-            STANDARD = CELL_ORIENTATION_STANDARD
-            """
-            default alignment is used (left for numbers, right for text).
-
-            default alignment is used.
-
-            contents are printed from left to right.
-            """
-            TOPBOTTOM = CELL_ORIENTATION_TOPBOTTOM
-            """
-            contents are printed from top to bottom.
-            """
-    else:
-        # keep document generators happy
-        from ...lo.table.cell_orientation import CellOrientation as CellOrientation
-
-
-__all__ = ['CellOrientation']
+__all__ = ["CellOrientation"]

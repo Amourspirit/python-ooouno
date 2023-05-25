@@ -79,3 +79,4 @@ class XDataPilotTable2(XDataPilotTable_e0530ce3):
 
 __all__ = ['XDataPilotTable2']
 
+

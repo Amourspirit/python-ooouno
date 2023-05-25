@@ -56,3 +56,4 @@ class XStyleLoader2(XStyleLoader_be2a0bf9):
 
 __all__ = ['XStyleLoader2']
 
+

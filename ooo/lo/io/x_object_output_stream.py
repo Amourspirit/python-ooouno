@@ -51,3 +51,4 @@ class XObjectOutputStream(XDataOutputStream_d2f40caf):
 
 __all__ = ['XObjectOutputStream']
 
+

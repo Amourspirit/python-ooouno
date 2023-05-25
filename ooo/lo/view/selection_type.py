@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.view
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.view.SelectionType import SelectionTypeProto
+
 
 class SelectionType(Enum):
     """
@@ -32,34 +30,34 @@ class SelectionType(Enum):
     See Also:
         `API SelectionType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1view.html#acffca3b33fddce63d3220bc7487e879d>`_
     """
-    __ooo_ns__: str = 'com.sun.star.view'
-    __ooo_full_ns__: str = 'com.sun.star.view.SelectionType'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.view"
+    __ooo_full_ns__: str = "com.sun.star.view.SelectionType"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.view.SelectionType'
+        return "com.sun.star.view.SelectionType"
 
-    MULTI = cast("SelectionTypeProto", 'MULTI')
+    MULTI = "MULTI"
     """
     The selection can contain zero or more objects.
     """
-    NONE = cast("SelectionTypeProto", 'NONE')
+    NONE = "NONE"
     """
     No selection is possible.
     
     The selection is always empty.
     """
-    RANGE = cast("SelectionTypeProto", 'RANGE')
+    RANGE = "RANGE"
     """
     The selection can contain zero or more objects.
     
     all selected objects must be part of a continues range
     """
-    SINGLE = cast("SelectionTypeProto", 'SINGLE')
+    SINGLE = "SINGLE"
     """
     The selection can only contain one or zero objects.
     """
 
-__all__ = ['SelectionType']
+__all__ = ["SelectionType"]
 

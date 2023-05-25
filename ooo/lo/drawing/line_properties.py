@@ -25,9 +25,9 @@ if typing.TYPE_CHECKING:
     from .line_dash import LineDash as LineDash_a54e0afc
     from .poly_polygon_bezier_coords import PolyPolygonBezierCoords as PolyPolygonBezierCoords_7ec5114b
     from ..util.color import Color as Color_68e908c5
-    from com.sun.star.drawing.LineCap import LineCapProto
-    from com.sun.star.drawing.LineJoint import LineJointProto
-    from com.sun.star.drawing.LineStyle import LineStyleProto
+    from com.sun.star.drawing.LineCap import LineCapProto  # type: ignore
+    from com.sun.star.drawing.LineJoint import LineJointProto  # type: ignore
+    from com.sun.star.drawing.LineStyle import LineStyleProto  # type: ignore
 
 class LineProperties(ABC):
     """
@@ -162,4 +162,3 @@ class LineProperties(ABC):
 
 
 __all__ = ['LineProperties']
-

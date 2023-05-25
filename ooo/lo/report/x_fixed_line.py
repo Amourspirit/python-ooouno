@@ -25,7 +25,7 @@ from .x_report_control_model import XReportControlModel as XReportControlModel_2
 if typing.TYPE_CHECKING:
     from ..drawing.line_dash import LineDash as LineDash_a54e0afc
     from ..util.color import Color as Color_68e908c5
-    from com.sun.star.drawing.LineStyle import LineStyleProto
+    from com.sun.star.drawing.LineStyle import LineStyleProto  # type: ignore
 
 class XFixedLine(XReportControlModel_2d800f4a):
     """
@@ -82,4 +82,3 @@ class XFixedLine(XReportControlModel_2d800f4a):
 
 
 __all__ = ['XFixedLine']
-

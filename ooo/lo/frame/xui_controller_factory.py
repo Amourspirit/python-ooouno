@@ -43,3 +43,4 @@ class XUIControllerFactory(XUIControllerRegistration_77c01128, XMultiComponentFa
 
 __all__ = ['XUIControllerFactory']
 
+

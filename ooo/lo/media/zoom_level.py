@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.media
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.media.ZoomLevel import ZoomLevelProto
+
 
 class ZoomLevel(Enum):
     """
@@ -33,52 +31,52 @@ class ZoomLevel(Enum):
     See Also:
         `API ZoomLevel <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1media.html#aa2569917c2883c1d1c0c0ee02e671ac6>`_
     """
-    __ooo_ns__: str = 'com.sun.star.media'
-    __ooo_full_ns__: str = 'com.sun.star.media.ZoomLevel'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.media"
+    __ooo_full_ns__: str = "com.sun.star.media.ZoomLevel"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.media.ZoomLevel'
+        return "com.sun.star.media.ZoomLevel"
 
-    FIT_TO_WINDOW = cast("ZoomLevelProto", 'FIT_TO_WINDOW')
+    FIT_TO_WINDOW = "FIT_TO_WINDOW"
     """
     specifies that the video should be zoomed to window size
     """
-    FIT_TO_WINDOW_FIXED_ASPECT = cast("ZoomLevelProto", 'FIT_TO_WINDOW_FIXED_ASPECT')
+    FIT_TO_WINDOW_FIXED_ASPECT = "FIT_TO_WINDOW_FIXED_ASPECT"
     """
     specifies that the video should be zoomed to window size with using a fixed aspect ratio
     """
-    FULLSCREEN = cast("ZoomLevelProto", 'FULLSCREEN')
+    FULLSCREEN = "FULLSCREEN"
     """
     specifies that the video should be displayed in fullscreen mode, if available
     """
-    NOT_AVAILABLE = cast("ZoomLevelProto", 'NOT_AVAILABLE')
+    NOT_AVAILABLE = "NOT_AVAILABLE"
     """
     specifies that the video window itself is not available at all, e.g.
     
     in cases of pure audio playback
     """
-    ORIGINAL = cast("ZoomLevelProto", 'ORIGINAL')
+    ORIGINAL = "ORIGINAL"
     """
     specifies that the video should be displayed with its original size
     """
-    ZOOM_1_TO_2 = cast("ZoomLevelProto", 'ZOOM_1_TO_2')
+    ZOOM_1_TO_2 = "ZOOM_1_TO_2"
     """
     specifies that the video should be zoomed to a factor of 1:2
     """
-    ZOOM_1_TO_4 = cast("ZoomLevelProto", 'ZOOM_1_TO_4')
+    ZOOM_1_TO_4 = "ZOOM_1_TO_4"
     """
     specifies that the video should be zoomed to a factor of 1:4
     """
-    ZOOM_2_TO_1 = cast("ZoomLevelProto", 'ZOOM_2_TO_1')
+    ZOOM_2_TO_1 = "ZOOM_2_TO_1"
     """
     specifies that the video should be zoomed to a factor of 2:1
     """
-    ZOOM_4_TO_1 = cast("ZoomLevelProto", 'ZOOM_4_TO_1')
+    ZOOM_4_TO_1 = "ZOOM_4_TO_1"
     """
     specifies that the video should be zoomed to a factor of 4:1
     """
 
-__all__ = ['ZoomLevel']
+__all__ = ["ZoomLevel"]
 

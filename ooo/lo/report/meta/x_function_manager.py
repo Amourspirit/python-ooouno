@@ -61,3 +61,4 @@ class XFunctionManager(XIndexAccess_f0910d6d, XComponent_98dc0ab5):
 
 __all__ = ['XFunctionManager']
 
+

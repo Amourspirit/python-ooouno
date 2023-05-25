@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.security
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.security.CertificateContainerStatus import CertificateContainerStatusProto
+
 
 class CertificateContainerStatus(Enum):
     """
@@ -32,26 +30,26 @@ class CertificateContainerStatus(Enum):
     See Also:
         `API CertificateContainerStatus <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1security.html#abd9126083ddb902b337383198d342e9f>`_
     """
-    __ooo_ns__: str = 'com.sun.star.security'
-    __ooo_full_ns__: str = 'com.sun.star.security.CertificateContainerStatus'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.security"
+    __ooo_full_ns__: str = "com.sun.star.security.CertificateContainerStatus"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.security.CertificateContainerStatus'
+        return "com.sun.star.security.CertificateContainerStatus"
 
-    NOCERT = cast("CertificateContainerStatusProto", 'NOCERT')
+    NOCERT = "NOCERT"
     """
     The certificate was not found.
     """
-    TRUSTED = cast("CertificateContainerStatusProto", 'TRUSTED')
+    TRUSTED = "TRUSTED"
     """
     The certificate was found and is trusted.
     """
-    UNTRUSTED = cast("CertificateContainerStatusProto", 'UNTRUSTED')
+    UNTRUSTED = "UNTRUSTED"
     """
     The certificate was found but is untrusted.
     """
 
-__all__ = ['CertificateContainerStatus']
+__all__ = ["CertificateContainerStatus"]
 

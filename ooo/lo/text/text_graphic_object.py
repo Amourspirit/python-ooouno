@@ -28,7 +28,7 @@ if typing.TYPE_CHECKING:
     from ..drawing.point_sequence_sequence import PointSequenceSequence as PointSequenceSequence_5c591070
     from ..graphic.x_graphic import XGraphic as XGraphic_a4da0afc
     from .graphic_crop import GraphicCrop as GraphicCrop_a58e0b1f
-    from com.sun.star.drawing.ColorMode import ColorModeProto
+    from com.sun.star.drawing.ColorMode import ColorModeProto  # type: ignore
 
 class TextGraphicObject(BaseFrame_8f020a33):
     """
@@ -213,4 +213,3 @@ class TextGraphicObject(BaseFrame_8f020a33):
 
 
 __all__ = ['TextGraphicObject']
-

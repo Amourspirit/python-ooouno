@@ -44,3 +44,4 @@ class XSessionManagerListener2(XSessionManagerListener_582d1050):
 
 __all__ = ['XSessionManagerListener2']
 
+

@@ -55,3 +55,4 @@ class XConfigurationControllerRequestQueue(ABC):
 
 __all__ = ['XConfigurationControllerRequestQueue']
 
+

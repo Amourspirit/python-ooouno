@@ -42,3 +42,4 @@ class XErrorQuery(XInterface_8f010a43):
 
 __all__ = ['XErrorQuery']
 
+

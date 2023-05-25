@@ -56,3 +56,4 @@ class XTransition(XInterface_8f010a43):
 
 __all__ = ['XTransition']
 
+

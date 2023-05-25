@@ -86,3 +86,4 @@ class XObjectInspector(XController_b00e0b8f, XDispatchProvider_fc690de6):
 
 __all__ = ['XObjectInspector']
 
+

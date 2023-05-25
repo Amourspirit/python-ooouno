@@ -48,3 +48,4 @@ class XSearchDescriptor(XPropertySet_bc180bfa):
 
 __all__ = ['XSearchDescriptor']
 
+

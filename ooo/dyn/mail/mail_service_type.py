@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,49 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class MailServiceType(metaclass=UnoEnumMeta, type_name="com.sun.star.mail.MailServiceType", name_space="com.sun.star.mail"):
         """Dynamically created class that represents ``com.sun.star.mail.MailServiceType`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.mail.MailServiceType import IMAP as MAIL_SERVICE_TYPE_IMAP
-        from com.sun.star.mail.MailServiceType import POP3 as MAIL_SERVICE_TYPE_POP3
-        from com.sun.star.mail.MailServiceType import SMTP as MAIL_SERVICE_TYPE_SMTP
+    from ...lo.mail.mail_service_type import MailServiceType as MailServiceType
 
-        class MailServiceType(uno.Enum):
-            """
-            Enum Class
-
-            ENUM MailServiceType
-
-            See Also:
-                `API MailServiceType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1mail.html#ad93fba9b1c1a9b0a2469f7c1fc392a06>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.mail.MailServiceType', value)
-
-            __ooo_ns__: str = 'com.sun.star.mail'
-            __ooo_full_ns__: str = 'com.sun.star.mail.MailServiceType'
-            __ooo_type_name__: str = 'enum'
-
-            IMAP = MAIL_SERVICE_TYPE_IMAP
-            """
-            A IMAP service.
-            """
-            POP3 = MAIL_SERVICE_TYPE_POP3
-            """
-            A POP3 service.
-            """
-            SMTP = MAIL_SERVICE_TYPE_SMTP
-            """
-            A SMTP service.
-            """
-    else:
-        # keep document generators happy
-        from ...lo.mail.mail_service_type import MailServiceType as MailServiceType
-
-
-__all__ = ['MailServiceType']
+__all__ = ["MailServiceType"]

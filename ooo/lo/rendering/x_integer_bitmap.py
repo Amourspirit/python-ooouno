@@ -75,3 +75,4 @@ class XIntegerBitmap(XIntegerReadOnlyBitmap_8cc01167):
 
 __all__ = ['XIntegerBitmap']
 
+

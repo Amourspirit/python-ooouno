@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.uri
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.uri.RelativeUriExcessParentSegments import RelativeUriExcessParentSegmentsProto
+
 
 class RelativeUriExcessParentSegments(Enum):
     """
@@ -32,26 +30,26 @@ class RelativeUriExcessParentSegments(Enum):
     See Also:
         `API RelativeUriExcessParentSegments <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1uri.html#ac4782e395626cbc2118cab947e07af22>`_
     """
-    __ooo_ns__: str = 'com.sun.star.uri'
-    __ooo_full_ns__: str = 'com.sun.star.uri.RelativeUriExcessParentSegments'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.uri"
+    __ooo_full_ns__: str = "com.sun.star.uri.RelativeUriExcessParentSegments"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.uri.RelativeUriExcessParentSegments'
+        return "com.sun.star.uri.RelativeUriExcessParentSegments"
 
-    ERROR = cast("RelativeUriExcessParentSegmentsProto", 'ERROR')
+    ERROR = "ERROR"
     """
     causes excess special parent segments to be treated as an error.
     """
-    REMOVE = cast("RelativeUriExcessParentSegmentsProto", 'REMOVE')
+    REMOVE = "REMOVE"
     """
     causes excess special parent segments to be removed.
     """
-    RETAIN = cast("RelativeUriExcessParentSegmentsProto", 'RETAIN')
+    RETAIN = "RETAIN"
     """
     causes excess special parent segments to be retained, treating them like ordinary segments.
     """
 
-__all__ = ['RelativeUriExcessParentSegments']
+__all__ = ["RelativeUriExcessParentSegments"]
 

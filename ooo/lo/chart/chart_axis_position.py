@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.chart
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.chart.ChartAxisPosition import ChartAxisPositionProto
+
 
 class ChartAxisPosition(Enum):
     """
@@ -32,32 +30,32 @@ class ChartAxisPosition(Enum):
     See Also:
         `API ChartAxisPosition <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart.html#aa2815fba34da31acb139c7be75fda078>`_
     """
-    __ooo_ns__: str = 'com.sun.star.chart'
-    __ooo_full_ns__: str = 'com.sun.star.chart.ChartAxisPosition'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.chart"
+    __ooo_full_ns__: str = "com.sun.star.chart.ChartAxisPosition"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.chart.ChartAxisPosition'
+        return "com.sun.star.chart.ChartAxisPosition"
 
-    END = cast("ChartAxisPositionProto", 'END')
+    END = "END"
     """
     Cross the other axes at their maximum scale value.
     """
-    START = cast("ChartAxisPositionProto", 'START')
+    START = "START"
     """
     Cross the other axes at their minimum scale value.
     """
-    VALUE = cast("ChartAxisPositionProto", 'VALUE')
+    VALUE = "VALUE"
     """
     Cross the other axes at the value specified in the property CrossoverValue.
     """
-    ZERO = cast("ChartAxisPositionProto", 'ZERO')
+    ZERO = "ZERO"
     """
     Cross the other axes at zero.
     
     If zero is not contained in the current scale the value is used which is nearest to zero.
     """
 
-__all__ = ['ChartAxisPosition']
+__all__ = ["ChartAxisPosition"]
 

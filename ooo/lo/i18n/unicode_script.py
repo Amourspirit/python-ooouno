@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.i18n
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.i18n.UnicodeScript import UnicodeScriptProto
+
 
 class UnicodeScript(Enum):
     """
@@ -32,278 +30,278 @@ class UnicodeScript(Enum):
     See Also:
         `API UnicodeScript <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1i18n.html#a47be7d1d06e067d647f387cc160d5e29>`_
     """
-    __ooo_ns__: str = 'com.sun.star.i18n'
-    __ooo_full_ns__: str = 'com.sun.star.i18n.UnicodeScript'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.i18n"
+    __ooo_full_ns__: str = "com.sun.star.i18n.UnicodeScript"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.i18n.UnicodeScript'
+        return "com.sun.star.i18n.UnicodeScript"
 
-    kAlphabeticPresentation = cast("UnicodeScriptProto", 'kAlphabeticPresentation')
+    kAlphabeticPresentation = "kAlphabeticPresentation"
     """
     """
-    kArabic = cast("UnicodeScriptProto", 'kArabic')
+    kArabic = "kArabic"
     """
     """
-    kArabicPresentationA = cast("UnicodeScriptProto", 'kArabicPresentationA')
+    kArabicPresentationA = "kArabicPresentationA"
     """
     """
-    kArabicPresentationB = cast("UnicodeScriptProto", 'kArabicPresentationB')
+    kArabicPresentationB = "kArabicPresentationB"
     """
     """
-    kArmenian = cast("UnicodeScriptProto", 'kArmenian')
+    kArmenian = "kArmenian"
     """
     """
-    kArrow = cast("UnicodeScriptProto", 'kArrow')
+    kArrow = "kArrow"
     """
     """
-    kBasicLatin = cast("UnicodeScriptProto", 'kBasicLatin')
+    kBasicLatin = "kBasicLatin"
     """
     """
-    kBengali = cast("UnicodeScriptProto", 'kBengali')
+    kBengali = "kBengali"
     """
     """
-    kBlockElement = cast("UnicodeScriptProto", 'kBlockElement')
+    kBlockElement = "kBlockElement"
     """
     """
-    kBopomofo = cast("UnicodeScriptProto", 'kBopomofo')
+    kBopomofo = "kBopomofo"
     """
     """
-    kBopomofoExtended = cast("UnicodeScriptProto", 'kBopomofoExtended')
+    kBopomofoExtended = "kBopomofoExtended"
     """
     """
-    kBoxDrawing = cast("UnicodeScriptProto", 'kBoxDrawing')
+    kBoxDrawing = "kBoxDrawing"
     """
     """
-    kBraillePatterns = cast("UnicodeScriptProto", 'kBraillePatterns')
+    kBraillePatterns = "kBraillePatterns"
     """
     """
-    kCJKCompatibility = cast("UnicodeScriptProto", 'kCJKCompatibility')
+    kCJKCompatibility = "kCJKCompatibility"
     """
     """
-    kCJKCompatibilityForm = cast("UnicodeScriptProto", 'kCJKCompatibilityForm')
+    kCJKCompatibilityForm = "kCJKCompatibilityForm"
     """
     """
-    kCJKCompatibilityIdeograph = cast("UnicodeScriptProto", 'kCJKCompatibilityIdeograph')
+    kCJKCompatibilityIdeograph = "kCJKCompatibilityIdeograph"
     """
     """
-    kCJKRadicalsSupplement = cast("UnicodeScriptProto", 'kCJKRadicalsSupplement')
+    kCJKRadicalsSupplement = "kCJKRadicalsSupplement"
     """
     """
-    kCJKSymbolPunctuation = cast("UnicodeScriptProto", 'kCJKSymbolPunctuation')
+    kCJKSymbolPunctuation = "kCJKSymbolPunctuation"
     """
     """
-    kCJKUnifiedIdeograph = cast("UnicodeScriptProto", 'kCJKUnifiedIdeograph')
+    kCJKUnifiedIdeograph = "kCJKUnifiedIdeograph"
     """
     """
-    kCJKUnifiedIdeographsExtensionA = cast("UnicodeScriptProto", 'kCJKUnifiedIdeographsExtensionA')
+    kCJKUnifiedIdeographsExtensionA = "kCJKUnifiedIdeographsExtensionA"
     """
     """
-    kCherokee = cast("UnicodeScriptProto", 'kCherokee')
+    kCherokee = "kCherokee"
     """
     """
-    kCombiningDiacritical = cast("UnicodeScriptProto", 'kCombiningDiacritical')
+    kCombiningDiacritical = "kCombiningDiacritical"
     """
     """
-    kCombiningHalfMark = cast("UnicodeScriptProto", 'kCombiningHalfMark')
+    kCombiningHalfMark = "kCombiningHalfMark"
     """
     """
-    kControlPicture = cast("UnicodeScriptProto", 'kControlPicture')
+    kControlPicture = "kControlPicture"
     """
     """
-    kCurrencySymbolScript = cast("UnicodeScriptProto", 'kCurrencySymbolScript')
+    kCurrencySymbolScript = "kCurrencySymbolScript"
     """
     """
-    kCyrillic = cast("UnicodeScriptProto", 'kCyrillic')
+    kCyrillic = "kCyrillic"
     """
     """
-    kDevanagari = cast("UnicodeScriptProto", 'kDevanagari')
+    kDevanagari = "kDevanagari"
     """
     """
-    kDingbat = cast("UnicodeScriptProto", 'kDingbat')
+    kDingbat = "kDingbat"
     """
     """
-    kEnclosedAlphanumeric = cast("UnicodeScriptProto", 'kEnclosedAlphanumeric')
+    kEnclosedAlphanumeric = "kEnclosedAlphanumeric"
     """
     """
-    kEnclosedCJKLetterMonth = cast("UnicodeScriptProto", 'kEnclosedCJKLetterMonth')
+    kEnclosedCJKLetterMonth = "kEnclosedCJKLetterMonth"
     """
     """
-    kEthiopic = cast("UnicodeScriptProto", 'kEthiopic')
+    kEthiopic = "kEthiopic"
     """
     """
-    kGeneralPunctuation = cast("UnicodeScriptProto", 'kGeneralPunctuation')
+    kGeneralPunctuation = "kGeneralPunctuation"
     """
     """
-    kGeometricShape = cast("UnicodeScriptProto", 'kGeometricShape')
+    kGeometricShape = "kGeometricShape"
     """
     """
-    kGeorgian = cast("UnicodeScriptProto", 'kGeorgian')
+    kGeorgian = "kGeorgian"
     """
     """
-    kGreek = cast("UnicodeScriptProto", 'kGreek')
+    kGreek = "kGreek"
     """
     """
-    kGreekExtended = cast("UnicodeScriptProto", 'kGreekExtended')
+    kGreekExtended = "kGreekExtended"
     """
     """
-    kGujarati = cast("UnicodeScriptProto", 'kGujarati')
+    kGujarati = "kGujarati"
     """
     """
-    kGurmukhi = cast("UnicodeScriptProto", 'kGurmukhi')
+    kGurmukhi = "kGurmukhi"
     """
     """
-    kHalfwidthFullwidthForm = cast("UnicodeScriptProto", 'kHalfwidthFullwidthForm')
+    kHalfwidthFullwidthForm = "kHalfwidthFullwidthForm"
     """
     """
-    kHangulCompatibilityJamo = cast("UnicodeScriptProto", 'kHangulCompatibilityJamo')
+    kHangulCompatibilityJamo = "kHangulCompatibilityJamo"
     """
     """
-    kHangulJamo = cast("UnicodeScriptProto", 'kHangulJamo')
+    kHangulJamo = "kHangulJamo"
     """
     """
-    kHangulSyllable = cast("UnicodeScriptProto", 'kHangulSyllable')
+    kHangulSyllable = "kHangulSyllable"
     """
     """
-    kHebrew = cast("UnicodeScriptProto", 'kHebrew')
+    kHebrew = "kHebrew"
     """
     """
-    kHighPrivateUseSurrogate = cast("UnicodeScriptProto", 'kHighPrivateUseSurrogate')
+    kHighPrivateUseSurrogate = "kHighPrivateUseSurrogate"
     """
     """
-    kHighSurrogate = cast("UnicodeScriptProto", 'kHighSurrogate')
+    kHighSurrogate = "kHighSurrogate"
     """
     """
-    kHiragana = cast("UnicodeScriptProto", 'kHiragana')
+    kHiragana = "kHiragana"
     """
     """
-    kIPAExtension = cast("UnicodeScriptProto", 'kIPAExtension')
+    kIPAExtension = "kIPAExtension"
     """
     """
-    kIdeographicDescriptionCharacters = cast("UnicodeScriptProto", 'kIdeographicDescriptionCharacters')
+    kIdeographicDescriptionCharacters = "kIdeographicDescriptionCharacters"
     """
     """
-    kKanbun = cast("UnicodeScriptProto", 'kKanbun')
+    kKanbun = "kKanbun"
     """
     """
-    kKangxiRadicals = cast("UnicodeScriptProto", 'kKangxiRadicals')
+    kKangxiRadicals = "kKangxiRadicals"
     """
     """
-    kKannada = cast("UnicodeScriptProto", 'kKannada')
+    kKannada = "kKannada"
     """
     """
-    kKatakana = cast("UnicodeScriptProto", 'kKatakana')
+    kKatakana = "kKatakana"
     """
     """
-    kKhmer = cast("UnicodeScriptProto", 'kKhmer')
+    kKhmer = "kKhmer"
     """
     """
-    kLao = cast("UnicodeScriptProto", 'kLao')
+    kLao = "kLao"
     """
     """
-    kLatin1Supplement = cast("UnicodeScriptProto", 'kLatin1Supplement')
+    kLatin1Supplement = "kLatin1Supplement"
     """
     """
-    kLatinExtendedA = cast("UnicodeScriptProto", 'kLatinExtendedA')
+    kLatinExtendedA = "kLatinExtendedA"
     """
     """
-    kLatinExtendedAdditional = cast("UnicodeScriptProto", 'kLatinExtendedAdditional')
+    kLatinExtendedAdditional = "kLatinExtendedAdditional"
     """
     """
-    kLatinExtendedB = cast("UnicodeScriptProto", 'kLatinExtendedB')
+    kLatinExtendedB = "kLatinExtendedB"
     """
     """
-    kLetterlikeSymbol = cast("UnicodeScriptProto", 'kLetterlikeSymbol')
+    kLetterlikeSymbol = "kLetterlikeSymbol"
     """
     """
-    kLowSurrogate = cast("UnicodeScriptProto", 'kLowSurrogate')
+    kLowSurrogate = "kLowSurrogate"
     """
     """
-    kMalayalam = cast("UnicodeScriptProto", 'kMalayalam')
+    kMalayalam = "kMalayalam"
     """
     """
-    kMathOperator = cast("UnicodeScriptProto", 'kMathOperator')
+    kMathOperator = "kMathOperator"
     """
     """
-    kMiscSymbol = cast("UnicodeScriptProto", 'kMiscSymbol')
+    kMiscSymbol = "kMiscSymbol"
     """
     """
-    kMiscTechnical = cast("UnicodeScriptProto", 'kMiscTechnical')
+    kMiscTechnical = "kMiscTechnical"
     """
     """
-    kMongolian = cast("UnicodeScriptProto", 'kMongolian')
+    kMongolian = "kMongolian"
     """
     """
-    kMyanmar = cast("UnicodeScriptProto", 'kMyanmar')
+    kMyanmar = "kMyanmar"
     """
     """
-    kNoScript = cast("UnicodeScriptProto", 'kNoScript')
+    kNoScript = "kNoScript"
     """
     """
-    kNumberForm = cast("UnicodeScriptProto", 'kNumberForm')
+    kNumberForm = "kNumberForm"
     """
     """
-    kOgham = cast("UnicodeScriptProto", 'kOgham')
+    kOgham = "kOgham"
     """
     """
-    kOpticalCharacter = cast("UnicodeScriptProto", 'kOpticalCharacter')
+    kOpticalCharacter = "kOpticalCharacter"
     """
     """
-    kOriya = cast("UnicodeScriptProto", 'kOriya')
+    kOriya = "kOriya"
     """
     """
-    kPrivateUse = cast("UnicodeScriptProto", 'kPrivateUse')
+    kPrivateUse = "kPrivateUse"
     """
     """
-    kRunic = cast("UnicodeScriptProto", 'kRunic')
+    kRunic = "kRunic"
     """
     """
-    kScriptCount = cast("UnicodeScriptProto", 'kScriptCount')
+    kScriptCount = "kScriptCount"
     """
     """
-    kSinhala = cast("UnicodeScriptProto", 'kSinhala')
+    kSinhala = "kSinhala"
     """
     """
-    kSmallFormVariant = cast("UnicodeScriptProto", 'kSmallFormVariant')
+    kSmallFormVariant = "kSmallFormVariant"
     """
     """
-    kSpacingModifier = cast("UnicodeScriptProto", 'kSpacingModifier')
+    kSpacingModifier = "kSpacingModifier"
     """
     """
-    kSuperSubScript = cast("UnicodeScriptProto", 'kSuperSubScript')
+    kSuperSubScript = "kSuperSubScript"
     """
     """
-    kSymbolCombiningMark = cast("UnicodeScriptProto", 'kSymbolCombiningMark')
+    kSymbolCombiningMark = "kSymbolCombiningMark"
     """
     """
-    kSyriac = cast("UnicodeScriptProto", 'kSyriac')
+    kSyriac = "kSyriac"
     """
     """
-    kTamil = cast("UnicodeScriptProto", 'kTamil')
+    kTamil = "kTamil"
     """
     """
-    kTelugu = cast("UnicodeScriptProto", 'kTelugu')
+    kTelugu = "kTelugu"
     """
     """
-    kThaana = cast("UnicodeScriptProto", 'kThaana')
+    kThaana = "kThaana"
     """
     """
-    kThai = cast("UnicodeScriptProto", 'kThai')
+    kThai = "kThai"
     """
     """
-    kTibetan = cast("UnicodeScriptProto", 'kTibetan')
+    kTibetan = "kTibetan"
     """
     """
-    kUnifiedCanadianAboriginalSyllabics = cast("UnicodeScriptProto", 'kUnifiedCanadianAboriginalSyllabics')
+    kUnifiedCanadianAboriginalSyllabics = "kUnifiedCanadianAboriginalSyllabics"
     """
     """
-    kYiRadicals = cast("UnicodeScriptProto", 'kYiRadicals')
+    kYiRadicals = "kYiRadicals"
     """
     """
-    kYiSyllables = cast("UnicodeScriptProto", 'kYiSyllables')
+    kYiSyllables = "kYiSyllables"
     """
     """
 
-__all__ = ['UnicodeScript']
+__all__ = ["UnicodeScript"]
 

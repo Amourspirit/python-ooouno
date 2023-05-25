@@ -60,3 +60,4 @@ class XMapping2D(XInterface_8f010a43):
 
 __all__ = ['XMapping2D']
 
+

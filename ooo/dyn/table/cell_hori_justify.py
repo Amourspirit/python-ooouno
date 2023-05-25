@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,69 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class CellHoriJustify(metaclass=UnoEnumMeta, type_name="com.sun.star.table.CellHoriJustify", name_space="com.sun.star.table"):
         """Dynamically created class that represents ``com.sun.star.table.CellHoriJustify`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.table.CellHoriJustify import BLOCK as CELL_HORI_JUSTIFY_BLOCK
-        from com.sun.star.table.CellHoriJustify import CENTER as CELL_HORI_JUSTIFY_CENTER
-        from com.sun.star.table.CellHoriJustify import LEFT as CELL_HORI_JUSTIFY_LEFT
-        from com.sun.star.table.CellHoriJustify import REPEAT as CELL_HORI_JUSTIFY_REPEAT
-        from com.sun.star.table.CellHoriJustify import RIGHT as CELL_HORI_JUSTIFY_RIGHT
-        from com.sun.star.table.CellHoriJustify import STANDARD as CELL_HORI_JUSTIFY_STANDARD
+    from ...lo.table.cell_hori_justify import CellHoriJustify as CellHoriJustify
 
-        class CellHoriJustify(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API CellHoriJustify <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1table.html#ab3c576b107bd5018643ab5612438fdf2>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.table.CellHoriJustify', value)
-
-            __ooo_ns__: str = 'com.sun.star.table'
-            __ooo_full_ns__: str = 'com.sun.star.table.CellHoriJustify'
-            __ooo_type_name__: str = 'enum'
-
-            BLOCK = CELL_HORI_JUSTIFY_BLOCK
-            """
-            contents are justified to the cell width.
-            """
-            CENTER = CELL_HORI_JUSTIFY_CENTER
-            """
-            contents are horizontally centered.
-
-            contents are aligned to the vertical middle of the cell.
-            """
-            LEFT = CELL_HORI_JUSTIFY_LEFT
-            """
-            contents are aligned to the left edge of the cell.
-            """
-            REPEAT = CELL_HORI_JUSTIFY_REPEAT
-            """
-            contents are repeated to fill the cell.
-            """
-            RIGHT = CELL_HORI_JUSTIFY_RIGHT
-            """
-            contents are aligned to the right edge of the cell.
-            """
-            STANDARD = CELL_HORI_JUSTIFY_STANDARD
-            """
-            default alignment is used (left for numbers, right for text).
-
-            default alignment is used.
-
-            contents are printed from left to right.
-            """
-    else:
-        # keep document generators happy
-        from ...lo.table.cell_hori_justify import CellHoriJustify as CellHoriJustify
-
-
-__all__ = ['CellHoriJustify']
+__all__ = ["CellHoriJustify"]

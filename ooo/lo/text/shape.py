@@ -27,8 +27,8 @@ if typing.TYPE_CHECKING:
     from ..drawing.homogen_matrix3 import HomogenMatrix3 as HomogenMatrix3_f0fb0d69
     from .x_text_frame import XTextFrame as XTextFrame_9a7e0ab5
     from .x_text_range import XTextRange as XTextRange_9a910ab7
-    from com.sun.star.text.TextContentAnchorType import TextContentAnchorTypeProto
-    from com.sun.star.text.WrapTextMode import WrapTextModeProto
+    from com.sun.star.text.TextContentAnchorType import TextContentAnchorTypeProto  # type: ignore
+    from com.sun.star.text.WrapTextMode import WrapTextModeProto  # type: ignore
 
 class Shape(Shape_85cc09e5):
     """
@@ -270,4 +270,3 @@ class Shape(Shape_85cc09e5):
 
 
 __all__ = ['Shape']
-

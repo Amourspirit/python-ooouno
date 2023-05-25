@@ -96,3 +96,4 @@ class XTabController(XInterface_8f010a43):
 
 __all__ = ['XTabController']
 
+

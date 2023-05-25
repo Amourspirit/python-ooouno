@@ -41,3 +41,4 @@ class XBridgeFactory2(XBridgeFactory_df9d0cf2, XComponent_98dc0ab5):
 
 __all__ = ['XBridgeFactory2']
 
+

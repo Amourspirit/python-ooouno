@@ -58,3 +58,4 @@ class XSheetFilterDescriptor3(XInterface_8f010a43):
 
 __all__ = ['XSheetFilterDescriptor3']
 
+

@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,57 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class ShadeMode(metaclass=UnoEnumMeta, type_name="com.sun.star.drawing.ShadeMode", name_space="com.sun.star.drawing"):
         """Dynamically created class that represents ``com.sun.star.drawing.ShadeMode`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.drawing.ShadeMode import DRAFT as SHADE_MODE_DRAFT
-        from com.sun.star.drawing.ShadeMode import FLAT as SHADE_MODE_FLAT
-        from com.sun.star.drawing.ShadeMode import PHONG as SHADE_MODE_PHONG
-        from com.sun.star.drawing.ShadeMode import SMOOTH as SHADE_MODE_SMOOTH
+    from ...lo.drawing.shade_mode import ShadeMode as ShadeMode
 
-        class ShadeMode(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API ShadeMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#af49ab4b65513d2c0077f76b2227326e9>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.drawing.ShadeMode', value)
-
-            __ooo_ns__: str = 'com.sun.star.drawing'
-            __ooo_full_ns__: str = 'com.sun.star.drawing.ShadeMode'
-            __ooo_type_name__: str = 'enum'
-
-            DRAFT = SHADE_MODE_DRAFT
-            """
-            DRAFT is a special mode which uses a BSP tree and triangle subdivision for displaying.
-            """
-            FLAT = SHADE_MODE_FLAT
-            """
-            forces one normal per flat part.
-
-            With FLAT shading, the faces of the object are rendered in a solid color.
-            """
-            PHONG = SHADE_MODE_PHONG
-            """
-            With PHONG shading, the normal itself is interpolated to get more realistic colors and light reflections.
-            """
-            SMOOTH = SHADE_MODE_SMOOTH
-            """
-            the point is smooth, the first derivation from the curve discussion view.
-
-            With SMOOTH shading, the colors of the lit vertices is interpolated.
-            """
-    else:
-        # keep document generators happy
-        from ...lo.drawing.shade_mode import ShadeMode as ShadeMode
-
-
-__all__ = ['ShadeMode']
+__all__ = ["ShadeMode"]

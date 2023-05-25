@@ -26,7 +26,7 @@ from ..form_control_model import FormControlModel as FormControlModel_e2990d22
 from ..x_image_producer_supplier import XImageProducerSupplier as XImageProducerSupplier_37df0f8f
 from ..x_reset import XReset as XReset_71670917
 if typing.TYPE_CHECKING:
-    from com.sun.star.form.FormButtonType import FormButtonTypeProto
+    from com.sun.star.form.FormButtonType import FormButtonTypeProto  # type: ignore
 
 class CommandButton(UnoControlButtonModel_1c000ed4, FormControlModel_e2990d22, XImageProducerSupplier_37df0f8f, XReset_71670917):
     """
@@ -81,4 +81,3 @@ class CommandButton(UnoControlButtonModel_1c000ed4, FormControlModel_e2990d22, X
 
 
 __all__ = ['CommandButton']
-

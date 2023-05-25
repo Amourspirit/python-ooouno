@@ -54,3 +54,4 @@ class XSingletonTypeDescription(XTypeDescription_3c210fb1):
 
 __all__ = ['XSingletonTypeDescription']
 
+

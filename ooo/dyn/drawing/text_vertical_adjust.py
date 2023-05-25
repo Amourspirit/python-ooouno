@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,63 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class TextVerticalAdjust(metaclass=UnoEnumMeta, type_name="com.sun.star.drawing.TextVerticalAdjust", name_space="com.sun.star.drawing"):
         """Dynamically created class that represents ``com.sun.star.drawing.TextVerticalAdjust`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.drawing.TextVerticalAdjust import BLOCK as TEXT_VERTICAL_ADJUST_BLOCK
-        from com.sun.star.drawing.TextVerticalAdjust import BOTTOM as TEXT_VERTICAL_ADJUST_BOTTOM
-        from com.sun.star.drawing.TextVerticalAdjust import CENTER as TEXT_VERTICAL_ADJUST_CENTER
-        from com.sun.star.drawing.TextVerticalAdjust import TOP as TEXT_VERTICAL_ADJUST_TOP
+    from ...lo.drawing.text_vertical_adjust import TextVerticalAdjust as TextVerticalAdjust
 
-        class TextVerticalAdjust(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API TextVerticalAdjust <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a4c2c10f0a1a5fa20d9f200d0fb5707ad>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.drawing.TextVerticalAdjust', value)
-
-            __ooo_ns__: str = 'com.sun.star.drawing'
-            __ooo_full_ns__: str = 'com.sun.star.drawing.TextVerticalAdjust'
-            __ooo_type_name__: str = 'enum'
-
-            BLOCK = TEXT_VERTICAL_ADJUST_BLOCK
-            """
-            The text extends from the left to the right edge of the shape.
-
-            The text extends from the top to the bottom edge of the shape.
-            """
-            BOTTOM = TEXT_VERTICAL_ADJUST_BOTTOM
-            """
-            the connection line leaves the connected object from the bottom,
-
-            The text is positioned below the main line.
-
-            The bottom edge of the text is adjusted to the bottom edge of the shape.
-            """
-            CENTER = TEXT_VERTICAL_ADJUST_CENTER
-            """
-            The text is centered inside the shape.
-            """
-            TOP = TEXT_VERTICAL_ADJUST_TOP
-            """
-            the connection line leaves the connected object from the top,
-
-            The text is positioned above the main line.
-
-            The top edge of the text is adjusted to the top edge of the shape.
-            """
-    else:
-        # keep document generators happy
-        from ...lo.drawing.text_vertical_adjust import TextVerticalAdjust as TextVerticalAdjust
-
-
-__all__ = ['TextVerticalAdjust']
+__all__ = ["TextVerticalAdjust"]

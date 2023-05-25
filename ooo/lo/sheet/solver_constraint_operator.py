@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.sheet
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.sheet.SolverConstraintOperator import SolverConstraintOperatorProto
+
 
 class SolverConstraintOperator(Enum):
     """
@@ -32,25 +30,25 @@ class SolverConstraintOperator(Enum):
     See Also:
         `API SolverConstraintOperator <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1sheet.html#a491ab8ed5b7b5809e7be869d26b071cf>`_
     """
-    __ooo_ns__: str = 'com.sun.star.sheet'
-    __ooo_full_ns__: str = 'com.sun.star.sheet.SolverConstraintOperator'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.sheet"
+    __ooo_full_ns__: str = "com.sun.star.sheet.SolverConstraintOperator"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.sheet.SolverConstraintOperator'
+        return "com.sun.star.sheet.SolverConstraintOperator"
 
-    BINARY = cast("SolverConstraintOperatorProto", 'BINARY')
+    BINARY = "BINARY"
     """
     The cell value is a binary value (0 or 1).
     """
-    EQUAL = cast("SolverConstraintOperatorProto", 'EQUAL')
+    EQUAL = "EQUAL"
     """
     value has to be equal to the specified value.
     
     The cell value is equal to the specified value.
     """
-    GREATER_EQUAL = cast("SolverConstraintOperatorProto", 'GREATER_EQUAL')
+    GREATER_EQUAL = "GREATER_EQUAL"
     """
     the value has to be greater than or equal to the specified value.
     
@@ -58,11 +56,11 @@ class SolverConstraintOperator(Enum):
     
     value has to be greater than or equal to the specified value.
     """
-    INTEGER = cast("SolverConstraintOperatorProto", 'INTEGER')
+    INTEGER = "INTEGER"
     """
     The cell value is an integer value.
     """
-    LESS_EQUAL = cast("SolverConstraintOperatorProto", 'LESS_EQUAL')
+    LESS_EQUAL = "LESS_EQUAL"
     """
     the value has to be less than or equal to the specified value.
     
@@ -71,5 +69,5 @@ class SolverConstraintOperator(Enum):
     value has to be less than or equal to the specified value.
     """
 
-__all__ = ['SolverConstraintOperator']
+__all__ = ["SolverConstraintOperator"]
 

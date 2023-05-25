@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.form
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.form.ListSourceType import ListSourceTypeProto
+
 
 class ListSourceType(Enum):
     """
@@ -32,38 +30,38 @@ class ListSourceType(Enum):
     See Also:
         `API ListSourceType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1form.html#a52e06ed91fb133bc98c089a401a724fb>`_
     """
-    __ooo_ns__: str = 'com.sun.star.form'
-    __ooo_full_ns__: str = 'com.sun.star.form.ListSourceType'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.form"
+    __ooo_full_ns__: str = "com.sun.star.form.ListSourceType"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.form.ListSourceType'
+        return "com.sun.star.form.ListSourceType"
 
-    QUERY = cast("ListSourceTypeProto", 'QUERY')
+    QUERY = "QUERY"
     """
     The control should be filled with the results of a database query.
     """
-    SQL = cast("ListSourceTypeProto", 'SQL')
+    SQL = "SQL"
     """
     The control should be filled with the results of a database statement.
     """
-    SQLPASSTHROUGH = cast("ListSourceTypeProto", 'SQLPASSTHROUGH')
+    SQLPASSTHROUGH = "SQLPASSTHROUGH"
     """
     The control should be filled with the results of a database statement, which is not evaluated by the database engine.
     """
-    TABLE = cast("ListSourceTypeProto", 'TABLE')
+    TABLE = "TABLE"
     """
     The control should be filled with the data of a table.
     """
-    TABLEFIELDS = cast("ListSourceTypeProto", 'TABLEFIELDS')
+    TABLEFIELDS = "TABLEFIELDS"
     """
     The control should be filled with the field names of a database table.
     """
-    VALUELIST = cast("ListSourceTypeProto", 'VALUELIST')
+    VALUELIST = "VALUELIST"
     """
     The control should be filled with a list of string values.
     """
 
-__all__ = ['ListSourceType']
+__all__ = ["ListSourceType"]
 

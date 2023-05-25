@@ -45,3 +45,4 @@ class XRelocatableResource(ABC):
 
 __all__ = ['XRelocatableResource']
 
+

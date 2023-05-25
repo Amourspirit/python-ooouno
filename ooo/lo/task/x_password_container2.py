@@ -42,3 +42,4 @@ class XPasswordContainer2(XMasterPasswordHandling2_59b91029, XPasswordContainer_
 
 __all__ = ['XPasswordContainer2']
 
+

@@ -97,3 +97,4 @@ class XOOXMLDocumentPropertiesImporter(XInterface_8f010a43):
 
 __all__ = ['XOOXMLDocumentPropertiesImporter']
 
+

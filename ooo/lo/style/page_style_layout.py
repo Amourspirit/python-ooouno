@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.style
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.style.PageStyleLayout import PageStyleLayoutProto
+
 
 class PageStyleLayout(Enum):
     """
@@ -32,19 +30,19 @@ class PageStyleLayout(Enum):
     See Also:
         `API PageStyleLayout <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1style.html#ae13f8c21c10b194207bb33f84a33d50f>`_
     """
-    __ooo_ns__: str = 'com.sun.star.style'
-    __ooo_full_ns__: str = 'com.sun.star.style.PageStyleLayout'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.style"
+    __ooo_full_ns__: str = "com.sun.star.style.PageStyleLayout"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.style.PageStyleLayout'
+        return "com.sun.star.style.PageStyleLayout"
 
-    ALL = cast("PageStyleLayoutProto", 'ALL')
+    ALL = "ALL"
     """
     The page style is identically used for left and right pages.
     """
-    LEFT = cast("PageStyleLayoutProto", 'LEFT')
+    LEFT = "LEFT"
     """
     set the horizontal alignment to the left margin from the container object
     
@@ -54,11 +52,11 @@ class PageStyleLayout(Enum):
     
     The page style is only used for left pages.
     """
-    MIRRORED = cast("PageStyleLayoutProto", 'MIRRORED')
+    MIRRORED = "MIRRORED"
     """
     The page style is used unchanged for left pages and mirrored for right pages.
     """
-    RIGHT = cast("PageStyleLayoutProto", 'RIGHT')
+    RIGHT = "RIGHT"
     """
     set the horizontal alignment to the right margin from the container object
     
@@ -69,5 +67,5 @@ class PageStyleLayout(Enum):
     The page style is only used for right pages.
     """
 
-__all__ = ['PageStyleLayout']
+__all__ = ["PageStyleLayout"]
 

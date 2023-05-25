@@ -28,7 +28,7 @@ from .x_regression_curve_container import XRegressionCurveContainer as XRegressi
 from .data.x_data_sink import XDataSink as XDataSink_dbc40c7b
 from .data.x_data_source import XDataSource as XDataSource_f6340d57
 if typing.TYPE_CHECKING:
-    from com.sun.star.chart2.StackingDirection import StackingDirectionProto
+    from com.sun.star.chart2.StackingDirection import StackingDirectionProto  # type: ignore
 
 class DataSeries(DataPointProperties_24a00efd, XDataSeries_b8150b89, XRegressionCurveContainer_8801116d, XDataSink_dbc40c7b, XDataSource_f6340d57):
     """
@@ -132,4 +132,3 @@ class DataSeries(DataPointProperties_24a00efd, XDataSeries_b8150b89, XRegression
 
 
 __all__ = ['DataSeries']
-

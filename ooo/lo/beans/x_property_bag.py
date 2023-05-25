@@ -41,3 +41,4 @@ class XPropertyBag(XPropertyAccess_e1d40d20, XPropertyContainer_c600e71, XProper
 
 __all__ = ['XPropertyBag']
 
+

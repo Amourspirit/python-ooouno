@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.drawing
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.drawing.SnapObjectType import SnapObjectTypeProto
+
 
 class SnapObjectType(Enum):
     """
@@ -33,25 +31,25 @@ class SnapObjectType(Enum):
     See Also:
         `API SnapObjectType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#aac70ce37cdcc7a4bfcf79309db1a438b>`_
     """
-    __ooo_ns__: str = 'com.sun.star.drawing'
-    __ooo_full_ns__: str = 'com.sun.star.drawing.SnapObjectType'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.drawing"
+    __ooo_full_ns__: str = "com.sun.star.drawing.SnapObjectType"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.drawing.SnapObjectType'
+        return "com.sun.star.drawing.SnapObjectType"
 
-    HORIZONTAL = cast("SnapObjectTypeProto", 'HORIZONTAL')
+    HORIZONTAL = "HORIZONTAL"
     """
     mirror to the horizontal axis
     """
-    POINT = cast("SnapObjectTypeProto", 'POINT')
+    POINT = "POINT"
     """
     """
-    VERTICAL = cast("SnapObjectTypeProto", 'VERTICAL')
+    VERTICAL = "VERTICAL"
     """
     mirror to the vertical axis
     """
 
-__all__ = ['SnapObjectType']
+__all__ = ["SnapObjectType"]
 

@@ -44,3 +44,4 @@ class XDocumentView(XInterface_8f010a43):
 
 __all__ = ['XDocumentView']
 
+

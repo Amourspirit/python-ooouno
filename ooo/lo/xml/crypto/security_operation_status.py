@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.xml.crypto
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.xml.crypto.SecurityOperationStatus import SecurityOperationStatusProto
+
 
 class SecurityOperationStatus(Enum):
     """
@@ -32,167 +30,167 @@ class SecurityOperationStatus(Enum):
     See Also:
         `API SecurityOperationStatus <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1xml_1_1crypto.html#ab5d887eb5da1173b766d96d0d863d1dc>`_
     """
-    __ooo_ns__: str = 'com.sun.star.xml.crypto'
-    __ooo_full_ns__: str = 'com.sun.star.xml.crypto.SecurityOperationStatus'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.xml.crypto"
+    __ooo_full_ns__: str = "com.sun.star.xml.crypto.SecurityOperationStatus"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.xml.crypto.SecurityOperationStatus'
+        return "com.sun.star.xml.crypto.SecurityOperationStatus"
 
-    ASSERTION = cast("SecurityOperationStatusProto", 'ASSERTION')
+    ASSERTION = "ASSERTION"
     """
     """
-    CERT_HAS_EXPIRED = cast("SecurityOperationStatusProto", 'CERT_HAS_EXPIRED')
+    CERT_HAS_EXPIRED = "CERT_HAS_EXPIRED"
     """
     """
-    CERT_ISSUER_FAILED = cast("SecurityOperationStatusProto", 'CERT_ISSUER_FAILED')
+    CERT_ISSUER_FAILED = "CERT_ISSUER_FAILED"
     """
     """
-    CERT_NOT_FOUND = cast("SecurityOperationStatusProto", 'CERT_NOT_FOUND')
+    CERT_NOT_FOUND = "CERT_NOT_FOUND"
     """
     """
-    CERT_NOT_YET_VALID = cast("SecurityOperationStatusProto", 'CERT_NOT_YET_VALID')
+    CERT_NOT_YET_VALID = "CERT_NOT_YET_VALID"
     """
     """
-    CERT_REVOKED = cast("SecurityOperationStatusProto", 'CERT_REVOKED')
+    CERT_REVOKED = "CERT_REVOKED"
     """
     """
-    CERT_VERIFY_FAILED = cast("SecurityOperationStatusProto", 'CERT_VERIFY_FAILED')
+    CERT_VERIFY_FAILED = "CERT_VERIFY_FAILED"
     """
     """
-    CRYPTO_FAILED = cast("SecurityOperationStatusProto", 'CRYPTO_FAILED')
+    CRYPTO_FAILED = "CRYPTO_FAILED"
     """
     """
-    DATA_NOT_MATCH = cast("SecurityOperationStatusProto", 'DATA_NOT_MATCH')
+    DATA_NOT_MATCH = "DATA_NOT_MATCH"
     """
     """
-    DISABLED = cast("SecurityOperationStatusProto", 'DISABLED')
+    DISABLED = "DISABLED"
     """
     """
-    DSIG_INVALID_REFERENCE = cast("SecurityOperationStatusProto", 'DSIG_INVALID_REFERENCE')
+    DSIG_INVALID_REFERENCE = "DSIG_INVALID_REFERENCE"
     """
     """
-    DSIG_NO_REFERENCES = cast("SecurityOperationStatusProto", 'DSIG_NO_REFERENCES')
+    DSIG_NO_REFERENCES = "DSIG_NO_REFERENCES"
     """
     """
-    ENGINE_FAILED = cast("SecurityOperationStatusProto", 'ENGINE_FAILED')
+    ENGINE_FAILED = "ENGINE_FAILED"
     """
     The following constants are derived from XMLSec error definitions, as following:
     
     XMLSEC_ERRORS_R_XMLSEC_FAILED XMLSEC_ERRORS_R_MALLOC_FAILED XMLSEC_ERRORS_R_STRDUP_FAILED XMLSEC_ERRORS_R_CRYPTO_FAILED XMLSEC_ERRORS_R_XML_FAILED XMLSEC_ERRORS_R_XSLT_FAILED XMLSEC_ERRORS_R_IO_FAILED XMLSEC_ERRORS_R_DISABLED XMLSEC_ERRORS_R_NOT_IMPLEMENTED XMLSEC_ERRORS_R_INVALID_SIZE XMLSEC_ERRORS_R_INVALID_DATA XMLSEC_ERRORS_R_INVALID_RESULT XMLSEC_ERRORS_R_INVALID_TYPE XMLSEC_ERRORS_R_INVALID_OPERATION XMLSEC_ERRORS_R_INVALID_STATUS XMLSEC_ERRORS_R_INVALID_FORMAT XMLSEC_ERRORS_R_DATA_NOT_MATCH XMLSEC_ERRORS_R_INVALID_NODE XMLSEC_ERRORS_R_INVALID_NODE_CONTENT XMLSEC_ERRORS_R_INVALID_NODE_ATTRIBUTE XMLSEC_ERRORS_R_MISSING_NODE_ATTRIBUTE XMLSEC_ERRORS_R_NODE_ALREADY_PRESENT XMLSEC_ERRORS_R_UNEXPECTED_NODE XMLSEC_ERRORS_R_NODE_NOT_FOUND XMLSEC_ERRORS_R_INVALID_TRANSFORM XMLSEC_ERRORS_R_INVALID_TRANSFORM_KEY XMLSEC_ERRORS_R_INVALID_URI_TYPE XMLSEC_ERRORS_R_TRANSFORM_SAME_DOCUMENT_REQUIRED XMLSEC_ERRORS_R_TRANSFORM_DISABLED XMLSEC_ERRORS_R_INVALID_KEY_DATA XMLSEC_ERRORS_R_KEY_DATA_NOT_FOUND XMLSEC_ERRORS_R_KEY_DATA_ALREADY_EXIST XMLSEC_ERRORS_R_INVALID_KEY_DATA_SIZE XMLSEC_ERRORS_R_KEY_NOT_FOUND XMLSEC_ERRORS_R_KEYDATA_DISABLED XMLSEC_ERRORS_R_MAX_RETRIEVALS_LEVEL XMLSEC_ERRORS_R_MAX_RETRIEVAL_TYPE_MISMATCH XMLSEC_ERRORS_R_MAX_ENCKEY_LEVEL XMLSEC_ERRORS_R_CERT_VERIFY_FAILED XMLSEC_ERRORS_R_CERT_NOT_FOUND XMLSEC_ERRORS_R_CERT_REVOKED XMLSEC_ERRORS_R_CERT_ISSUER_FAILED XMLSEC_ERRORS_R_CERT_NOT_YET_VALID XMLSEC_ERRORS_R_CERT_HAS_EXPIRED XMLSEC_ERRORS_R_DSIG_NO_REFERENCES XMLSEC_ERRORS_R_DSIG_INVALID_REFERENCE XMLSEC_ERRORS_R_ASSERTION XMLSEC_ERRORS_MAX_NUMBER
     """
-    INVALID_DATA = cast("SecurityOperationStatusProto", 'INVALID_DATA')
+    INVALID_DATA = "INVALID_DATA"
     """
     """
-    INVALID_FORMAT = cast("SecurityOperationStatusProto", 'INVALID_FORMAT')
+    INVALID_FORMAT = "INVALID_FORMAT"
     """
     """
-    INVALID_KEY_DATA = cast("SecurityOperationStatusProto", 'INVALID_KEY_DATA')
+    INVALID_KEY_DATA = "INVALID_KEY_DATA"
     """
     """
-    INVALID_KEY_DATA_SIZE = cast("SecurityOperationStatusProto", 'INVALID_KEY_DATA_SIZE')
+    INVALID_KEY_DATA_SIZE = "INVALID_KEY_DATA_SIZE"
     """
     """
-    INVALID_NODE = cast("SecurityOperationStatusProto", 'INVALID_NODE')
+    INVALID_NODE = "INVALID_NODE"
     """
     """
-    INVALID_NODE_ATTRIBUTE = cast("SecurityOperationStatusProto", 'INVALID_NODE_ATTRIBUTE')
+    INVALID_NODE_ATTRIBUTE = "INVALID_NODE_ATTRIBUTE"
     """
     """
-    INVALID_NODE_CONTENT = cast("SecurityOperationStatusProto", 'INVALID_NODE_CONTENT')
+    INVALID_NODE_CONTENT = "INVALID_NODE_CONTENT"
     """
     """
-    INVALID_OPERATION = cast("SecurityOperationStatusProto", 'INVALID_OPERATION')
+    INVALID_OPERATION = "INVALID_OPERATION"
     """
     """
-    INVALID_RESULT = cast("SecurityOperationStatusProto", 'INVALID_RESULT')
+    INVALID_RESULT = "INVALID_RESULT"
     """
     """
-    INVALID_SIZE = cast("SecurityOperationStatusProto", 'INVALID_SIZE')
+    INVALID_SIZE = "INVALID_SIZE"
     """
     """
-    INVALID_STATUS = cast("SecurityOperationStatusProto", 'INVALID_STATUS')
+    INVALID_STATUS = "INVALID_STATUS"
     """
     """
-    INVALID_TRANSFORM = cast("SecurityOperationStatusProto", 'INVALID_TRANSFORM')
+    INVALID_TRANSFORM = "INVALID_TRANSFORM"
     """
     """
-    INVALID_TRANSFORM_KEY = cast("SecurityOperationStatusProto", 'INVALID_TRANSFORM_KEY')
+    INVALID_TRANSFORM_KEY = "INVALID_TRANSFORM_KEY"
     """
     """
-    INVALID_TYPE = cast("SecurityOperationStatusProto", 'INVALID_TYPE')
+    INVALID_TYPE = "INVALID_TYPE"
     """
     """
-    INVALID_URI_TYPE = cast("SecurityOperationStatusProto", 'INVALID_URI_TYPE')
+    INVALID_URI_TYPE = "INVALID_URI_TYPE"
     """
     """
-    IO_FAILED = cast("SecurityOperationStatusProto", 'IO_FAILED')
+    IO_FAILED = "IO_FAILED"
     """
     """
-    KEYDATA_DISABLED = cast("SecurityOperationStatusProto", 'KEYDATA_DISABLED')
+    KEYDATA_DISABLED = "KEYDATA_DISABLED"
     """
     """
-    KEY_DATA_ALREADY_EXIST = cast("SecurityOperationStatusProto", 'KEY_DATA_ALREADY_EXIST')
+    KEY_DATA_ALREADY_EXIST = "KEY_DATA_ALREADY_EXIST"
     """
     """
-    KEY_DATA_NOT_FOUND = cast("SecurityOperationStatusProto", 'KEY_DATA_NOT_FOUND')
+    KEY_DATA_NOT_FOUND = "KEY_DATA_NOT_FOUND"
     """
     """
-    KEY_NOT_FOUND = cast("SecurityOperationStatusProto", 'KEY_NOT_FOUND')
+    KEY_NOT_FOUND = "KEY_NOT_FOUND"
     """
     """
-    MALLOC_FAILED = cast("SecurityOperationStatusProto", 'MALLOC_FAILED')
+    MALLOC_FAILED = "MALLOC_FAILED"
     """
     """
-    MAX_ENCKEY_LEVEL = cast("SecurityOperationStatusProto", 'MAX_ENCKEY_LEVEL')
+    MAX_ENCKEY_LEVEL = "MAX_ENCKEY_LEVEL"
     """
     """
-    MAX_RETRIEVALS_LEVEL = cast("SecurityOperationStatusProto", 'MAX_RETRIEVALS_LEVEL')
+    MAX_RETRIEVALS_LEVEL = "MAX_RETRIEVALS_LEVEL"
     """
     """
-    MAX_RETRIEVAL_TYPE_MISMATCH = cast("SecurityOperationStatusProto", 'MAX_RETRIEVAL_TYPE_MISMATCH')
+    MAX_RETRIEVAL_TYPE_MISMATCH = "MAX_RETRIEVAL_TYPE_MISMATCH"
     """
     """
-    MISSING_NODE_ATTRIBUTE = cast("SecurityOperationStatusProto", 'MISSING_NODE_ATTRIBUTE')
+    MISSING_NODE_ATTRIBUTE = "MISSING_NODE_ATTRIBUTE"
     """
     """
-    NODE_ALREADY_PRESENT = cast("SecurityOperationStatusProto", 'NODE_ALREADY_PRESENT')
+    NODE_ALREADY_PRESENT = "NODE_ALREADY_PRESENT"
     """
     """
-    NODE_NOT_FOUND = cast("SecurityOperationStatusProto", 'NODE_NOT_FOUND')
+    NODE_NOT_FOUND = "NODE_NOT_FOUND"
     """
     """
-    NOT_IMPLEMENTED = cast("SecurityOperationStatusProto", 'NOT_IMPLEMENTED')
+    NOT_IMPLEMENTED = "NOT_IMPLEMENTED"
     """
     """
-    OPERATION_SUCCEEDED = cast("SecurityOperationStatusProto", 'OPERATION_SUCCEEDED')
+    OPERATION_SUCCEEDED = "OPERATION_SUCCEEDED"
     """
     """
-    RUNTIMEERROR_FAILED = cast("SecurityOperationStatusProto", 'RUNTIMEERROR_FAILED')
+    RUNTIMEERROR_FAILED = "RUNTIMEERROR_FAILED"
     """
     """
-    STRDUP_FAILED = cast("SecurityOperationStatusProto", 'STRDUP_FAILED')
+    STRDUP_FAILED = "STRDUP_FAILED"
     """
     """
-    TRANSFORM_DISABLED = cast("SecurityOperationStatusProto", 'TRANSFORM_DISABLED')
+    TRANSFORM_DISABLED = "TRANSFORM_DISABLED"
     """
     """
-    TRANSFORM_SAME_DOCUMENT_REQUIRED = cast("SecurityOperationStatusProto", 'TRANSFORM_SAME_DOCUMENT_REQUIRED')
+    TRANSFORM_SAME_DOCUMENT_REQUIRED = "TRANSFORM_SAME_DOCUMENT_REQUIRED"
     """
     """
-    UNEXPECTED_NODE = cast("SecurityOperationStatusProto", 'UNEXPECTED_NODE')
+    UNEXPECTED_NODE = "UNEXPECTED_NODE"
     """
     """
-    UNKNOWN = cast("SecurityOperationStatusProto", 'UNKNOWN')
+    UNKNOWN = "UNKNOWN"
     """
     """
-    XML_FAILED = cast("SecurityOperationStatusProto", 'XML_FAILED')
+    XML_FAILED = "XML_FAILED"
     """
     """
-    XSLT_FAILED = cast("SecurityOperationStatusProto", 'XSLT_FAILED')
+    XSLT_FAILED = "XSLT_FAILED"
     """
     """
 
-__all__ = ['SecurityOperationStatus']
+__all__ = ["SecurityOperationStatus"]
 

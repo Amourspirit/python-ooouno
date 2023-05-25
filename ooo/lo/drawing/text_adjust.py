@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.drawing
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.drawing.TextAdjust import TextAdjustProto
+
 
 class TextAdjust(Enum):
     """
@@ -32,25 +30,25 @@ class TextAdjust(Enum):
     See Also:
         `API TextAdjust <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#adf031187199b98bb1b6581c7e69d4810>`_
     """
-    __ooo_ns__: str = 'com.sun.star.drawing'
-    __ooo_full_ns__: str = 'com.sun.star.drawing.TextAdjust'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.drawing"
+    __ooo_full_ns__: str = "com.sun.star.drawing.TextAdjust"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.drawing.TextAdjust'
+        return "com.sun.star.drawing.TextAdjust"
 
-    BLOCK = cast("TextAdjustProto", 'BLOCK')
+    BLOCK = "BLOCK"
     """
     The text extends from the left to the right edge of the shape.
     
     The text extends from the top to the bottom edge of the shape.
     """
-    CENTER = cast("TextAdjustProto", 'CENTER')
+    CENTER = "CENTER"
     """
     The text is centered inside the shape.
     """
-    LEFT = cast("TextAdjustProto", 'LEFT')
+    LEFT = "LEFT"
     """
     the connection line leaves the connected object to the left,
     
@@ -58,7 +56,7 @@ class TextAdjust(Enum):
     
     The text is positioned to the left.
     """
-    RIGHT = cast("TextAdjustProto", 'RIGHT')
+    RIGHT = "RIGHT"
     """
     the connection line leaves the connected object to the right,
     
@@ -66,12 +64,12 @@ class TextAdjust(Enum):
     
     The text is positioned to the right.
     """
-    STRETCH = cast("TextAdjustProto", 'STRETCH')
+    STRETCH = "STRETCH"
     """
     the bitmap is stretched to fill the area.
     
     The text is stretched so that the longest line goes from the left to the right edge of the shape.
     """
 
-__all__ = ['TextAdjust']
+__all__ = ["TextAdjust"]
 

@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.drawing
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.drawing.TextAnimationDirection import TextAnimationDirectionProto
+
 
 class TextAnimationDirection(Enum):
     """
@@ -32,18 +30,18 @@ class TextAnimationDirection(Enum):
     See Also:
         `API TextAnimationDirection <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a218f9e180f159784cd3e33cef99bfe86>`_
     """
-    __ooo_ns__: str = 'com.sun.star.drawing'
-    __ooo_full_ns__: str = 'com.sun.star.drawing.TextAnimationDirection'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.drawing"
+    __ooo_full_ns__: str = "com.sun.star.drawing.TextAnimationDirection"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.drawing.TextAnimationDirection'
+        return "com.sun.star.drawing.TextAnimationDirection"
 
-    DOWN = cast("TextAnimationDirectionProto", 'DOWN')
+    DOWN = "DOWN"
     """
     """
-    LEFT = cast("TextAnimationDirectionProto", 'LEFT')
+    LEFT = "LEFT"
     """
     the connection line leaves the connected object to the left,
     
@@ -51,7 +49,7 @@ class TextAnimationDirection(Enum):
     
     The text is positioned to the left.
     """
-    RIGHT = cast("TextAnimationDirectionProto", 'RIGHT')
+    RIGHT = "RIGHT"
     """
     the connection line leaves the connected object to the right,
     
@@ -59,9 +57,9 @@ class TextAnimationDirection(Enum):
     
     The text is positioned to the right.
     """
-    UP = cast("TextAnimationDirectionProto", 'UP')
+    UP = "UP"
     """
     """
 
-__all__ = ['TextAnimationDirection']
+__all__ = ["TextAnimationDirection"]
 

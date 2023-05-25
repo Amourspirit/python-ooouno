@@ -43,3 +43,4 @@ class XModuleUIConfigurationManager2(XModuleUIConfigurationManager_873f1155, XUI
 
 __all__ = ['XModuleUIConfigurationManager2']
 
+

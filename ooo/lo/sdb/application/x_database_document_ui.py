@@ -196,3 +196,4 @@ class XDatabaseDocumentUI(ABC):
 
 __all__ = ['XDatabaseDocumentUI']
 
+

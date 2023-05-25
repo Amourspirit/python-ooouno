@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,69 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class LabelOrigin(metaclass=UnoEnumMeta, type_name="com.sun.star.chart2.data.LabelOrigin", name_space="com.sun.star.chart2.data"):
         """Dynamically created class that represents ``com.sun.star.chart2.data.LabelOrigin`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.chart2.data.LabelOrigin import COLUMN as LABEL_ORIGIN_COLUMN
-        from com.sun.star.chart2.data.LabelOrigin import LONG_SIDE as LABEL_ORIGIN_LONG_SIDE
-        from com.sun.star.chart2.data.LabelOrigin import ROW as LABEL_ORIGIN_ROW
-        from com.sun.star.chart2.data.LabelOrigin import SHORT_SIDE as LABEL_ORIGIN_SHORT_SIDE
+    from ....lo.chart2.data.label_origin import LabelOrigin as LabelOrigin
 
-        class LabelOrigin(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API LabelOrigin <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart2_1_1data.html#a2afe9ba95ad4b3631057b40391bed0aa>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.chart2.data.LabelOrigin', value)
-
-            __ooo_ns__: str = 'com.sun.star.chart2.data'
-            __ooo_full_ns__: str = 'com.sun.star.chart2.data.LabelOrigin'
-            __ooo_type_name__: str = 'enum'
-
-            COLUMN = LABEL_ORIGIN_COLUMN
-            """
-            Uses the column name for label generation.
-
-            A spreadsheet range A1:A6 could, e.g., result in \"Column A\".
-
-            If a range consists of more than one column the result of label generation may be empty. Of course, it could also succeed with a string like \"Columns A to B\".
-            """
-            LONG_SIDE = LABEL_ORIGIN_LONG_SIDE
-            """
-            This is exactly the opposite of SHORT_SIDE.
-
-            I.e., if SHORT_SIDE has the same effect as ROW, LONG_SIDE will have the same effect as COLUMN and the other way round.
-            """
-            ROW = LABEL_ORIGIN_ROW
-            """
-            Uses the column name for label generation.
-
-            A spreadsheet range A2:D2 could, e.g., result in \"Row 2\".
-
-            If a range consists of more than one row the result of label generation may be empty. Of course, it could also succeed with a string like \"Rows 1-3\".
-            """
-            SHORT_SIDE = LABEL_ORIGIN_SHORT_SIDE
-            """
-            If a range spans a single row over more than one column, this parameter has the same effect as ROW.
-
-            If the range spans a single column over more than one row, this is the same as COLUMN.
-
-            In case of a range spanning more than one column and row, the shorter range of both should be used (e.g. a spreadsheet range A1:B10 should treat columns as short side).
-
-            In case of a rectangular range, or a range that is composed of more than one contiguous sub-regions, the short side cannot be determined, thus XDataSequence.generateLabel() will return an empty sequence.
-            """
-    else:
-        # keep document generators happy
-        from ....lo.chart2.data.label_origin import LabelOrigin as LabelOrigin
-
-
-__all__ = ['LabelOrigin']
+__all__ = ["LabelOrigin"]

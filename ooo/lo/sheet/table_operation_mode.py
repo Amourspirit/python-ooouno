@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.sheet
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.sheet.TableOperationMode import TableOperationModeProto
+
 
 class TableOperationMode(Enum):
     """
@@ -32,30 +30,30 @@ class TableOperationMode(Enum):
     See Also:
         `API TableOperationMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1sheet.html#a91d4f5595c9dc2a8c09e532e59f395d9>`_
     """
-    __ooo_ns__: str = 'com.sun.star.sheet'
-    __ooo_full_ns__: str = 'com.sun.star.sheet.TableOperationMode'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.sheet"
+    __ooo_full_ns__: str = "com.sun.star.sheet.TableOperationMode"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.sheet.TableOperationMode'
+        return "com.sun.star.sheet.TableOperationMode"
 
-    BOTH = cast("TableOperationModeProto", 'BOTH')
+    BOTH = "BOTH"
     """
     is applied to rows and columns.
     """
-    COLUMN = cast("TableOperationModeProto", 'COLUMN')
+    COLUMN = "COLUMN"
     """
     the field is used as a column field.
     
     is applied to the columns.
     """
-    ROW = cast("TableOperationModeProto", 'ROW')
+    ROW = "ROW"
     """
     the field is used as a row field.
     
     is applied to the rows.
     """
 
-__all__ = ['TableOperationMode']
+__all__ = ["TableOperationMode"]
 

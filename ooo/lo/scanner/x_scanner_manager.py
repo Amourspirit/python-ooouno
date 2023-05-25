@@ -26,7 +26,7 @@ if typing.TYPE_CHECKING:
     from ..awt.x_bitmap import XBitmap as XBitmap_70cd0909
     from ..lang.x_event_listener import XEventListener as XEventListener_c7230c4a
     from .scanner_context import ScannerContext as ScannerContext_f0c60da1
-    from com.sun.star.scanner.ScanError import ScanErrorProto
+    from com.sun.star.scanner.ScanError import ScanErrorProto  # type: ignore
 
 class XScannerManager(XInterface_8f010a43):
     """
@@ -83,4 +83,3 @@ class XScannerManager(XInterface_8f010a43):
         ...
 
 __all__ = ['XScannerManager']
-

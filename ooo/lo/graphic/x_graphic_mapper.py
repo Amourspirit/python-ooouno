@@ -55,3 +55,4 @@ class XGraphicMapper(ABC):
 
 __all__ = ['XGraphicMapper']
 
+

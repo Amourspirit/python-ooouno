@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.chart2
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.chart2.TransparencyStyle import TransparencyStyleProto
+
 
 class TransparencyStyle(Enum):
     """
@@ -33,23 +31,23 @@ class TransparencyStyle(Enum):
     See Also:
         `API TransparencyStyle <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart2.html#acc7ba74ba6531a134bb92607b8616cb6>`_
     """
-    __ooo_ns__: str = 'com.sun.star.chart2'
-    __ooo_full_ns__: str = 'com.sun.star.chart2.TransparencyStyle'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.chart2"
+    __ooo_full_ns__: str = "com.sun.star.chart2.TransparencyStyle"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.chart2.TransparencyStyle'
+        return "com.sun.star.chart2.TransparencyStyle"
 
-    GRADIENT = cast("TransparencyStyleProto", 'GRADIENT')
+    GRADIENT = "GRADIENT"
     """
     The property TransparencyGradient is evaluated, Transparency is ignored.
     """
-    LINEAR = cast("TransparencyStyleProto", 'LINEAR')
+    LINEAR = "LINEAR"
     """
     The property Transparency is evaluated, TransparencyGradient is ignored.
     """
-    NONE = cast("TransparencyStyleProto", 'NONE')
+    NONE = "NONE"
     """
     Default, no pies are exploded.
     
@@ -58,5 +56,5 @@ class TransparencyStyle(Enum):
     The symbol is invisible.
     """
 
-__all__ = ['TransparencyStyle']
+__all__ = ["TransparencyStyle"]
 

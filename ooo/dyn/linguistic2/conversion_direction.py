@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,43 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class ConversionDirection(metaclass=UnoEnumMeta, type_name="com.sun.star.linguistic2.ConversionDirection", name_space="com.sun.star.linguistic2"):
         """Dynamically created class that represents ``com.sun.star.linguistic2.ConversionDirection`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.linguistic2.ConversionDirection import FROM_LEFT as CONVERSION_DIRECTION_FROM_LEFT
-        from com.sun.star.linguistic2.ConversionDirection import FROM_RIGHT as CONVERSION_DIRECTION_FROM_RIGHT
+    from ...lo.linguistic2.conversion_direction import ConversionDirection as ConversionDirection
 
-        class ConversionDirection(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API ConversionDirection <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1linguistic2.html#a884af1a9fc4a39bcfd381c3acaa30997>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.linguistic2.ConversionDirection', value)
-
-            __ooo_ns__: str = 'com.sun.star.linguistic2'
-            __ooo_full_ns__: str = 'com.sun.star.linguistic2.ConversionDirection'
-            __ooo_type_name__: str = 'enum'
-
-            FROM_LEFT = CONVERSION_DIRECTION_FROM_LEFT
-            """
-            the text to be looked for should match the left part of a dictionary entry.
-            """
-            FROM_RIGHT = CONVERSION_DIRECTION_FROM_RIGHT
-            """
-            the text to be looked for should match the right part of a dictionary entry.
-            """
-    else:
-        # keep document generators happy
-        from ...lo.linguistic2.conversion_direction import ConversionDirection as ConversionDirection
-
-
-__all__ = ['ConversionDirection']
+__all__ = ["ConversionDirection"]

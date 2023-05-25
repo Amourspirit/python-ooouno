@@ -27,9 +27,9 @@ if typing.TYPE_CHECKING:
     from ..table.table_border import TableBorder as TableBorder_aedf0b56
     from ..table.table_border2 import TableBorder2 as TableBorder2_ba670b88
     from ..util.color import Color as Color_68e908c5
-    from com.sun.star.awt.FontSlant import FontSlantProto
-    from com.sun.star.table.CellHoriJustify import CellHoriJustifyProto
-    from com.sun.star.table.CellOrientation import CellOrientationProto
+    from com.sun.star.awt.FontSlant import FontSlantProto  # type: ignore
+    from com.sun.star.table.CellHoriJustify import CellHoriJustifyProto  # type: ignore
+    from com.sun.star.table.CellOrientation import CellOrientationProto  # type: ignore
 
 class TableAutoFormatField(XPropertySet_bc180bfa):
     """
@@ -378,4 +378,3 @@ class TableAutoFormatField(XPropertySet_bc180bfa):
 
 
 __all__ = ['TableAutoFormatField']
-

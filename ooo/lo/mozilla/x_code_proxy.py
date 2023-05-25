@@ -23,7 +23,7 @@ import typing
 from abc import abstractmethod
 from ..uno.x_interface import XInterface as XInterface_8f010a43
 if typing.TYPE_CHECKING:
-    from com.sun.star.mozilla.MozillaProductType import MozillaProductTypeProto
+    from com.sun.star.mozilla.MozillaProductType import MozillaProductTypeProto  # type: ignore
 
 class XCodeProxy(XInterface_8f010a43):
     """
@@ -57,4 +57,3 @@ class XCodeProxy(XInterface_8f010a43):
         ...
 
 __all__ = ['XCodeProxy']
-

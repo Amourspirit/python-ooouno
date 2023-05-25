@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.xml.dom.events
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.xml.dom.events.AttrChangeType import AttrChangeTypeProto
+
 
 class AttrChangeType(Enum):
     """
@@ -33,23 +31,23 @@ class AttrChangeType(Enum):
     See Also:
         `API AttrChangeType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1xml_1_1dom_1_1events.html#adfd54b6d9390eb4c83f1b1a365abc0f9>`_
     """
-    __ooo_ns__: str = 'com.sun.star.xml.dom.events'
-    __ooo_full_ns__: str = 'com.sun.star.xml.dom.events.AttrChangeType'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.xml.dom.events"
+    __ooo_full_ns__: str = "com.sun.star.xml.dom.events.AttrChangeType"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.xml.dom.events.AttrChangeType'
+        return "com.sun.star.xml.dom.events.AttrChangeType"
 
-    ADDITION = cast("AttrChangeTypeProto", 'ADDITION')
+    ADDITION = "ADDITION"
     """
     """
-    MODIFICATION = cast("AttrChangeTypeProto", 'MODIFICATION')
+    MODIFICATION = "MODIFICATION"
     """
     """
-    REMOVAL = cast("AttrChangeTypeProto", 'REMOVAL')
+    REMOVAL = "REMOVAL"
     """
     """
 
-__all__ = ['AttrChangeType']
+__all__ = ["AttrChangeType"]
 

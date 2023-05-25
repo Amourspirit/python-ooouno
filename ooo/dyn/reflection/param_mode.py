@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,48 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class ParamMode(metaclass=UnoEnumMeta, type_name="com.sun.star.reflection.ParamMode", name_space="com.sun.star.reflection"):
         """Dynamically created class that represents ``com.sun.star.reflection.ParamMode`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.reflection.ParamMode import IN as PARAM_MODE_IN
-        from com.sun.star.reflection.ParamMode import INOUT as PARAM_MODE_INOUT
-        from com.sun.star.reflection.ParamMode import OUT as PARAM_MODE_OUT
+    from ...lo.reflection.param_mode import ParamMode as ParamMode
 
-        class ParamMode(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API ParamMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1reflection.html#ada880a15fc14bc0e53c3dd7c3c8a34eb>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.reflection.ParamMode', value)
-
-            __ooo_ns__: str = 'com.sun.star.reflection'
-            __ooo_full_ns__: str = 'com.sun.star.reflection.ParamMode'
-            __ooo_type_name__: str = 'enum'
-
-            IN = PARAM_MODE_IN
-            """
-            parameter serves as pure input for a called method
-            """
-            INOUT = PARAM_MODE_INOUT
-            """
-            parameter serves as input as well as output; data can transferred in both directions
-            """
-            OUT = PARAM_MODE_OUT
-            """
-            parameter serves as pure output for the callee (in addition to the return value)
-            """
-    else:
-        # keep document generators happy
-        from ...lo.reflection.param_mode import ParamMode as ParamMode
-
-
-__all__ = ['ParamMode']
+__all__ = ["ParamMode"]

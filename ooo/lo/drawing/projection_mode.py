@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.drawing
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.drawing.ProjectionMode import ProjectionModeProto
+
 
 class ProjectionMode(Enum):
     """
@@ -32,24 +30,24 @@ class ProjectionMode(Enum):
     See Also:
         `API ProjectionMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a635428fef8d6e4afba288610c9c65bd5>`_
     """
-    __ooo_ns__: str = 'com.sun.star.drawing'
-    __ooo_full_ns__: str = 'com.sun.star.drawing.ProjectionMode'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.drawing"
+    __ooo_full_ns__: str = "com.sun.star.drawing.ProjectionMode"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.drawing.ProjectionMode'
+        return "com.sun.star.drawing.ProjectionMode"
 
-    PARALLEL = cast("ProjectionModeProto", 'PARALLEL')
+    PARALLEL = "PARALLEL"
     """
     the 3D objects are drawn in the parallel projection.
     
     This value specifies a flat parallel projection in the specified degree of freedom (X or Y).
     """
-    PERSPECTIVE = cast("ProjectionModeProto", 'PERSPECTIVE')
+    PERSPECTIVE = "PERSPECTIVE"
     """
     the 3D objects are drawn in the perspective projection.
     """
 
-__all__ = ['ProjectionMode']
+__all__ = ["ProjectionMode"]
 

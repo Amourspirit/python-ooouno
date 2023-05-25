@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,48 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class PresentationRange(metaclass=UnoEnumMeta, type_name="com.sun.star.presentation.PresentationRange", name_space="com.sun.star.presentation"):
         """Dynamically created class that represents ``com.sun.star.presentation.PresentationRange`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.presentation.PresentationRange import PRESENTATIONRANGE_ALL as PRESENTATION_RANGE_PRESENTATIONRANGE_ALL
-        from com.sun.star.presentation.PresentationRange import PRESENTATIONRANGE_FROM_PAGE as PRESENTATION_RANGE_PRESENTATIONRANGE_FROM_PAGE
-        from com.sun.star.presentation.PresentationRange import PRESENTATIONRANGE_INDIVIDUAL as PRESENTATION_RANGE_PRESENTATIONRANGE_INDIVIDUAL
+    from ...lo.presentation.presentation_range import PresentationRange as PresentationRange
 
-        class PresentationRange(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API PresentationRange <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1presentation.html#a69c71b14b95cc70bce7122a7b8287045>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.presentation.PresentationRange', value)
-
-            __ooo_ns__: str = 'com.sun.star.presentation'
-            __ooo_full_ns__: str = 'com.sun.star.presentation.PresentationRange'
-            __ooo_type_name__: str = 'enum'
-
-            PRESENTATIONRANGE_ALL = PRESENTATION_RANGE_PRESENTATIONRANGE_ALL
-            """
-            use all slides.
-            """
-            PRESENTATIONRANGE_FROM_PAGE = PRESENTATION_RANGE_PRESENTATIONRANGE_FROM_PAGE
-            """
-            use only the active slide.
-            """
-            PRESENTATIONRANGE_INDIVIDUAL = PRESENTATION_RANGE_PRESENTATIONRANGE_INDIVIDUAL
-            """
-            use an individual choice of slides.
-            """
-    else:
-        # keep document generators happy
-        from ...lo.presentation.presentation_range import PresentationRange as PresentationRange
-
-
-__all__ = ['PresentationRange']
+__all__ = ["PresentationRange"]

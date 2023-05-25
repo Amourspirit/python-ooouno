@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.drawing
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.drawing.MeasureTextVertPos import MeasureTextVertPosProto
+
 
 class MeasureTextVertPos(Enum):
     """
@@ -32,35 +30,35 @@ class MeasureTextVertPos(Enum):
     See Also:
         `API MeasureTextVertPos <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#afb97f6590316423181878e8f5f79f087>`_
     """
-    __ooo_ns__: str = 'com.sun.star.drawing'
-    __ooo_full_ns__: str = 'com.sun.star.drawing.MeasureTextVertPos'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.drawing"
+    __ooo_full_ns__: str = "com.sun.star.drawing.MeasureTextVertPos"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.drawing.MeasureTextVertPos'
+        return "com.sun.star.drawing.MeasureTextVertPos"
 
-    AUTO = cast("MeasureTextVertPosProto", 'AUTO')
+    AUTO = "AUTO"
     """
     the connection point is chosen automatically,
     
     Set this to have the application select the best horizontal position for the text.
     """
-    BREAKEDLINE = cast("MeasureTextVertPosProto", 'BREAKEDLINE')
+    BREAKEDLINE = "BREAKEDLINE"
     """
     """
-    CENTERED = cast("MeasureTextVertPosProto", 'CENTERED')
+    CENTERED = "CENTERED"
     """
     The text is positioned at the center.
     
     The text is positioned over the main line.
     """
-    EAST = cast("MeasureTextVertPosProto", 'EAST')
+    EAST = "EAST"
     """
     """
-    WEST = cast("MeasureTextVertPosProto", 'WEST')
+    WEST = "WEST"
     """
     """
 
-__all__ = ['MeasureTextVertPos']
+__all__ = ["MeasureTextVertPos"]
 

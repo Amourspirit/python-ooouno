@@ -70,3 +70,4 @@ class XTextContentAppend(XInterface_8f010a43):
 
 __all__ = ['XTextContentAppend']
 
+

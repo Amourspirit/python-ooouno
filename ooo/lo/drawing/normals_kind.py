@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.drawing
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.drawing.NormalsKind import NormalsKindProto
+
 
 class NormalsKind(Enum):
     """
@@ -32,30 +30,30 @@ class NormalsKind(Enum):
     See Also:
         `API NormalsKind <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a2f040e92a1488875fb14c6ecc377630b>`_
     """
-    __ooo_ns__: str = 'com.sun.star.drawing'
-    __ooo_full_ns__: str = 'com.sun.star.drawing.NormalsKind'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.drawing"
+    __ooo_full_ns__: str = "com.sun.star.drawing.NormalsKind"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.drawing.NormalsKind'
+        return "com.sun.star.drawing.NormalsKind"
 
-    FLAT = cast("NormalsKindProto", 'FLAT')
+    FLAT = "FLAT"
     """
     forces one normal per flat part.
     
     With FLAT shading, the faces of the object are rendered in a solid color.
     """
-    SPECIFIC = cast("NormalsKindProto", 'SPECIFIC')
+    SPECIFIC = "SPECIFIC"
     """
     does not produce standard normals, but leaves the object-specific ones untouched.
     """
-    SPHERE = cast("NormalsKindProto", 'SPHERE')
+    SPHERE = "SPHERE"
     """
     forces normals to think that the object is a sphere.
     
     This value forces projection to wrapping in X and/or Y.
     """
 
-__all__ = ['NormalsKind']
+__all__ = ["NormalsKind"]
 

@@ -22,9 +22,9 @@ from __future__ import annotations
 import typing
 from abc import abstractproperty, ABC
 if typing.TYPE_CHECKING:
-    from com.sun.star.drawing.MeasureKind import MeasureKindProto
-    from com.sun.star.drawing.MeasureTextHorzPos import MeasureTextHorzPosProto
-    from com.sun.star.drawing.MeasureTextVertPos import MeasureTextVertPosProto
+    from com.sun.star.drawing.MeasureKind import MeasureKindProto  # type: ignore
+    from com.sun.star.drawing.MeasureTextHorzPos import MeasureTextHorzPosProto  # type: ignore
+    from com.sun.star.drawing.MeasureTextVertPos import MeasureTextVertPosProto  # type: ignore
 
 class MeasureProperties(ABC):
     """
@@ -175,4 +175,3 @@ class MeasureProperties(ABC):
 
 
 __all__ = ['MeasureProperties']
-

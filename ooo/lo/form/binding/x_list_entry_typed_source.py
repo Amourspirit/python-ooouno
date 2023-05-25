@@ -50,3 +50,4 @@ class XListEntryTypedSource(XListEntrySource_576b103c):
 
 __all__ = ['XListEntryTypedSource']
 
+

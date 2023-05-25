@@ -30,10 +30,10 @@ from ..style.character_properties_asian import CharacterPropertiesAsian as Chara
 from ..style.character_properties_complex import CharacterPropertiesComplex as CharacterPropertiesComplex_90ca11cb
 if typing.TYPE_CHECKING:
     from ..awt.size import Size as Size_576707ef
-    from com.sun.star.chart.ChartAxisArrangeOrderType import ChartAxisArrangeOrderTypeProto
-    from com.sun.star.chart.ChartAxisPosition import ChartAxisPositionProto
-    from com.sun.star.chart.ChartAxisLabelPosition import ChartAxisLabelPositionProto
-    from com.sun.star.chart.ChartAxisMarkPosition import ChartAxisMarkPositionProto
+    from com.sun.star.chart.ChartAxisArrangeOrderType import ChartAxisArrangeOrderTypeProto  # type: ignore
+    from com.sun.star.chart.ChartAxisPosition import ChartAxisPositionProto  # type: ignore
+    from com.sun.star.chart.ChartAxisLabelPosition import ChartAxisLabelPositionProto  # type: ignore
+    from com.sun.star.chart.ChartAxisMarkPosition import ChartAxisMarkPositionProto  # type: ignore
 
 class Axis(PropertySet_b0e70ba2, LineProperties_f13f0da9, CharacterProperties_1d4f0ef3, CharacterPropertiesAsian_6d8a10df, CharacterPropertiesComplex_90ca11cb, XAxis_796b0939, XTitled_8d490a0a):
     """
@@ -205,4 +205,3 @@ class Axis(PropertySet_b0e70ba2, LineProperties_f13f0da9, CharacterProperties_1d
 
 
 __all__ = ['Axis']
-

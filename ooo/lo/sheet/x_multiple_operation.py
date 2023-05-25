@@ -25,7 +25,7 @@ from ..uno.x_interface import XInterface as XInterface_8f010a43
 if typing.TYPE_CHECKING:
     from ..table.cell_address import CellAddress as CellAddress_ae5f0b56
     from ..table.cell_range_address import CellRangeAddress as CellRangeAddress_ec450d43
-    from com.sun.star.sheet.TableOperationMode import TableOperationModeProto
+    from com.sun.star.sheet.TableOperationMode import TableOperationModeProto  # type: ignore
 
 class XMultipleOperation(XInterface_8f010a43):
     """
@@ -49,4 +49,3 @@ class XMultipleOperation(XInterface_8f010a43):
         ...
 
 __all__ = ['XMultipleOperation']
-

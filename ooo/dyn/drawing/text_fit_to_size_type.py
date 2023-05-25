@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,69 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class TextFitToSizeType(metaclass=UnoEnumMeta, type_name="com.sun.star.drawing.TextFitToSizeType", name_space="com.sun.star.drawing"):
         """Dynamically created class that represents ``com.sun.star.drawing.TextFitToSizeType`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.drawing.TextFitToSizeType import ALLLINES as TEXT_FIT_TO_SIZE_TYPE_ALLLINES
-        from com.sun.star.drawing.TextFitToSizeType import AUTOFIT as TEXT_FIT_TO_SIZE_TYPE_AUTOFIT
-        from com.sun.star.drawing.TextFitToSizeType import NONE as TEXT_FIT_TO_SIZE_TYPE_NONE
-        from com.sun.star.drawing.TextFitToSizeType import PROPORTIONAL as TEXT_FIT_TO_SIZE_TYPE_PROPORTIONAL
+    from ...lo.drawing.text_fit_to_size_type import TextFitToSizeType as TextFitToSizeType
 
-        class TextFitToSizeType(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API TextFitToSizeType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a119322ec5cab271556edacd80f9d780a>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.drawing.TextFitToSizeType', value)
-
-            __ooo_ns__: str = 'com.sun.star.drawing'
-            __ooo_full_ns__: str = 'com.sun.star.drawing.TextFitToSizeType'
-            __ooo_type_name__: str = 'enum'
-
-            ALLLINES = TEXT_FIT_TO_SIZE_TYPE_ALLLINES
-            """
-            Nowadays this is the same as PROPORTIONAL.
-            """
-            AUTOFIT = TEXT_FIT_TO_SIZE_TYPE_AUTOFIT
-            """
-            The font size is scaled down (never up!) isotropically to fit the available space.
-
-            Auto line-breaks will keep working.
-            """
-            NONE = TEXT_FIT_TO_SIZE_TYPE_NONE
-            """
-            the area is not filled.
-
-            The text size is only defined by the font properties.
-
-            Don't animate this text.
-
-            the line is hidden.
-
-            the joint between lines will not be connected
-
-            the line has no special end.
-            """
-            PROPORTIONAL = TEXT_FIT_TO_SIZE_TYPE_PROPORTIONAL
-            """
-            The bitmap with the rendered glyphs is scaled up or down proportionally to fit the size of the shape.
-
-            This may scale anisotropically. No AutoGrow and no Auto line-breaks in this case.
-
-            On fontwork custom shapes, the rendering is different: each line of text is separately scaled proportionally to fit the width.
-            """
-    else:
-        # keep document generators happy
-        from ...lo.drawing.text_fit_to_size_type import TextFitToSizeType as TextFitToSizeType
-
-
-__all__ = ['TextFitToSizeType']
+__all__ = ["TextFitToSizeType"]

@@ -250,3 +250,4 @@ class XStorage(XNameAccess_e2ab0cf6, XComponent_98dc0ab5):
 
 __all__ = ['XStorage']
 
+

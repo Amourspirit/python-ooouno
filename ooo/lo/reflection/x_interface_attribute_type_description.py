@@ -56,3 +56,4 @@ class XInterfaceAttributeTypeDescription(XInterfaceMemberTypeDescription_52ea159
 
 __all__ = ['XInterfaceAttributeTypeDescription']
 
+

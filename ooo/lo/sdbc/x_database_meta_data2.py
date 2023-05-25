@@ -46,3 +46,4 @@ class XDatabaseMetaData2(XDatabaseMetaData_eafd0d12):
 
 __all__ = ['XDatabaseMetaData2']
 
+

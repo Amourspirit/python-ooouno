@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.chart
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.chart.ChartDataRowSource import ChartDataRowSourceProto
+
 
 class ChartDataRowSource(Enum):
     """
@@ -32,22 +30,22 @@ class ChartDataRowSource(Enum):
     See Also:
         `API ChartDataRowSource <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart.html#a0fb4f8088715abb6eb51a29c4bd79cce>`_
     """
-    __ooo_ns__: str = 'com.sun.star.chart'
-    __ooo_full_ns__: str = 'com.sun.star.chart.ChartDataRowSource'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.chart"
+    __ooo_full_ns__: str = "com.sun.star.chart.ChartDataRowSource"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.chart.ChartDataRowSource'
+        return "com.sun.star.chart.ChartDataRowSource"
 
-    COLUMNS = cast("ChartDataRowSourceProto", 'COLUMNS')
+    COLUMNS = "COLUMNS"
     """
     values displayed as data rows are taken from the columns of the data source.
     """
-    ROWS = cast("ChartDataRowSourceProto", 'ROWS')
+    ROWS = "ROWS"
     """
     values displayed as data rows are taken from the rows of the data source.
     """
 
-__all__ = ['ChartDataRowSource']
+__all__ = ["ChartDataRowSource"]
 

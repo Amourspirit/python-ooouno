@@ -23,7 +23,10 @@ import typing
 from abc import abstractmethod
 from ..task.x_interaction_continuation import XInteractionContinuation as XInteractionContinuation_5af0108e
 if typing.TYPE_CHECKING:
-    from com.sun.star.ucb.RememberAuthentication import RememberAuthenticationProto
+    from com.sun.star.ucb.RememberAuthentication import RememberAuthenticationProto  # type: ignore
+    from com.sun.star.ucb.RememberAuthentication import RememberAuthenticationProto  # type: ignore
+    from com.sun.star.ucb.RememberAuthentication import RememberAuthenticationProto  # type: ignore
+    from com.sun.star.ucb.RememberAuthentication import RememberAuthenticationProto  # type: ignore
 
 class XInteractionSupplyAuthentication(XInteractionContinuation_5af0108e):
     """
@@ -64,7 +67,7 @@ class XInteractionSupplyAuthentication(XInteractionContinuation_5af0108e):
         """
         ...
     @abstractmethod
-    def getRememberAccountModes(self, Default: RememberAuthenticationProto) -> typing.Tuple[RememberAuthentication_28a80f31, ...]:
+    def getRememberAccountModes(self, Default: RememberAuthenticationProto) -> typing.Tuple[RememberAuthenticationProto, ...]:
         """
         Specifies the available modes of how long to remember the account.
 
@@ -72,7 +75,7 @@ class XInteractionSupplyAuthentication(XInteractionContinuation_5af0108e):
         """
         ...
     @abstractmethod
-    def getRememberPasswordModes(self, Default: RememberAuthenticationProto) -> typing.Tuple[RememberAuthentication_28a80f31, ...]:
+    def getRememberPasswordModes(self, Default: RememberAuthenticationProto) -> typing.Tuple[RememberAuthenticationProto, ...]:
         """
         Specifies the available modes of how long to remember the password.
 
@@ -129,4 +132,3 @@ class XInteractionSupplyAuthentication(XInteractionContinuation_5af0108e):
         ...
 
 __all__ = ['XInteractionSupplyAuthentication']
-

@@ -24,7 +24,7 @@ from abc import abstractproperty
 from ..data_aware_control_model import DataAwareControlModel as DataAwareControlModel_27110ef8
 from .combo_box import ComboBox as ComboBox_fecc0dd6
 if typing.TYPE_CHECKING:
-    from com.sun.star.form.ListSourceType import ListSourceTypeProto
+    from com.sun.star.form.ListSourceType import ListSourceTypeProto  # type: ignore
 
 class DatabaseComboBox(DataAwareControlModel_27110ef8, ComboBox_fecc0dd6):
     """
@@ -72,4 +72,3 @@ class DatabaseComboBox(DataAwareControlModel_27110ef8, ComboBox_fecc0dd6):
 
 
 __all__ = ['DatabaseComboBox']
-

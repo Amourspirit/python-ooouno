@@ -69,3 +69,4 @@ class XLogFormatter(ABC):
 
 __all__ = ['XLogFormatter']
 
+

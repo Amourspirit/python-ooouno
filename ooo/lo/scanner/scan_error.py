@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.scanner
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.scanner.ScanError import ScanErrorProto
+
 
 class ScanError(Enum):
     """
@@ -32,38 +30,38 @@ class ScanError(Enum):
     See Also:
         `API ScanError <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1scanner.html#abd1619ea132004db8599d9529755e9ab>`_
     """
-    __ooo_ns__: str = 'com.sun.star.scanner'
-    __ooo_full_ns__: str = 'com.sun.star.scanner.ScanError'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.scanner"
+    __ooo_full_ns__: str = "com.sun.star.scanner.ScanError"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.scanner.ScanError'
+        return "com.sun.star.scanner.ScanError"
 
-    InvalidContext = cast("ScanErrorProto", 'InvalidContext')
+    InvalidContext = "InvalidContext"
     """
     InvalidContext: a device was requested that does not exist.
     """
-    ScanCanceled = cast("ScanErrorProto", 'ScanCanceled')
+    ScanCanceled = "ScanCanceled"
     """
     ScanCanceled: the scan was canceled by the user.
     """
-    ScanErrorNone = cast("ScanErrorProto", 'ScanErrorNone')
+    ScanErrorNone = "ScanErrorNone"
     """
     ScanErrorNone: no error occurred.
     """
-    ScanFailed = cast("ScanErrorProto", 'ScanFailed')
+    ScanFailed = "ScanFailed"
     """
     ScanFailed: an error occurred during scanning.
     """
-    ScanInProgress = cast("ScanErrorProto", 'ScanInProgress')
+    ScanInProgress = "ScanInProgress"
     """
     ScanInProgress: a scan is already in progress on this device that has to end before a new one can be started.
     """
-    ScannerNotAvailable = cast("ScanErrorProto", 'ScannerNotAvailable')
+    ScannerNotAvailable = "ScannerNotAvailable"
     """
     ScannerNotAvailable: the requested device could not be opened.
     """
 
-__all__ = ['ScanError']
+__all__ = ["ScanError"]
 

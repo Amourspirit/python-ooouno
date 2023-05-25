@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.sheet
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.sheet.CellDeleteMode import CellDeleteModeProto
+
 
 class CellDeleteMode(Enum):
     """
@@ -32,27 +30,27 @@ class CellDeleteMode(Enum):
     See Also:
         `API CellDeleteMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1sheet.html#af2bbbff47b7abe36f258e59b1351e422>`_
     """
-    __ooo_ns__: str = 'com.sun.star.sheet'
-    __ooo_full_ns__: str = 'com.sun.star.sheet.CellDeleteMode'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.sheet"
+    __ooo_full_ns__: str = "com.sun.star.sheet.CellDeleteMode"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.sheet.CellDeleteMode'
+        return "com.sun.star.sheet.CellDeleteMode"
 
-    COLUMNS = cast("CellDeleteModeProto", 'COLUMNS')
+    COLUMNS = "COLUMNS"
     """
     entire columns to the right of the deleted cells are moved left.
     
     entire columns to the right of the inserted cells are moved right.
     """
-    LEFT = cast("CellDeleteModeProto", 'LEFT')
+    LEFT = "LEFT"
     """
     selects the left border.
     
     the cells to the right of the deleted cells are moved left.
     """
-    NONE = cast("CellDeleteModeProto", 'NONE')
+    NONE = "NONE"
     """
     no cells are moved.
     
@@ -66,16 +64,16 @@ class CellDeleteMode(Enum):
     
     no condition is specified.
     """
-    ROWS = cast("CellDeleteModeProto", 'ROWS')
+    ROWS = "ROWS"
     """
     entire rows below the deleted cells are moved up.
     
     entire rows below the inserted cells are moved down.
     """
-    UP = cast("CellDeleteModeProto", 'UP')
+    UP = "UP"
     """
     the cells below the deleted cells are moved up.
     """
 
-__all__ = ['CellDeleteMode']
+__all__ = ["CellDeleteMode"]
 

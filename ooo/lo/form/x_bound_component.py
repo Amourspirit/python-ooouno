@@ -47,3 +47,4 @@ class XBoundComponent(XUpdateBroadcaster_fc910de1):
 
 __all__ = ['XBoundComponent']
 
+

@@ -64,3 +64,4 @@ class XInterfaceAttributeTypeDescription2(XInterfaceAttributeTypeDescription_98c
 
 __all__ = ['XInterfaceAttributeTypeDescription2']
 
+

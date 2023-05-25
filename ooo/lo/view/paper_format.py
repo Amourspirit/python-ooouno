@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.view
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.view.PaperFormat import PaperFormatProto
+
 
 class PaperFormat(Enum):
     """
@@ -32,50 +30,50 @@ class PaperFormat(Enum):
     See Also:
         `API PaperFormat <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1view.html#a12ab04987d08416f8347a9790c7abf3e>`_
     """
-    __ooo_ns__: str = 'com.sun.star.view'
-    __ooo_full_ns__: str = 'com.sun.star.view.PaperFormat'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.view"
+    __ooo_full_ns__: str = "com.sun.star.view.PaperFormat"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.view.PaperFormat'
+        return "com.sun.star.view.PaperFormat"
 
-    A3 = cast("PaperFormatProto", 'A3')
+    A3 = "A3"
     """
     specifies the paper format as A3.
     """
-    A4 = cast("PaperFormatProto", 'A4')
+    A4 = "A4"
     """
     specifies the paper format as A4.
     """
-    A5 = cast("PaperFormatProto", 'A5')
+    A5 = "A5"
     """
     specifies the paper format as A5.
     """
-    B4 = cast("PaperFormatProto", 'B4')
+    B4 = "B4"
     """
     specifies the paper format as B4.
     """
-    B5 = cast("PaperFormatProto", 'B5')
+    B5 = "B5"
     """
     specifies the paper format as B5.
     """
-    LEGAL = cast("PaperFormatProto", 'LEGAL')
+    LEGAL = "LEGAL"
     """
     specifies the paper format as Legal.
     """
-    LETTER = cast("PaperFormatProto", 'LETTER')
+    LETTER = "LETTER"
     """
     specifies the paper format as Letter.
     """
-    TABLOID = cast("PaperFormatProto", 'TABLOID')
+    TABLOID = "TABLOID"
     """
     specifies the paper format as Tabloid.
     """
-    USER = cast("PaperFormatProto", 'USER')
+    USER = "USER"
     """
     The real paper size is user defined in 100th mm.
     """
 
-__all__ = ['PaperFormat']
+__all__ = ["PaperFormat"]
 

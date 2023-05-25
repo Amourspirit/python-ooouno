@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.ucb
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.ucb.WebDAVHTTPMethod import WebDAVHTTPMethodProto
+
 
 class WebDAVHTTPMethod(Enum):
     """
@@ -32,84 +30,84 @@ class WebDAVHTTPMethod(Enum):
     See Also:
         `API WebDAVHTTPMethod <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1ucb.html#a3c143367536e0c519b25183505ae3ed7>`_
     """
-    __ooo_ns__: str = 'com.sun.star.ucb'
-    __ooo_full_ns__: str = 'com.sun.star.ucb.WebDAVHTTPMethod'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.ucb"
+    __ooo_full_ns__: str = "com.sun.star.ucb.WebDAVHTTPMethod"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.ucb.WebDAVHTTPMethod'
+        return "com.sun.star.ucb.WebDAVHTTPMethod"
 
-    CONNECT = cast("WebDAVHTTPMethodProto", 'CONNECT')
+    CONNECT = "CONNECT"
     """
     HTTP request method as defined in RFC 2616: Hypertext Transfer Protocol – HTTP/1.1
     """
-    COPY = cast("WebDAVHTTPMethodProto", 'COPY')
+    COPY = "COPY"
     """
     Copy the source to the target folder.
     
     WebDAV methods as defined in HTTP Extensions for Web Distributed Authoring and Versioning (WebDAV)
     """
-    DELETE = cast("WebDAVHTTPMethodProto", 'DELETE')
+    DELETE = "DELETE"
     """
     HTTP request method as defined in RFC 2616: Hypertext Transfer Protocol – HTTP/1.1
     """
-    GET = cast("WebDAVHTTPMethodProto", 'GET')
+    GET = "GET"
     """
     Get a list of all folders.
     
     HTTP request method as defined in RFC 2616: Hypertext Transfer Protocol – HTTP/1.1
     """
-    HEAD = cast("WebDAVHTTPMethodProto", 'HEAD')
+    HEAD = "HEAD"
     """
     HTTP request method as defined in RFC 2616: Hypertext Transfer Protocol – HTTP/1.1
     """
-    LOCK = cast("WebDAVHTTPMethodProto", 'LOCK')
+    LOCK = "LOCK"
     """
     WebDAV methods as defined in HTTP Extensions for Web Distributed Authoring and Versioning (WebDAV)
     """
-    MKCOL = cast("WebDAVHTTPMethodProto", 'MKCOL')
+    MKCOL = "MKCOL"
     """
     WebDAV methods as defined in HTTP Extensions for Web Distributed Authoring and Versioning (WebDAV)
     """
-    MOVE = cast("WebDAVHTTPMethodProto", 'MOVE')
+    MOVE = "MOVE"
     """
     Move the source to the target folder.
     
     WebDAV methods as defined in HTTP Extensions for Web Distributed Authoring and Versioning (WebDAV)
     """
-    OPTIONS = cast("WebDAVHTTPMethodProto", 'OPTIONS')
+    OPTIONS = "OPTIONS"
     """
     HTTP request method as defined in RFC 2616: Hypertext Transfer Protocol – HTTP/1.1
     """
-    PATCH = cast("WebDAVHTTPMethodProto", 'PATCH')
+    PATCH = "PATCH"
     """
     HTTP request method as defined in RFC 5789: PATCH Method for HTTP
     """
-    POST = cast("WebDAVHTTPMethodProto", 'POST')
+    POST = "POST"
     """
     HTTP request method as defined in RFC 2616: Hypertext Transfer Protocol – HTTP/1.1
     """
-    PROPFIND = cast("WebDAVHTTPMethodProto", 'PROPFIND')
+    PROPFIND = "PROPFIND"
     """
     WebDAV methods as defined in HTTP Extensions for Web Distributed Authoring and Versioning (WebDAV)
     """
-    PROPPATCH = cast("WebDAVHTTPMethodProto", 'PROPPATCH')
+    PROPPATCH = "PROPPATCH"
     """
     WebDAV methods as defined in HTTP Extensions for Web Distributed Authoring and Versioning (WebDAV)
     """
-    PUT = cast("WebDAVHTTPMethodProto", 'PUT')
+    PUT = "PUT"
     """
     HTTP request method as defined in RFC 2616: Hypertext Transfer Protocol – HTTP/1.1
     """
-    TRACE = cast("WebDAVHTTPMethodProto", 'TRACE')
+    TRACE = "TRACE"
     """
     HTTP request method as defined in RFC 2616: Hypertext Transfer Protocol – HTTP/1.1
     """
-    UNLOCK = cast("WebDAVHTTPMethodProto", 'UNLOCK')
+    UNLOCK = "UNLOCK"
     """
     WebDAV methods as defined in HTTP Extensions for Web Distributed Authoring and Versioning (WebDAV)
     """
 
-__all__ = ['WebDAVHTTPMethod']
+__all__ = ["WebDAVHTTPMethod"]
 

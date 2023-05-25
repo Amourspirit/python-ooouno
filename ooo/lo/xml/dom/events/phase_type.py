@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.xml.dom.events
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.xml.dom.events.PhaseType import PhaseTypeProto
+
 
 class PhaseType(Enum):
     """
@@ -33,23 +31,23 @@ class PhaseType(Enum):
     See Also:
         `API PhaseType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1xml_1_1dom_1_1events.html#af00a42ecad444bbda75cde1b64bd7e72>`_
     """
-    __ooo_ns__: str = 'com.sun.star.xml.dom.events'
-    __ooo_full_ns__: str = 'com.sun.star.xml.dom.events.PhaseType'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.xml.dom.events"
+    __ooo_full_ns__: str = "com.sun.star.xml.dom.events.PhaseType"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.xml.dom.events.PhaseType'
+        return "com.sun.star.xml.dom.events.PhaseType"
 
-    AT_TARGET = cast("PhaseTypeProto", 'AT_TARGET')
+    AT_TARGET = "AT_TARGET"
     """
     """
-    BUBBLING_PHASE = cast("PhaseTypeProto", 'BUBBLING_PHASE')
+    BUBBLING_PHASE = "BUBBLING_PHASE"
     """
     """
-    CAPTURING_PHASE = cast("PhaseTypeProto", 'CAPTURING_PHASE')
+    CAPTURING_PHASE = "CAPTURING_PHASE"
     """
     """
 
-__all__ = ['PhaseType']
+__all__ = ["PhaseType"]
 

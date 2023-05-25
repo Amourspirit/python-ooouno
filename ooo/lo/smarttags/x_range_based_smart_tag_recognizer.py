@@ -26,7 +26,7 @@ if typing.TYPE_CHECKING:
     from ..frame.x_controller import XController as XController_b00e0b8f
     from ..text.x_text_markup import XTextMarkup as XTextMarkup_a5d60b3a
     from ..text.x_text_range import XTextRange as XTextRange_9a910ab7
-    from com.sun.star.smarttags.SmartTagRecognizerMode import SmartTagRecognizerModeProto
+    from com.sun.star.smarttags.SmartTagRecognizerMode import SmartTagRecognizerModeProto  # type: ignore
 
 class XRangeBasedSmartTagRecognizer(XInitialization_d46c0cca):
     """
@@ -48,4 +48,3 @@ class XRangeBasedSmartTagRecognizer(XInitialization_d46c0cca):
         ...
 
 __all__ = ['XRangeBasedSmartTagRecognizer']
-

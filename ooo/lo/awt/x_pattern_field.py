@@ -76,3 +76,4 @@ class XPatternField(XInterface_8f010a43):
 
 __all__ = ['XPatternField']
 
+

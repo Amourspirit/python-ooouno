@@ -25,7 +25,7 @@ from ..uno.x_interface import XInterface as XInterface_8f010a43
 if typing.TYPE_CHECKING:
     from .x_menu_listener import XMenuListener as XMenuListener_af9e0b87
     from .x_popup_menu import XPopupMenu as XPopupMenu_8ee90a55
-    from com.sun.star.awt.MenuItemType import MenuItemTypeProto
+    from com.sun.star.awt.MenuItemType import MenuItemTypeProto  # type: ignore
 
 class XMenu(XInterface_8f010a43):
     """
@@ -199,4 +199,3 @@ class XMenu(XInterface_8f010a43):
         ...
 
 __all__ = ['XMenu']
-

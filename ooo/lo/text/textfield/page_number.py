@@ -23,7 +23,7 @@ import typing
 from abc import abstractproperty
 from ..text_field import TextField as TextField_90260a56
 if typing.TYPE_CHECKING:
-    from com.sun.star.text.PageNumberType import PageNumberTypeProto
+    from com.sun.star.text.PageNumberType import PageNumberTypeProto  # type: ignore
 
 class PageNumber(TextField_90260a56):
     """
@@ -68,4 +68,3 @@ class PageNumber(TextField_90260a56):
 
 
 __all__ = ['PageNumber']
-

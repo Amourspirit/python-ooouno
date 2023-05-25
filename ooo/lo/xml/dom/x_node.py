@@ -26,7 +26,7 @@ if typing.TYPE_CHECKING:
     from .x_document import XDocument as XDocument_aebc0b5e
     from .x_named_node_map import XNamedNodeMap as XNamedNodeMap_de600ca8
     from .x_node_list import XNodeList as XNodeList_ae540b41
-    from com.sun.star.xml.dom.NodeType import NodeTypeProto
+    from com.sun.star.xml.dom.NodeType import NodeTypeProto  # type: ignore
 
 class XNode(XInterface_8f010a43):
     """
@@ -261,4 +261,3 @@ class XNode(XInterface_8f010a43):
         ...
 
 __all__ = ['XNode']
-

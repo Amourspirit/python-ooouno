@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.drawing
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.drawing.TextureProjectionMode import TextureProjectionModeProto
+
 
 class TextureProjectionMode(Enum):
     """
@@ -32,30 +30,30 @@ class TextureProjectionMode(Enum):
     See Also:
         `API TextureProjectionMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#ae1e109a5c70543e3b92db3b854fd3acb>`_
     """
-    __ooo_ns__: str = 'com.sun.star.drawing'
-    __ooo_full_ns__: str = 'com.sun.star.drawing.TextureProjectionMode'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.drawing"
+    __ooo_full_ns__: str = "com.sun.star.drawing.TextureProjectionMode"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.drawing.TextureProjectionMode'
+        return "com.sun.star.drawing.TextureProjectionMode"
 
-    OBJECTSPECIFIC = cast("TextureProjectionModeProto", 'OBJECTSPECIFIC')
+    OBJECTSPECIFIC = "OBJECTSPECIFIC"
     """
     This value specifies that the standard object projection method is used.
     """
-    PARALLEL = cast("TextureProjectionModeProto", 'PARALLEL')
+    PARALLEL = "PARALLEL"
     """
     the 3D objects are drawn in the parallel projection.
     
     This value specifies a flat parallel projection in the specified degree of freedom (X or Y).
     """
-    SPHERE = cast("TextureProjectionModeProto", 'SPHERE')
+    SPHERE = "SPHERE"
     """
     forces normals to think that the object is a sphere.
     
     This value forces projection to wrapping in X and/or Y.
     """
 
-__all__ = ['TextureProjectionMode']
+__all__ = ["TextureProjectionMode"]
 

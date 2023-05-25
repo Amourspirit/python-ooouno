@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.drawing
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.drawing.TextHorizontalAdjust import TextHorizontalAdjustProto
+
 
 class TextHorizontalAdjust(Enum):
     """
@@ -32,25 +30,25 @@ class TextHorizontalAdjust(Enum):
     See Also:
         `API TextHorizontalAdjust <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#adc845a26c59f91e9ad752a717b3c2386>`_
     """
-    __ooo_ns__: str = 'com.sun.star.drawing'
-    __ooo_full_ns__: str = 'com.sun.star.drawing.TextHorizontalAdjust'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.drawing"
+    __ooo_full_ns__: str = "com.sun.star.drawing.TextHorizontalAdjust"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.drawing.TextHorizontalAdjust'
+        return "com.sun.star.drawing.TextHorizontalAdjust"
 
-    BLOCK = cast("TextHorizontalAdjustProto", 'BLOCK')
+    BLOCK = "BLOCK"
     """
     The text extends from the left to the right edge of the shape.
     
     The text extends from the top to the bottom edge of the shape.
     """
-    CENTER = cast("TextHorizontalAdjustProto", 'CENTER')
+    CENTER = "CENTER"
     """
     The text is centered inside the shape.
     """
-    LEFT = cast("TextHorizontalAdjustProto", 'LEFT')
+    LEFT = "LEFT"
     """
     the connection line leaves the connected object to the left,
     
@@ -58,7 +56,7 @@ class TextHorizontalAdjust(Enum):
     
     The text is positioned to the left.
     """
-    RIGHT = cast("TextHorizontalAdjustProto", 'RIGHT')
+    RIGHT = "RIGHT"
     """
     the connection line leaves the connected object to the right,
     
@@ -67,5 +65,5 @@ class TextHorizontalAdjust(Enum):
     The text is positioned to the right.
     """
 
-__all__ = ['TextHorizontalAdjust']
+__all__ = ["TextHorizontalAdjust"]
 

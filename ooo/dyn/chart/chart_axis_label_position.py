@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,59 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class ChartAxisLabelPosition(metaclass=UnoEnumMeta, type_name="com.sun.star.chart.ChartAxisLabelPosition", name_space="com.sun.star.chart"):
         """Dynamically created class that represents ``com.sun.star.chart.ChartAxisLabelPosition`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.chart.ChartAxisLabelPosition import NEAR_AXIS as CHART_AXIS_LABEL_POSITION_NEAR_AXIS
-        from com.sun.star.chart.ChartAxisLabelPosition import NEAR_AXIS_OTHER_SIDE as CHART_AXIS_LABEL_POSITION_NEAR_AXIS_OTHER_SIDE
-        from com.sun.star.chart.ChartAxisLabelPosition import OUTSIDE_END as CHART_AXIS_LABEL_POSITION_OUTSIDE_END
-        from com.sun.star.chart.ChartAxisLabelPosition import OUTSIDE_START as CHART_AXIS_LABEL_POSITION_OUTSIDE_START
+    from ...lo.chart.chart_axis_label_position import ChartAxisLabelPosition as ChartAxisLabelPosition
 
-        class ChartAxisLabelPosition(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API ChartAxisLabelPosition <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart.html#a693b6b549818a6055effeaf72501bd26>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.chart.ChartAxisLabelPosition', value)
-
-            __ooo_ns__: str = 'com.sun.star.chart'
-            __ooo_full_ns__: str = 'com.sun.star.chart.ChartAxisLabelPosition'
-            __ooo_type_name__: str = 'enum'
-
-            NEAR_AXIS = CHART_AXIS_LABEL_POSITION_NEAR_AXIS
-            """
-            The labels are placed adjacent to the axis.
-
-            When the axis itself is placed at the minimum or maximum of the scale ( that is when the property CrossoverPosition equals ChartAxisPosition_MINIMUM or ChartAxisPosition_MAXIMUM) the labels are placed outside the coordinate system. Otherwise the labels are placed adjacent to the axis on that side that belongs to the lower values on the crossing axis. E.g. when the ChartAxisLabelPosition is set to NEAR_AXIS for an y axis the labels are placed adjacent to the y axis on that side that belongs to the lower x values.
-            """
-            NEAR_AXIS_OTHER_SIDE = CHART_AXIS_LABEL_POSITION_NEAR_AXIS_OTHER_SIDE
-            """
-            The labels are placed adjacent to the axis on the opposite side as for NEAR_AXIS.
-            """
-            OUTSIDE_END = CHART_AXIS_LABEL_POSITION_OUTSIDE_END
-            """
-            The labels are placed outside the coordinate region on that side where the crossing axis has its maximum value.
-
-            E.g. when this is set for an y axis the labels are placed outside the diagram on that side where to the x axis has its maximum value.
-            """
-            OUTSIDE_START = CHART_AXIS_LABEL_POSITION_OUTSIDE_START
-            """
-            The labels are placed outside the coordinate region on that side where the crossing axis has its minimum value.
-
-            E.g. when this is set for an y axis the labels are placed outside the diagram on that side where to the x axis has its minimum value.
-            """
-    else:
-        # keep document generators happy
-        from ...lo.chart.chart_axis_label_position import ChartAxisLabelPosition as ChartAxisLabelPosition
-
-
-__all__ = ['ChartAxisLabelPosition']
+__all__ = ["ChartAxisLabelPosition"]

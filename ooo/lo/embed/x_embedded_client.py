@@ -56,3 +56,4 @@ class XEmbeddedClient(XComponentSupplier_adb0e64):
 
 __all__ = ['XEmbeddedClient']
 
+

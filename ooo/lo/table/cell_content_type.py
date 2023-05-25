@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.table
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.table.CellContentType import CellContentTypeProto
+
 
 class CellContentType(Enum):
     """
@@ -32,30 +30,30 @@ class CellContentType(Enum):
     See Also:
         `API CellContentType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1table.html#affea688ab9e00781fa35d8a790d10f0e>`_
     """
-    __ooo_ns__: str = 'com.sun.star.table'
-    __ooo_full_ns__: str = 'com.sun.star.table.CellContentType'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.table"
+    __ooo_full_ns__: str = "com.sun.star.table.CellContentType"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.table.CellContentType'
+        return "com.sun.star.table.CellContentType"
 
-    EMPTY = cast("CellContentTypeProto", 'EMPTY')
+    EMPTY = "EMPTY"
     """
     cell is empty.
     """
-    FORMULA = cast("CellContentTypeProto", 'FORMULA')
+    FORMULA = "FORMULA"
     """
     cell contains a formula.
     """
-    TEXT = cast("CellContentTypeProto", 'TEXT')
+    TEXT = "TEXT"
     """
     cell contains text.
     """
-    VALUE = cast("CellContentTypeProto", 'VALUE')
+    VALUE = "VALUE"
     """
     cell contains a constant value.
     """
 
-__all__ = ['CellContentType']
+__all__ = ["CellContentType"]
 

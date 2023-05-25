@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.ucb
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.ucb.LockScope import LockScopeProto
+
 
 class LockScope(Enum):
     """
@@ -32,22 +30,22 @@ class LockScope(Enum):
     See Also:
         `API LockScope <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1ucb.html#ae15ecbfc9e84371b6044661d1493e6a5>`_
     """
-    __ooo_ns__: str = 'com.sun.star.ucb'
-    __ooo_full_ns__: str = 'com.sun.star.ucb.LockScope'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.ucb"
+    __ooo_full_ns__: str = "com.sun.star.ucb.LockScope"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.ucb.LockScope'
+        return "com.sun.star.ucb.LockScope"
 
-    EXCLUSIVE = cast("LockScopeProto", 'EXCLUSIVE')
+    EXCLUSIVE = "EXCLUSIVE"
     """
     the lock is exclusive.
     """
-    SHARED = cast("LockScopeProto", 'SHARED')
+    SHARED = "SHARED"
     """
     the lock is shared.
     """
 
-__all__ = ['LockScope']
+__all__ = ["LockScope"]
 

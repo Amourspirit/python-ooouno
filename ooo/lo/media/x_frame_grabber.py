@@ -45,3 +45,4 @@ class XFrameGrabber(ABC):
 
 __all__ = ['XFrameGrabber']
 
+

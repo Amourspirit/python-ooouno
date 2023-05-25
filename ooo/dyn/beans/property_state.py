@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,50 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class PropertyState(metaclass=UnoEnumMeta, type_name="com.sun.star.beans.PropertyState", name_space="com.sun.star.beans"):
         """Dynamically created class that represents ``com.sun.star.beans.PropertyState`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.beans.PropertyState import AMBIGUOUS_VALUE as PROPERTY_STATE_AMBIGUOUS_VALUE
-        from com.sun.star.beans.PropertyState import DEFAULT_VALUE as PROPERTY_STATE_DEFAULT_VALUE
-        from com.sun.star.beans.PropertyState import DIRECT_VALUE as PROPERTY_STATE_DIRECT_VALUE
+    from ...lo.beans.property_state import PropertyState as PropertyState
 
-        class PropertyState(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API PropertyState <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1beans.html#a1a5ccb5c59cace4a214c1e2eae8620b0>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.beans.PropertyState', value)
-
-            __ooo_ns__: str = 'com.sun.star.beans'
-            __ooo_full_ns__: str = 'com.sun.star.beans.PropertyState'
-            __ooo_type_name__: str = 'enum'
-
-            AMBIGUOUS_VALUE = PROPERTY_STATE_AMBIGUOUS_VALUE
-            """
-            The value of the property is only a recommendation because there are multiple values for this property (e.g., from a multi selection).
-
-            The PropertyAttribute field in the struct Property must contain the PropertyAttribute.MAYBEAMBIGUOUS flag. The property value must be available and of the specified type. If the Attribute field in the struct Property contains PropertyAttribute.MAYBEVOID, then the value may be void.
-            """
-            DEFAULT_VALUE = PROPERTY_STATE_DEFAULT_VALUE
-            """
-            The value of the property is available from a master (e.g., template).
-            """
-            DIRECT_VALUE = PROPERTY_STATE_DIRECT_VALUE
-            """
-            The value of the property is stored in the PropertySet itself.
-            """
-    else:
-        # keep document generators happy
-        from ...lo.beans.property_state import PropertyState as PropertyState
-
-
-__all__ = ['PropertyState']
+__all__ = ["PropertyState"]

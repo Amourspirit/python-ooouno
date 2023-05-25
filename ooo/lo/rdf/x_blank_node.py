@@ -42,3 +42,4 @@ class XBlankNode(XResource_842709e4):
 
 __all__ = ['XBlankNode']
 
+

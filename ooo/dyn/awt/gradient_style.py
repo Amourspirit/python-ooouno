@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,63 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class GradientStyle(metaclass=UnoEnumMeta, type_name="com.sun.star.awt.GradientStyle", name_space="com.sun.star.awt"):
         """Dynamically created class that represents ``com.sun.star.awt.GradientStyle`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.awt.GradientStyle import AXIAL as GRADIENT_STYLE_AXIAL
-        from com.sun.star.awt.GradientStyle import ELLIPTICAL as GRADIENT_STYLE_ELLIPTICAL
-        from com.sun.star.awt.GradientStyle import LINEAR as GRADIENT_STYLE_LINEAR
-        from com.sun.star.awt.GradientStyle import RADIAL as GRADIENT_STYLE_RADIAL
-        from com.sun.star.awt.GradientStyle import RECT as GRADIENT_STYLE_RECT
-        from com.sun.star.awt.GradientStyle import SQUARE as GRADIENT_STYLE_SQUARE
+    from ...lo.awt.gradient_style import GradientStyle as GradientStyle
 
-        class GradientStyle(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API GradientStyle <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1awt.html#aa6b9d577a1700f29923f49f7b77d165f>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.awt.GradientStyle', value)
-
-            __ooo_ns__: str = 'com.sun.star.awt'
-            __ooo_full_ns__: str = 'com.sun.star.awt.GradientStyle'
-            __ooo_type_name__: str = 'enum'
-
-            AXIAL = GRADIENT_STYLE_AXIAL
-            """
-            specifies an axial gradient.
-            """
-            ELLIPTICAL = GRADIENT_STYLE_ELLIPTICAL
-            """
-            specifies an elliptical gradient.
-            """
-            LINEAR = GRADIENT_STYLE_LINEAR
-            """
-            specifies a linear gradient.
-            """
-            RADIAL = GRADIENT_STYLE_RADIAL
-            """
-            specifies a radial gradient.
-            """
-            RECT = GRADIENT_STYLE_RECT
-            """
-            specifies a gradient in the shape of a rectangle.
-            """
-            SQUARE = GRADIENT_STYLE_SQUARE
-            """
-            specifies a gradient in the shape of a square.
-            """
-    else:
-        # keep document generators happy
-        from ...lo.awt.gradient_style import GradientStyle as GradientStyle
-
-
-__all__ = ['GradientStyle']
+__all__ = ["GradientStyle"]

@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,50 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class FolderListCommand(metaclass=UnoEnumMeta, type_name="com.sun.star.ucb.FolderListCommand", name_space="com.sun.star.ucb"):
         """Dynamically created class that represents ``com.sun.star.ucb.FolderListCommand`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.ucb.FolderListCommand import GET as FOLDER_LIST_COMMAND_GET
-        from com.sun.star.ucb.FolderListCommand import GET_SUBSCRIBED as FOLDER_LIST_COMMAND_GET_SUBSCRIBED
-        from com.sun.star.ucb.FolderListCommand import SET as FOLDER_LIST_COMMAND_SET
+    from ...lo.ucb.folder_list_command import FolderListCommand as FolderListCommand
 
-        class FolderListCommand(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API FolderListCommand <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1ucb.html#aa1260fc093737bd1d1134fba75333247>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.ucb.FolderListCommand', value)
-
-            __ooo_ns__: str = 'com.sun.star.ucb'
-            __ooo_full_ns__: str = 'com.sun.star.ucb.FolderListCommand'
-            __ooo_type_name__: str = 'enum'
-
-            GET = FOLDER_LIST_COMMAND_GET
-            """
-            Get a list of all folders.
-
-            HTTP request method as defined in RFC 2616: Hypertext Transfer Protocol – HTTP/1.1
-            """
-            GET_SUBSCRIBED = FOLDER_LIST_COMMAND_GET_SUBSCRIBED
-            """
-            Get a list of subscribed folders.
-            """
-            SET = FOLDER_LIST_COMMAND_SET
-            """
-            Set a list of folders.
-            """
-    else:
-        # keep document generators happy
-        from ...lo.ucb.folder_list_command import FolderListCommand as FolderListCommand
-
-
-__all__ = ['FolderListCommand']
+__all__ = ["FolderListCommand"]

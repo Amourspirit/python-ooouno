@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,57 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class ContextMenuInterceptorAction(metaclass=UnoEnumMeta, type_name="com.sun.star.ui.ContextMenuInterceptorAction", name_space="com.sun.star.ui"):
         """Dynamically created class that represents ``com.sun.star.ui.ContextMenuInterceptorAction`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.ui.ContextMenuInterceptorAction import CANCELLED as CONTEXT_MENU_INTERCEPTOR_ACTION_CANCELLED
-        from com.sun.star.ui.ContextMenuInterceptorAction import CONTINUE_MODIFIED as CONTEXT_MENU_INTERCEPTOR_ACTION_CONTINUE_MODIFIED
-        from com.sun.star.ui.ContextMenuInterceptorAction import EXECUTE_MODIFIED as CONTEXT_MENU_INTERCEPTOR_ACTION_EXECUTE_MODIFIED
-        from com.sun.star.ui.ContextMenuInterceptorAction import IGNORED as CONTEXT_MENU_INTERCEPTOR_ACTION_IGNORED
+    from ...lo.ui.context_menu_interceptor_action import ContextMenuInterceptorAction as ContextMenuInterceptorAction
 
-        class ContextMenuInterceptorAction(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API ContextMenuInterceptorAction <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1ui.html#a6e0452a8960be949dce52c427920ebbe>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.ui.ContextMenuInterceptorAction', value)
-
-            __ooo_ns__: str = 'com.sun.star.ui'
-            __ooo_full_ns__: str = 'com.sun.star.ui.ContextMenuInterceptorAction'
-            __ooo_type_name__: str = 'enum'
-
-            CANCELLED = CONTEXT_MENU_INTERCEPTOR_ACTION_CANCELLED
-            """
-            the context menu must not be executed.
-
-            The next registered XContextMenuInterceptor should not be notified.
-            """
-            CONTINUE_MODIFIED = CONTEXT_MENU_INTERCEPTOR_ACTION_CONTINUE_MODIFIED
-            """
-            the menu has been modified and the next registered XContextMenuInterceptor should be notified.
-            """
-            EXECUTE_MODIFIED = CONTEXT_MENU_INTERCEPTOR_ACTION_EXECUTE_MODIFIED
-            """
-            the menu has been modified and should be executed without notifying the next registered XContextMenuInterceptor.
-            """
-            IGNORED = CONTEXT_MENU_INTERCEPTOR_ACTION_IGNORED
-            """
-            the XContextMenuInterceptor has ignored the call.
-
-            The next registered XContextMenuInterceptor should be notified.
-            """
-    else:
-        # keep document generators happy
-        from ...lo.ui.context_menu_interceptor_action import ContextMenuInterceptorAction as ContextMenuInterceptorAction
-
-
-__all__ = ['ContextMenuInterceptorAction']
+__all__ = ["ContextMenuInterceptorAction"]

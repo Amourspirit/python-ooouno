@@ -49,3 +49,4 @@ class XUndoManagerSupplier(ABC):
 
 __all__ = ['XUndoManagerSupplier']
 
+

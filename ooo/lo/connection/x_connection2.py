@@ -58,3 +58,4 @@ class XConnection2(XConnection_f2320da0):
 
 __all__ = ['XConnection2']
 
+

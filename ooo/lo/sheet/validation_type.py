@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.sheet
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.sheet.ValidationType import ValidationTypeProto
+
 
 class ValidationType(Enum):
     """
@@ -32,48 +30,48 @@ class ValidationType(Enum):
     See Also:
         `API ValidationType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1sheet.html#aa5aa6dbecaeb5e18a476b0a58279c57a>`_
     """
-    __ooo_ns__: str = 'com.sun.star.sheet'
-    __ooo_full_ns__: str = 'com.sun.star.sheet.ValidationType'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.sheet"
+    __ooo_full_ns__: str = "com.sun.star.sheet.ValidationType"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.sheet.ValidationType'
+        return "com.sun.star.sheet.ValidationType"
 
-    ANY = cast("ValidationTypeProto", 'ANY')
+    ANY = "ANY"
     """
     any cell content is valid; no conditions are used.
     """
-    CUSTOM = cast("ValidationTypeProto", 'CUSTOM')
+    CUSTOM = "CUSTOM"
     """
     The specified formula determines which contents are valid.
     """
-    DATE = cast("ValidationTypeProto", 'DATE')
+    DATE = "DATE"
     """
     specifies an arithmetic series for date values.
     
     any date value matching the specified condition is valid.
     """
-    DECIMAL = cast("ValidationTypeProto", 'DECIMAL')
+    DECIMAL = "DECIMAL"
     """
     any number matching the specified condition is valid.
     """
-    LIST = cast("ValidationTypeProto", 'LIST')
+    LIST = "LIST"
     """
     Only strings from a specified list are valid.
     """
-    TEXT_LEN = cast("ValidationTypeProto", 'TEXT_LEN')
+    TEXT_LEN = "TEXT_LEN"
     """
     string is valid if its length matches the specified condition.
     """
-    TIME = cast("ValidationTypeProto", 'TIME')
+    TIME = "TIME"
     """
     any time value matching the specified condition is valid.
     """
-    WHOLE = cast("ValidationTypeProto", 'WHOLE')
+    WHOLE = "WHOLE"
     """
     any whole number matching the specified condition is valid.
     """
 
-__all__ = ['ValidationType']
+__all__ = ["ValidationType"]
 

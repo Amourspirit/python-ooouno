@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,48 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class DDELinkMode(metaclass=UnoEnumMeta, type_name="com.sun.star.sheet.DDELinkMode", name_space="com.sun.star.sheet"):
         """Dynamically created class that represents ``com.sun.star.sheet.DDELinkMode`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.sheet.DDELinkMode import DEFAULT as D_D_E_LINK_MODE_DEFAULT
-        from com.sun.star.sheet.DDELinkMode import ENGLISH as D_D_E_LINK_MODE_ENGLISH
-        from com.sun.star.sheet.DDELinkMode import TEXT as D_D_E_LINK_MODE_TEXT
+    from ...lo.sheet.dde_link_mode import DDELinkMode as DDELinkMode
 
-        class DDELinkMode(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API DDELinkMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1sheet.html#a1b95ca535d92ad726d77981ea3d8ef8b>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.sheet.DDELinkMode', value)
-
-            __ooo_ns__: str = 'com.sun.star.sheet'
-            __ooo_full_ns__: str = 'com.sun.star.sheet.DDELinkMode'
-            __ooo_type_name__: str = 'enum'
-
-            DEFAULT = D_D_E_LINK_MODE_DEFAULT
-            """
-            numbers are converted into the default format.
-            """
-            ENGLISH = D_D_E_LINK_MODE_ENGLISH
-            """
-            numbers are converted into the English default format.
-            """
-            TEXT = D_D_E_LINK_MODE_TEXT
-            """
-            numbers are not converted, but treated as text.
-            """
-    else:
-        # keep document generators happy
-        from ...lo.sheet.dde_link_mode import DDELinkMode as DDELinkMode
-
-
-__all__ = ['DDELinkMode']
+__all__ = ["DDELinkMode"]

@@ -26,7 +26,7 @@ if typing.TYPE_CHECKING:
     from .font_descriptor import FontDescriptor as FontDescriptor_bc110c0a
     from ..util.color import Color as Color_68e908c5
     from ..util.date import Date as Date_60040844
-    from com.sun.star.style.VerticalAlignment import VerticalAlignmentProto
+    from com.sun.star.style.VerticalAlignment import VerticalAlignmentProto  # type: ignore
 
 class UnoControlDateFieldModel(UnoControlModel_c8ce0c58):
     """
@@ -288,4 +288,3 @@ class UnoControlDateFieldModel(UnoControlModel_c8ce0c58):
 
 
 __all__ = ['UnoControlDateFieldModel']
-

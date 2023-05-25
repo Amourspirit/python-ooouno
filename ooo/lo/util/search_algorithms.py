@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.util
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.util.SearchAlgorithms import SearchAlgorithmsProto
+
 
 class SearchAlgorithms(Enum):
     """
@@ -33,26 +31,26 @@ class SearchAlgorithms(Enum):
     See Also:
         `API SearchAlgorithms <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1util.html#a88c44d0f9aaded4e5618f3f8adcde79f>`_
     """
-    __ooo_ns__: str = 'com.sun.star.util'
-    __ooo_full_ns__: str = 'com.sun.star.util.SearchAlgorithms'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.util"
+    __ooo_full_ns__: str = "com.sun.star.util.SearchAlgorithms"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.util.SearchAlgorithms'
+        return "com.sun.star.util.SearchAlgorithms"
 
-    ABSOLUTE = cast("SearchAlgorithmsProto", 'ABSOLUTE')
+    ABSOLUTE = "ABSOLUTE"
     """
     Literal.
     """
-    APPROXIMATE = cast("SearchAlgorithmsProto", 'APPROXIMATE')
+    APPROXIMATE = "APPROXIMATE"
     """
     Weighted Levenshtein Distance.
     """
-    REGEXP = cast("SearchAlgorithmsProto", 'REGEXP')
+    REGEXP = "REGEXP"
     """
     Regular expression.
     """
 
-__all__ = ['SearchAlgorithms']
+__all__ = ["SearchAlgorithms"]
 

@@ -72,3 +72,4 @@ class XImageControl(XImageProducerSupplier_37df0f8f, XReportControlModel_2d800f4
 
 __all__ = ['XImageControl']
 
+

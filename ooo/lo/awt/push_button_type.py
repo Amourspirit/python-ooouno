@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.awt
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.awt.PushButtonType import PushButtonTypeProto
+
 
 class PushButtonType(Enum):
     """
@@ -32,30 +30,30 @@ class PushButtonType(Enum):
     See Also:
         `API PushButtonType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1awt.html#aa4e49c7e6c5bf2b4d010ad4a50b90ec0>`_
     """
-    __ooo_ns__: str = 'com.sun.star.awt'
-    __ooo_full_ns__: str = 'com.sun.star.awt.PushButtonType'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.awt"
+    __ooo_full_ns__: str = "com.sun.star.awt.PushButtonType"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.awt.PushButtonType'
+        return "com.sun.star.awt.PushButtonType"
 
-    CANCEL = cast("PushButtonTypeProto", 'CANCEL')
+    CANCEL = "CANCEL"
     """
     acts like a cancel button.
     """
-    HELP = cast("PushButtonTypeProto", 'HELP')
+    HELP = "HELP"
     """
     acts like a help button.
     """
-    OK = cast("PushButtonTypeProto", 'OK')
+    OK = "OK"
     """
     acts like an OK button.
     """
-    STANDARD = cast("PushButtonTypeProto", 'STANDARD')
+    STANDARD = "STANDARD"
     """
     acts like a standard push button.
     """
 
-__all__ = ['PushButtonType']
+__all__ = ["PushButtonType"]
 

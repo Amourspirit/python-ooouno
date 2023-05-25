@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.drawing
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.drawing.ConnectionType import ConnectionTypeProto
+
 
 class ConnectionType(Enum):
     """
@@ -32,21 +30,21 @@ class ConnectionType(Enum):
     See Also:
         `API ConnectionType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#aa1f0e2efd52935fd01bfece0fbead81f>`_
     """
-    __ooo_ns__: str = 'com.sun.star.drawing'
-    __ooo_full_ns__: str = 'com.sun.star.drawing.ConnectionType'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.drawing"
+    __ooo_full_ns__: str = "com.sun.star.drawing.ConnectionType"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.drawing.ConnectionType'
+        return "com.sun.star.drawing.ConnectionType"
 
-    AUTO = cast("ConnectionTypeProto", 'AUTO')
+    AUTO = "AUTO"
     """
     the connection point is chosen automatically,
     
     Set this to have the application select the best horizontal position for the text.
     """
-    BOTTOM = cast("ConnectionTypeProto", 'BOTTOM')
+    BOTTOM = "BOTTOM"
     """
     the connection line leaves the connected object from the bottom,
     
@@ -54,7 +52,7 @@ class ConnectionType(Enum):
     
     The bottom edge of the text is adjusted to the bottom edge of the shape.
     """
-    LEFT = cast("ConnectionTypeProto", 'LEFT')
+    LEFT = "LEFT"
     """
     the connection line leaves the connected object to the left,
     
@@ -62,7 +60,7 @@ class ConnectionType(Enum):
     
     The text is positioned to the left.
     """
-    RIGHT = cast("ConnectionTypeProto", 'RIGHT')
+    RIGHT = "RIGHT"
     """
     the connection line leaves the connected object to the right,
     
@@ -70,13 +68,13 @@ class ConnectionType(Enum):
     
     The text is positioned to the right.
     """
-    SPECIAL = cast("ConnectionTypeProto", 'SPECIAL')
+    SPECIAL = "SPECIAL"
     """
     not implemented, yet.
     
     deprecated
     """
-    TOP = cast("ConnectionTypeProto", 'TOP')
+    TOP = "TOP"
     """
     the connection line leaves the connected object from the top,
     
@@ -85,5 +83,5 @@ class ConnectionType(Enum):
     The top edge of the text is adjusted to the top edge of the shape.
     """
 
-__all__ = ['ConnectionType']
+__all__ = ["ConnectionType"]
 

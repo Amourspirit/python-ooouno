@@ -40,3 +40,4 @@ class XModel2(XPropertySet_bc180bfa, XModel_865909f0):
 
 __all__ = ['XModel2']
 
+

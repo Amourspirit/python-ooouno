@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.chart2
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.chart2.AxisOrientation import AxisOrientationProto
+
 
 class AxisOrientation(Enum):
     """
@@ -33,22 +31,22 @@ class AxisOrientation(Enum):
     See Also:
         `API AxisOrientation <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart2.html#aceb583a87538899d77ffbe62d2176a43>`_
     """
-    __ooo_ns__: str = 'com.sun.star.chart2'
-    __ooo_full_ns__: str = 'com.sun.star.chart2.AxisOrientation'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.chart2"
+    __ooo_full_ns__: str = "com.sun.star.chart2.AxisOrientation"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.chart2.AxisOrientation'
+        return "com.sun.star.chart2.AxisOrientation"
 
-    MATHEMATICAL = cast("AxisOrientationProto", 'MATHEMATICAL')
+    MATHEMATICAL = "MATHEMATICAL"
     """
     means equal to the primary writing direction
     """
-    REVERSE = cast("AxisOrientationProto", 'REVERSE')
+    REVERSE = "REVERSE"
     """
     means the opposite of the primary writing direction
     """
 
-__all__ = ['AxisOrientation']
+__all__ = ["AxisOrientation"]
 

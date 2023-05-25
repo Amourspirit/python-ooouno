@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.drawing
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.drawing.PolygonFlags import PolygonFlagsProto
+
 
 class PolygonFlags(Enum):
     """
@@ -32,34 +30,34 @@ class PolygonFlags(Enum):
     See Also:
         `API PolygonFlags <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#af3965fa427851bc02bfe32c5d95d7406>`_
     """
-    __ooo_ns__: str = 'com.sun.star.drawing'
-    __ooo_full_ns__: str = 'com.sun.star.drawing.PolygonFlags'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.drawing"
+    __ooo_full_ns__: str = "com.sun.star.drawing.PolygonFlags"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.drawing.PolygonFlags'
+        return "com.sun.star.drawing.PolygonFlags"
 
-    CONTROL = cast("PolygonFlagsProto", 'CONTROL')
+    CONTROL = "CONTROL"
     """
     the point is a control point, to control the curve from the user interface.
     """
-    NORMAL = cast("PolygonFlagsProto", 'NORMAL')
+    NORMAL = "NORMAL"
     """
     the text is drawn along the path without scaling.
     
     the point is normal, from the curve discussion view.
     """
-    SMOOTH = cast("PolygonFlagsProto", 'SMOOTH')
+    SMOOTH = "SMOOTH"
     """
     the point is smooth, the first derivation from the curve discussion view.
     
     With SMOOTH shading, the colors of the lit vertices is interpolated.
     """
-    SYMMETRIC = cast("PolygonFlagsProto", 'SYMMETRIC')
+    SYMMETRIC = "SYMMETRIC"
     """
     the point is symmetric, the second derivation from the curve discussion view.
     """
 
-__all__ = ['PolygonFlags']
+__all__ = ["PolygonFlags"]
 

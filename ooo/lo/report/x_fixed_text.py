@@ -43,3 +43,4 @@ class XFixedText(XReportControlModel_2d800f4a):
 
 __all__ = ['XFixedText']
 
+

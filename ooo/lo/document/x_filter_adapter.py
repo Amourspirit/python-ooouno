@@ -50,3 +50,4 @@ class XFilterAdapter(XInterface_8f010a43):
 
 __all__ = ['XFilterAdapter']
 
+

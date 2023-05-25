@@ -41,3 +41,4 @@ class XTextOutputStream2(XActiveDataSource_d1900c7f, XTextOutputStream_d55f0cda)
 
 __all__ = ['XTextOutputStream2']
 
+

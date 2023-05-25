@@ -46,3 +46,4 @@ class XUser(XAuthorizable_c8dd0c5e):
 
 __all__ = ['XUser']
 
+

@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.security
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.security.CertificateKind import CertificateKindProto
+
 
 class CertificateKind(Enum):
     """
@@ -32,26 +30,26 @@ class CertificateKind(Enum):
     See Also:
         `API CertificateKind <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1security.html#a15fb2a8475364a68c176c7789e3611cc>`_
     """
-    __ooo_ns__: str = 'com.sun.star.security'
-    __ooo_full_ns__: str = 'com.sun.star.security.CertificateKind'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.security"
+    __ooo_full_ns__: str = "com.sun.star.security.CertificateKind"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.security.CertificateKind'
+        return "com.sun.star.security.CertificateKind"
 
-    NONE = cast("CertificateKindProto", 'NONE')
+    NONE = "NONE"
     """
     No format specified.
     """
-    OPENPGP = cast("CertificateKindProto", 'OPENPGP')
+    OPENPGP = "OPENPGP"
     """
     OpenPGP format of a certificate.
     """
-    X509 = cast("CertificateKindProto", 'X509')
+    X509 = "X509"
     """
     X.509 format of a certificate.
     """
 
-__all__ = ['CertificateKind']
+__all__ = ["CertificateKind"]
 

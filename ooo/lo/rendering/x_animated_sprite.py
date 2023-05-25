@@ -104,3 +104,4 @@ class XAnimatedSprite(XSprite_b2470b95):
 
 __all__ = ['XAnimatedSprite']
 
+

@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.drawing
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.drawing.LineEndType import LineEndTypeProto
+
 
 class LineEndType(Enum):
     """
@@ -32,23 +30,23 @@ class LineEndType(Enum):
     See Also:
         `API LineEndType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#aa4142382acc18a0dd48cc4a563e2d168>`_
     """
-    __ooo_ns__: str = 'com.sun.star.drawing'
-    __ooo_full_ns__: str = 'com.sun.star.drawing.LineEndType'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.drawing"
+    __ooo_full_ns__: str = "com.sun.star.drawing.LineEndType"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.drawing.LineEndType'
+        return "com.sun.star.drawing.LineEndType"
 
-    ARROW = cast("LineEndTypeProto", 'ARROW')
+    ARROW = "ARROW"
     """
     the line uses an arrow for the line end.
     """
-    CIRCLE = cast("LineEndTypeProto", 'CIRCLE')
+    CIRCLE = "CIRCLE"
     """
     the line uses a circle for the line end.
     """
-    NONE = cast("LineEndTypeProto", 'NONE')
+    NONE = "NONE"
     """
     the area is not filled.
     
@@ -62,18 +60,18 @@ class LineEndType(Enum):
     
     the line has no special end.
     """
-    SPECIAL = cast("LineEndTypeProto", 'SPECIAL')
+    SPECIAL = "SPECIAL"
     """
     not implemented, yet.
     
     deprecated
     """
-    SQUARE = cast("LineEndTypeProto", 'SQUARE')
+    SQUARE = "SQUARE"
     """
     the line will get a half square as additional cap
     
     the line uses a square for the line end.
     """
 
-__all__ = ['LineEndType']
+__all__ = ["LineEndType"]
 

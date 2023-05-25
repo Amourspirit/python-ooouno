@@ -54,3 +54,4 @@ class XFootnotesSupplier(XInterface_8f010a43):
 
 __all__ = ['XFootnotesSupplier']
 
+

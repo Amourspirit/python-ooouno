@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.chart
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.chart.ChartErrorCategory import ChartErrorCategoryProto
+
 
 class ChartErrorCategory(Enum):
     """
@@ -32,25 +30,25 @@ class ChartErrorCategory(Enum):
     See Also:
         `API ChartErrorCategory <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart.html#a5dc5747cfef559a2185b3400717ee431>`_
     """
-    __ooo_ns__: str = 'com.sun.star.chart'
-    __ooo_full_ns__: str = 'com.sun.star.chart.ChartErrorCategory'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.chart"
+    __ooo_full_ns__: str = "com.sun.star.chart.ChartErrorCategory"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.chart.ChartErrorCategory'
+        return "com.sun.star.chart.ChartErrorCategory"
 
-    CONSTANT_VALUE = cast("ChartErrorCategoryProto", 'CONSTANT_VALUE')
+    CONSTANT_VALUE = "CONSTANT_VALUE"
     """
     displays the same lower and upper error indicators for all data points.
     
     The values for these are given as absolute numbers in ChartStatistics.ConstantErrorLow and ChartStatistics.ConstantErrorHigh
     """
-    ERROR_MARGIN = cast("ChartErrorCategoryProto", 'ERROR_MARGIN')
+    ERROR_MARGIN = "ERROR_MARGIN"
     """
     The length of the error indicators for all data points is calculated by taking the percentage given as ChartStatistics.ErrorMargin of the largest data point value.
     """
-    NONE = cast("ChartErrorCategoryProto", 'NONE')
+    NONE = "NONE"
     """
     error indicators are not displayed.
     
@@ -60,18 +58,18 @@ class ChartErrorCategory(Enum):
     
     displays no error indicators.
     """
-    PERCENT = cast("ChartErrorCategoryProto", 'PERCENT')
+    PERCENT = "PERCENT"
     """
     The length of the error indicators is calculated for each data point by taking the percentage given as ChartStatistics.PercentageError of its value.
     """
-    STANDARD_DEVIATION = cast("ChartErrorCategoryProto", 'STANDARD_DEVIATION')
+    STANDARD_DEVIATION = "STANDARD_DEVIATION"
     """
     displays error indicators for the standard deviation (square root of variance) of the data row.
     """
-    VARIANCE = cast("ChartErrorCategoryProto", 'VARIANCE')
+    VARIANCE = "VARIANCE"
     """
     displays error indicators for the variance of the data row.
     """
 
-__all__ = ['ChartErrorCategory']
+__all__ = ["ChartErrorCategory"]
 

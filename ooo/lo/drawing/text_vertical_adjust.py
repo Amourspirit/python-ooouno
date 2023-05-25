@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.drawing
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.drawing.TextVerticalAdjust import TextVerticalAdjustProto
+
 
 class TextVerticalAdjust(Enum):
     """
@@ -32,21 +30,21 @@ class TextVerticalAdjust(Enum):
     See Also:
         `API TextVerticalAdjust <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a4c2c10f0a1a5fa20d9f200d0fb5707ad>`_
     """
-    __ooo_ns__: str = 'com.sun.star.drawing'
-    __ooo_full_ns__: str = 'com.sun.star.drawing.TextVerticalAdjust'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.drawing"
+    __ooo_full_ns__: str = "com.sun.star.drawing.TextVerticalAdjust"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.drawing.TextVerticalAdjust'
+        return "com.sun.star.drawing.TextVerticalAdjust"
 
-    BLOCK = cast("TextVerticalAdjustProto", 'BLOCK')
+    BLOCK = "BLOCK"
     """
     The text extends from the left to the right edge of the shape.
     
     The text extends from the top to the bottom edge of the shape.
     """
-    BOTTOM = cast("TextVerticalAdjustProto", 'BOTTOM')
+    BOTTOM = "BOTTOM"
     """
     the connection line leaves the connected object from the bottom,
     
@@ -54,11 +52,11 @@ class TextVerticalAdjust(Enum):
     
     The bottom edge of the text is adjusted to the bottom edge of the shape.
     """
-    CENTER = cast("TextVerticalAdjustProto", 'CENTER')
+    CENTER = "CENTER"
     """
     The text is centered inside the shape.
     """
-    TOP = cast("TextVerticalAdjustProto", 'TOP')
+    TOP = "TOP"
     """
     the connection line leaves the connected object from the top,
     
@@ -67,5 +65,5 @@ class TextVerticalAdjust(Enum):
     The top edge of the text is adjusted to the top edge of the shape.
     """
 
-__all__ = ['TextVerticalAdjust']
+__all__ = ["TextVerticalAdjust"]
 

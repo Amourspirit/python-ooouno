@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.chart
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.chart.ChartRegressionCurveType import ChartRegressionCurveTypeProto
+
 
 class ChartRegressionCurveType(Enum):
     """
@@ -32,27 +30,27 @@ class ChartRegressionCurveType(Enum):
     See Also:
         `API ChartRegressionCurveType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart.html#a00d1bb45d8b0a2aac5e07cde2f18302b>`_
     """
-    __ooo_ns__: str = 'com.sun.star.chart'
-    __ooo_full_ns__: str = 'com.sun.star.chart.ChartRegressionCurveType'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.chart"
+    __ooo_full_ns__: str = "com.sun.star.chart.ChartRegressionCurveType"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.chart.ChartRegressionCurveType'
+        return "com.sun.star.chart.ChartRegressionCurveType"
 
-    EXPONENTIAL = cast("ChartRegressionCurveTypeProto", 'EXPONENTIAL')
+    EXPONENTIAL = "EXPONENTIAL"
     """
     displays an exponential regression curve.
     """
-    LINEAR = cast("ChartRegressionCurveTypeProto", 'LINEAR')
+    LINEAR = "LINEAR"
     """
     displays a linear regression curve.
     """
-    LOGARITHM = cast("ChartRegressionCurveTypeProto", 'LOGARITHM')
+    LOGARITHM = "LOGARITHM"
     """
     displays a linear logarithmic regression curve.
     """
-    NONE = cast("ChartRegressionCurveTypeProto", 'NONE')
+    NONE = "NONE"
     """
     error indicators are not displayed.
     
@@ -62,16 +60,16 @@ class ChartRegressionCurveType(Enum):
     
     displays no error indicators.
     """
-    POLYNOMIAL = cast("ChartRegressionCurveTypeProto", 'POLYNOMIAL')
+    POLYNOMIAL = "POLYNOMIAL"
     """
     displays a polynomial regression curve.
     """
-    POWER = cast("ChartRegressionCurveTypeProto", 'POWER')
+    POWER = "POWER"
     """
     displays a regression curve using a power function.
     
     displays a moving average regression curve.
     """
 
-__all__ = ['ChartRegressionCurveType']
+__all__ = ["ChartRegressionCurveType"]
 

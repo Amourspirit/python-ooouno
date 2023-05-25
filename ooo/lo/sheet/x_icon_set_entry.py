@@ -57,3 +57,4 @@ class XIconSetEntry(ABC):
 
 __all__ = ['XIconSetEntry']
 
+

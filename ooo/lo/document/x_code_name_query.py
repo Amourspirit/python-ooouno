@@ -48,3 +48,4 @@ class XCodeNameQuery(ABC):
 
 __all__ = ['XCodeNameQuery']
 
+

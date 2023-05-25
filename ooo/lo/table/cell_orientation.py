@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.table
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.table.CellOrientation import CellOrientationProto
+
 
 class CellOrientation(Enum):
     """
@@ -32,23 +30,23 @@ class CellOrientation(Enum):
     See Also:
         `API CellOrientation <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1table.html#ae84a4c3547c7628fcc19bdf41cc93c60>`_
     """
-    __ooo_ns__: str = 'com.sun.star.table'
-    __ooo_full_ns__: str = 'com.sun.star.table.CellOrientation'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.table"
+    __ooo_full_ns__: str = "com.sun.star.table.CellOrientation"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.table.CellOrientation'
+        return "com.sun.star.table.CellOrientation"
 
-    BOTTOMTOP = cast("CellOrientationProto", 'BOTTOMTOP')
+    BOTTOMTOP = "BOTTOMTOP"
     """
     contents are printed from bottom to top.
     """
-    STACKED = cast("CellOrientationProto", 'STACKED')
+    STACKED = "STACKED"
     """
     contents are printed from top to bottom with individual characters in normal (horizontal) orientation.
     """
-    STANDARD = cast("CellOrientationProto", 'STANDARD')
+    STANDARD = "STANDARD"
     """
     default alignment is used (left for numbers, right for text).
     
@@ -56,10 +54,10 @@ class CellOrientation(Enum):
     
     contents are printed from left to right.
     """
-    TOPBOTTOM = cast("CellOrientationProto", 'TOPBOTTOM')
+    TOPBOTTOM = "TOPBOTTOM"
     """
     contents are printed from top to bottom.
     """
 
-__all__ = ['CellOrientation']
+__all__ = ["CellOrientation"]
 

@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.presentation
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.presentation.ClickAction import ClickActionProto
+
 
 class ClickAction(Enum):
     """
@@ -32,43 +30,43 @@ class ClickAction(Enum):
     See Also:
         `API ClickAction <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1presentation.html#a85fe75121d351785616b75b2c5661d8f>`_
     """
-    __ooo_ns__: str = 'com.sun.star.presentation'
-    __ooo_full_ns__: str = 'com.sun.star.presentation.ClickAction'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.presentation"
+    __ooo_full_ns__: str = "com.sun.star.presentation.ClickAction"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.presentation.ClickAction'
+        return "com.sun.star.presentation.ClickAction"
 
-    BOOKMARK = cast("ClickActionProto", 'BOOKMARK')
+    BOOKMARK = "BOOKMARK"
     """
     The presentation jumps to a bookmark.
     """
-    DOCUMENT = cast("ClickActionProto", 'DOCUMENT')
+    DOCUMENT = "DOCUMENT"
     """
     The presentation jumps to another document.
     """
-    FIRSTPAGE = cast("ClickActionProto", 'FIRSTPAGE')
+    FIRSTPAGE = "FIRSTPAGE"
     """
     The presentation continues with the first page.
     """
-    INVISIBLE = cast("ClickActionProto", 'INVISIBLE')
+    INVISIBLE = "INVISIBLE"
     """
     The object renders itself invisible after a click.
     """
-    LASTPAGE = cast("ClickActionProto", 'LASTPAGE')
+    LASTPAGE = "LASTPAGE"
     """
     The presentation continues with the last page.
     """
-    MACRO = cast("ClickActionProto", 'MACRO')
+    MACRO = "MACRO"
     """
     A star basic macro is executed after the click.
     """
-    NEXTPAGE = cast("ClickActionProto", 'NEXTPAGE')
+    NEXTPAGE = "NEXTPAGE"
     """
     The presentation jumps to the next page.
     """
-    NONE = cast("ClickActionProto", 'NONE')
+    NONE = "NONE"
     """
     use no animation effects.
     
@@ -76,30 +74,30 @@ class ClickAction(Enum):
     
     No action is performed on click.
     """
-    PREVPAGE = cast("ClickActionProto", 'PREVPAGE')
+    PREVPAGE = "PREVPAGE"
     """
     The presentation jumps to the previous page.
     """
-    PROGRAM = cast("ClickActionProto", 'PROGRAM')
+    PROGRAM = "PROGRAM"
     """
     Another program is executed after a click.
     """
-    SOUND = cast("ClickActionProto", 'SOUND')
+    SOUND = "SOUND"
     """
     A sound is played after a click.
     """
-    STOPPRESENTATION = cast("ClickActionProto", 'STOPPRESENTATION')
+    STOPPRESENTATION = "STOPPRESENTATION"
     """
     The presentation is stopped after the click.
     """
-    VANISH = cast("ClickActionProto", 'VANISH')
+    VANISH = "VANISH"
     """
     The object vanishes with its effect.
     """
-    VERB = cast("ClickActionProto", 'VERB')
+    VERB = "VERB"
     """
     An OLE verb is performed on this object.
     """
 
-__all__ = ['ClickAction']
+__all__ = ["ClickAction"]
 

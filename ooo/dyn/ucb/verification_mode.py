@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,48 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class VerificationMode(metaclass=UnoEnumMeta, type_name="com.sun.star.ucb.VerificationMode", name_space="com.sun.star.ucb"):
         """Dynamically created class that represents ``com.sun.star.ucb.VerificationMode`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.ucb.VerificationMode import ALWAYS as VERIFICATION_MODE_ALWAYS
-        from com.sun.star.ucb.VerificationMode import NEVER as VERIFICATION_MODE_NEVER
-        from com.sun.star.ucb.VerificationMode import ONCE as VERIFICATION_MODE_ONCE
+    from ...lo.ucb.verification_mode import VerificationMode as VerificationMode
 
-        class VerificationMode(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API VerificationMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1ucb.html#ae0c1e5cfd30d96e351c556663af5638b>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.ucb.VerificationMode', value)
-
-            __ooo_ns__: str = 'com.sun.star.ucb'
-            __ooo_full_ns__: str = 'com.sun.star.ucb.VerificationMode'
-            __ooo_type_name__: str = 'enum'
-
-            ALWAYS = VERIFICATION_MODE_ALWAYS
-            """
-            Always.
-            """
-            NEVER = VERIFICATION_MODE_NEVER
-            """
-            Never.
-            """
-            ONCE = VERIFICATION_MODE_ONCE
-            """
-            Once.
-            """
-    else:
-        # keep document generators happy
-        from ...lo.ucb.verification_mode import VerificationMode as VerificationMode
-
-
-__all__ = ['VerificationMode']
+__all__ = ["VerificationMode"]

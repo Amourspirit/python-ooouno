@@ -25,8 +25,8 @@ if typing.TYPE_CHECKING:
     from .direction3_d import Direction3D as Direction3D_c9370c0c
     from .enhanced_custom_shape_parameter_pair import EnhancedCustomShapeParameterPair as EnhancedCustomShapeParameterPair_262914a3
     from .position3_d import Position3D as Position3D_bddc0bc0
-    from com.sun.star.drawing.ProjectionMode import ProjectionModeProto
-    from com.sun.star.drawing.ShadeMode import ShadeModeProto
+    from com.sun.star.drawing.ProjectionMode import ProjectionModeProto  # type: ignore
+    from com.sun.star.drawing.ShadeMode import ShadeModeProto  # type: ignore
 
 class EnhancedCustomShapeExtrusion(ABC):
     """
@@ -231,4 +231,3 @@ class EnhancedCustomShapeExtrusion(ABC):
 
 
 __all__ = ['EnhancedCustomShapeExtrusion']
-

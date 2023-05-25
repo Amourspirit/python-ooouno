@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.presentation
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.presentation.PresentationRange import PresentationRangeProto
+
 
 class PresentationRange(Enum):
     """
@@ -32,26 +30,26 @@ class PresentationRange(Enum):
     See Also:
         `API PresentationRange <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1presentation.html#a69c71b14b95cc70bce7122a7b8287045>`_
     """
-    __ooo_ns__: str = 'com.sun.star.presentation'
-    __ooo_full_ns__: str = 'com.sun.star.presentation.PresentationRange'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.presentation"
+    __ooo_full_ns__: str = "com.sun.star.presentation.PresentationRange"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.presentation.PresentationRange'
+        return "com.sun.star.presentation.PresentationRange"
 
-    PRESENTATIONRANGE_ALL = cast("PresentationRangeProto", 'PRESENTATIONRANGE_ALL')
+    PRESENTATIONRANGE_ALL = "PRESENTATIONRANGE_ALL"
     """
     use all slides.
     """
-    PRESENTATIONRANGE_FROM_PAGE = cast("PresentationRangeProto", 'PRESENTATIONRANGE_FROM_PAGE')
+    PRESENTATIONRANGE_FROM_PAGE = "PRESENTATIONRANGE_FROM_PAGE"
     """
     use only the active slide.
     """
-    PRESENTATIONRANGE_INDIVIDUAL = cast("PresentationRangeProto", 'PRESENTATIONRANGE_INDIVIDUAL')
+    PRESENTATIONRANGE_INDIVIDUAL = "PRESENTATIONRANGE_INDIVIDUAL"
     """
     use an individual choice of slides.
     """
 
-__all__ = ['PresentationRange']
+__all__ = ["PresentationRange"]
 

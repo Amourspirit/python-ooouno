@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.smarttags
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.smarttags.SmartTagRecognizerMode import SmartTagRecognizerModeProto
+
 
 class SmartTagRecognizerMode(Enum):
     """
@@ -32,30 +30,30 @@ class SmartTagRecognizerMode(Enum):
     See Also:
         `API SmartTagRecognizerMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1smarttags.html#a2eab74f21d11f78b5aa7826b0c60604f>`_
     """
-    __ooo_ns__: str = 'com.sun.star.smarttags'
-    __ooo_full_ns__: str = 'com.sun.star.smarttags.SmartTagRecognizerMode'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.smarttags"
+    __ooo_full_ns__: str = "com.sun.star.smarttags.SmartTagRecognizerMode"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.smarttags.SmartTagRecognizerMode'
+        return "com.sun.star.smarttags.SmartTagRecognizerMode"
 
-    CELL = cast("SmartTagRecognizerModeProto", 'CELL')
+    CELL = "CELL"
     """
     Text passed to the recognizer is a cell.
     """
-    CHAR = cast("SmartTagRecognizerModeProto", 'CHAR')
+    CHAR = "CHAR"
     """
     Text passed to the recognizer is a single character.
     """
-    PARAGRAPH = cast("SmartTagRecognizerModeProto", 'PARAGRAPH')
+    PARAGRAPH = "PARAGRAPH"
     """
     Text passed to the recognizer is a paragraph.
     """
-    SINGLE_WORD = cast("SmartTagRecognizerModeProto", 'SINGLE_WORD')
+    SINGLE_WORD = "SINGLE_WORD"
     """
     Text passed to the recognizer is a single word.
     """
 
-__all__ = ['SmartTagRecognizerMode']
+__all__ = ["SmartTagRecognizerMode"]
 

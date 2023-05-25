@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.chart
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.chart.ChartErrorIndicatorType import ChartErrorIndicatorTypeProto
+
 
 class ChartErrorIndicatorType(Enum):
     """
@@ -32,19 +30,19 @@ class ChartErrorIndicatorType(Enum):
     See Also:
         `API ChartErrorIndicatorType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart.html#a1391f7495aa3a95d4bc29dbf29a809ea>`_
     """
-    __ooo_ns__: str = 'com.sun.star.chart'
-    __ooo_full_ns__: str = 'com.sun.star.chart.ChartErrorIndicatorType'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.chart"
+    __ooo_full_ns__: str = "com.sun.star.chart.ChartErrorIndicatorType"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.chart.ChartErrorIndicatorType'
+        return "com.sun.star.chart.ChartErrorIndicatorType"
 
-    LOWER = cast("ChartErrorIndicatorTypeProto", 'LOWER')
+    LOWER = "LOWER"
     """
     displays only the lower value.
     """
-    NONE = cast("ChartErrorIndicatorTypeProto", 'NONE')
+    NONE = "NONE"
     """
     error indicators are not displayed.
     
@@ -54,14 +52,14 @@ class ChartErrorIndicatorType(Enum):
     
     displays no error indicators.
     """
-    TOP_AND_BOTTOM = cast("ChartErrorIndicatorTypeProto", 'TOP_AND_BOTTOM')
+    TOP_AND_BOTTOM = "TOP_AND_BOTTOM"
     """
     displays both the upper and lower values.
     """
-    UPPER = cast("ChartErrorIndicatorTypeProto", 'UPPER')
+    UPPER = "UPPER"
     """
     displays only the upper value.
     """
 
-__all__ = ['ChartErrorIndicatorType']
+__all__ = ["ChartErrorIndicatorType"]
 

@@ -42,3 +42,4 @@ class XEmbedPersist2(XEmbedPersist_c5660c24):
 
 __all__ = ['XEmbedPersist2']
 
+

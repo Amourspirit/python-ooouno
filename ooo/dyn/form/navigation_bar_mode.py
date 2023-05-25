@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,56 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class NavigationBarMode(metaclass=UnoEnumMeta, type_name="com.sun.star.form.NavigationBarMode", name_space="com.sun.star.form"):
         """Dynamically created class that represents ``com.sun.star.form.NavigationBarMode`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.form.NavigationBarMode import CURRENT as NAVIGATION_BAR_MODE_CURRENT
-        from com.sun.star.form.NavigationBarMode import NONE as NAVIGATION_BAR_MODE_NONE
-        from com.sun.star.form.NavigationBarMode import PARENT as NAVIGATION_BAR_MODE_PARENT
+    from ...lo.form.navigation_bar_mode import NavigationBarMode as NavigationBarMode
 
-        class NavigationBarMode(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API NavigationBarMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1form.html#ad79e40635743aa91020c7ddf34c3af31>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.form.NavigationBarMode', value)
-
-            __ooo_ns__: str = 'com.sun.star.form'
-            __ooo_full_ns__: str = 'com.sun.star.form.NavigationBarMode'
-            __ooo_type_name__: str = 'enum'
-
-            CURRENT = NAVIGATION_BAR_MODE_CURRENT
-            """
-            a navigation bar is provided and navigation will be performed on the current/active form.
-
-            pressing the TAB key from the last control moves the focus to the first control in the tab order of the same record.
-
-            This is the default and most often encountered mode.
-            """
-            NONE = NAVIGATION_BAR_MODE_NONE
-            """
-            no navigation bar is provided and navigation on the current form is only possible with the keyboard (TAB/SHIFT TAB).
-
-            Note that when this mode is set, a simultaneous TabulatorCycle value of TabulatorCycle.CURRENT means that you cannot travel between records anymore.
-            """
-            PARENT = NAVIGATION_BAR_MODE_PARENT
-            """
-            a navigation bar is provided and navigation will be performed on the parent of the current/active form.
-
-            This option is usually used for forms containing a grid control only. In such a form, the control has its own navigation elements, so there is no need to use the navigation bar for the form, but rather for its parent.
-            """
-    else:
-        # keep document generators happy
-        from ...lo.form.navigation_bar_mode import NavigationBarMode as NavigationBarMode
-
-
-__all__ = ['NavigationBarMode']
+__all__ = ["NavigationBarMode"]

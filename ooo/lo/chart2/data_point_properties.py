@@ -33,10 +33,10 @@ if typing.TYPE_CHECKING:
     from .x_data_point_custom_label_field import XDataPointCustomLabelField as XDataPointCustomLabelField_94771167
     from ..drawing.hatch import Hatch as Hatch_859b09dc
     from ..drawing.line_dash import LineDash as LineDash_a54e0afc
-    from com.sun.star.drawing.LineStyle import LineStyleProto
-    from com.sun.star.drawing.BitmapMode import BitmapModeProto
-    from com.sun.star.drawing.RectanglePoint import RectanglePointProto
-    from com.sun.star.drawing.FillStyle import FillStyleProto
+    from com.sun.star.drawing.LineStyle import LineStyleProto  # type: ignore
+    from com.sun.star.drawing.BitmapMode import BitmapModeProto  # type: ignore
+    from com.sun.star.drawing.RectanglePoint import RectanglePointProto  # type: ignore
+    from com.sun.star.drawing.FillStyle import FillStyleProto  # type: ignore
 
 class DataPointProperties(PropertySet_b0e70ba2, FillProperties_f1200da8):
     """
@@ -421,4 +421,3 @@ class DataPointProperties(PropertySet_b0e70ba2, FillProperties_f1200da8):
 
 
 __all__ = ['DataPointProperties']
-

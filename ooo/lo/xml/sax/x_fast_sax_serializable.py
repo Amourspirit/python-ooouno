@@ -58,3 +58,4 @@ class XFastSAXSerializable(ABC):
 
 __all__ = ['XFastSAXSerializable']
 
+

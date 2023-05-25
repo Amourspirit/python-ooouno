@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,53 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class DataSelectionType(metaclass=UnoEnumMeta, type_name="com.sun.star.form.DataSelectionType", name_space="com.sun.star.form"):
         """Dynamically created class that represents ``com.sun.star.form.DataSelectionType`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.form.DataSelectionType import QUERY as DATA_SELECTION_TYPE_QUERY
-        from com.sun.star.form.DataSelectionType import SQL as DATA_SELECTION_TYPE_SQL
-        from com.sun.star.form.DataSelectionType import SQLPASSTHROUGH as DATA_SELECTION_TYPE_SQLPASSTHROUGH
-        from com.sun.star.form.DataSelectionType import TABLE as DATA_SELECTION_TYPE_TABLE
+    from ...lo.form.data_selection_type import DataSelectionType as DataSelectionType
 
-        class DataSelectionType(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API DataSelectionType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1form.html#abce772d425e368c8a4f81abe7afa7279>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.form.DataSelectionType', value)
-
-            __ooo_ns__: str = 'com.sun.star.form'
-            __ooo_full_ns__: str = 'com.sun.star.form.DataSelectionType'
-            __ooo_type_name__: str = 'enum'
-
-            QUERY = DATA_SELECTION_TYPE_QUERY
-            """
-            The control should be filled with the results of a database query.
-            """
-            SQL = DATA_SELECTION_TYPE_SQL
-            """
-            The control should be filled with the results of a database statement.
-            """
-            SQLPASSTHROUGH = DATA_SELECTION_TYPE_SQLPASSTHROUGH
-            """
-            The control should be filled with the results of a database statement, which is not evaluated by the database engine.
-            """
-            TABLE = DATA_SELECTION_TYPE_TABLE
-            """
-            The control should be filled with the data of a table.
-            """
-    else:
-        # keep document generators happy
-        from ...lo.form.data_selection_type import DataSelectionType as DataSelectionType
-
-
-__all__ = ['DataSelectionType']
+__all__ = ["DataSelectionType"]

@@ -55,3 +55,4 @@ class XAnimateMotion(XAnimate_ca680c52):
 
 __all__ = ['XAnimateMotion']
 
+

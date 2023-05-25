@@ -32,9 +32,9 @@ if typing.TYPE_CHECKING:
     from ..table.border_line import BorderLine as BorderLine_a3f80af6
     from ..table.shadow_format import ShadowFormat as ShadowFormat_bb840bdf
     from ..util.color import Color as Color_68e908c5
-    from com.sun.star.style.BreakType import BreakTypeProto
-    from com.sun.star.style.ParagraphAdjust import ParagraphAdjustProto
-    from com.sun.star.style.GraphicLocation import GraphicLocationProto
+    from com.sun.star.style.BreakType import BreakTypeProto  # type: ignore
+    from com.sun.star.style.ParagraphAdjust import ParagraphAdjustProto  # type: ignore
+    from com.sun.star.style.GraphicLocation import GraphicLocationProto  # type: ignore
 
 class ParagraphProperties(ABC):
     """
@@ -592,4 +592,3 @@ class ParagraphProperties(ABC):
 
 
 __all__ = ['ParagraphProperties']
-

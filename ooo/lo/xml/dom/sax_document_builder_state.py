@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.xml.dom
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.xml.dom.SAXDocumentBuilderState import SAXDocumentBuilderStateProto
+
 
 class SAXDocumentBuilderState(Enum):
     """
@@ -33,29 +31,29 @@ class SAXDocumentBuilderState(Enum):
     See Also:
         `API SAXDocumentBuilderState <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1xml_1_1dom.html#a8e1d723b2d19d95078879bf81b535b36>`_
     """
-    __ooo_ns__: str = 'com.sun.star.xml.dom'
-    __ooo_full_ns__: str = 'com.sun.star.xml.dom.SAXDocumentBuilderState'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.xml.dom"
+    __ooo_full_ns__: str = "com.sun.star.xml.dom.SAXDocumentBuilderState"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.xml.dom.SAXDocumentBuilderState'
+        return "com.sun.star.xml.dom.SAXDocumentBuilderState"
 
-    BUILDING_DOCUMENT = cast("SAXDocumentBuilderStateProto", 'BUILDING_DOCUMENT')
+    BUILDING_DOCUMENT = "BUILDING_DOCUMENT"
     """
     """
-    BUILDING_FRAGMENT = cast("SAXDocumentBuilderStateProto", 'BUILDING_FRAGMENT')
+    BUILDING_FRAGMENT = "BUILDING_FRAGMENT"
     """
     """
-    DOCUMENT_FINISHED = cast("SAXDocumentBuilderStateProto", 'DOCUMENT_FINISHED')
+    DOCUMENT_FINISHED = "DOCUMENT_FINISHED"
     """
     """
-    FRAGMENT_FINISHED = cast("SAXDocumentBuilderStateProto", 'FRAGMENT_FINISHED')
+    FRAGMENT_FINISHED = "FRAGMENT_FINISHED"
     """
     """
-    READY = cast("SAXDocumentBuilderStateProto", 'READY')
+    READY = "READY"
     """
     """
 
-__all__ = ['SAXDocumentBuilderState']
+__all__ = ["SAXDocumentBuilderState"]
 

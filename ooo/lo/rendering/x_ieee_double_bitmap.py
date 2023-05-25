@@ -68,3 +68,4 @@ class XIeeeDoubleBitmap(XIeeeDoubleReadOnlyBitmap_bfd0126c):
 
 __all__ = ['XIeeeDoubleBitmap']
 
+

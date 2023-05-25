@@ -25,7 +25,7 @@ from ..drawing.shape import Shape as Shape_85cc09e5
 from ..style.character_properties import CharacterProperties as CharacterProperties_1d4f0ef3
 from ..xml.user_defined_attributes_supplier import UserDefinedAttributesSupplier as UserDefinedAttributesSupplier_9fbe1222
 if typing.TYPE_CHECKING:
-    from com.sun.star.chart.ChartLegendPosition import ChartLegendPositionProto
+    from com.sun.star.chart.ChartLegendPosition import ChartLegendPositionProto  # type: ignore
 
 class ChartLegend(Shape_85cc09e5, CharacterProperties_1d4f0ef3, UserDefinedAttributesSupplier_9fbe1222):
     """
@@ -64,4 +64,3 @@ class ChartLegend(Shape_85cc09e5, CharacterProperties_1d4f0ef3, UserDefinedAttri
 
 
 __all__ = ['ChartLegend']
-

@@ -57,3 +57,4 @@ class XDataBarEntry(ABC):
 
 __all__ = ['XDataBarEntry']
 
+

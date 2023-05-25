@@ -54,3 +54,4 @@ class XFormatCondition(XPropertySet_bc180bfa, XReportControlFormat_3d4e0fc2):
 
 __all__ = ['XFormatCondition']
 
+

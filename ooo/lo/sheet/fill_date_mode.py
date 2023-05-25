@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.sheet
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.sheet.FillDateMode import FillDateModeProto
+
 
 class FillDateMode(Enum):
     """
@@ -32,30 +30,30 @@ class FillDateMode(Enum):
     See Also:
         `API FillDateMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1sheet.html#a2ea1aac24b8de3ac28ac5a6ec79a80ca>`_
     """
-    __ooo_ns__: str = 'com.sun.star.sheet'
-    __ooo_full_ns__: str = 'com.sun.star.sheet.FillDateMode'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.sheet"
+    __ooo_full_ns__: str = "com.sun.star.sheet.FillDateMode"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.sheet.FillDateMode'
+        return "com.sun.star.sheet.FillDateMode"
 
-    FILL_DATE_DAY = cast("FillDateModeProto", 'FILL_DATE_DAY')
+    FILL_DATE_DAY = "FILL_DATE_DAY"
     """
     for every new value a single day is added.
     """
-    FILL_DATE_MONTH = cast("FillDateModeProto", 'FILL_DATE_MONTH')
+    FILL_DATE_MONTH = "FILL_DATE_MONTH"
     """
     for every new value one month is added (day keeps unchanged).
     """
-    FILL_DATE_WEEKDAY = cast("FillDateModeProto", 'FILL_DATE_WEEKDAY')
+    FILL_DATE_WEEKDAY = "FILL_DATE_WEEKDAY"
     """
     for every new value a single day is added, but Saturdays and Sundays are skipped.
     """
-    FILL_DATE_YEAR = cast("FillDateModeProto", 'FILL_DATE_YEAR')
+    FILL_DATE_YEAR = "FILL_DATE_YEAR"
     """
     for every new value one year is added (day and month keep unchanged).
     """
 
-__all__ = ['FillDateMode']
+__all__ = ["FillDateMode"]
 

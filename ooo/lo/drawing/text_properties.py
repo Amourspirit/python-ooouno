@@ -30,12 +30,12 @@ from ..style.paragraph_properties_complex import ParagraphPropertiesComplex as P
 if typing.TYPE_CHECKING:
     from ..container.x_index_replace import XIndexReplace as XIndexReplace_feed0dd7
     from ..text.x_text_columns import XTextColumns as XTextColumns_b17f0bab
-    from com.sun.star.drawing.TextAnimationDirection import TextAnimationDirectionProto
-    from com.sun.star.drawing.TextAnimationKind import TextAnimationKindProto
-    from com.sun.star.drawing.TextFitToSizeType import TextFitToSizeTypeProto
-    from com.sun.star.drawing.TextHorizontalAdjust import TextHorizontalAdjustProto
-    from com.sun.star.drawing.TextVerticalAdjust import TextVerticalAdjustProto
-    from com.sun.star.text.WritingMode import WritingModeProto
+    from com.sun.star.drawing.TextAnimationDirection import TextAnimationDirectionProto  # type: ignore
+    from com.sun.star.drawing.TextAnimationKind import TextAnimationKindProto  # type: ignore
+    from com.sun.star.drawing.TextFitToSizeType import TextFitToSizeTypeProto  # type: ignore
+    from com.sun.star.drawing.TextHorizontalAdjust import TextHorizontalAdjustProto  # type: ignore
+    from com.sun.star.drawing.TextVerticalAdjust import TextVerticalAdjustProto  # type: ignore
+    from com.sun.star.text.WritingMode import WritingModeProto  # type: ignore
 
 class TextProperties(CharacterProperties_1d4f0ef3, CharacterPropertiesAsian_6d8a10df, CharacterPropertiesComplex_90ca11cb, ParagraphProperties_1e240efc, ParagraphPropertiesAsian_6e8c10e8, ParagraphPropertiesComplex_91de11d4):
     """
@@ -255,4 +255,3 @@ class TextProperties(CharacterProperties_1d4f0ef3, CharacterPropertiesAsian_6d8a
 
 
 __all__ = ['TextProperties']
-

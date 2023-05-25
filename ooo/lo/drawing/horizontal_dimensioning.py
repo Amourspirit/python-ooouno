@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.drawing
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.drawing.HorizontalDimensioning import HorizontalDimensioningProto
+
 
 class HorizontalDimensioning(Enum):
     """
@@ -32,27 +30,27 @@ class HorizontalDimensioning(Enum):
     See Also:
         `API HorizontalDimensioning <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a6c20b7eb17d1eb1746fddc52487581f9>`_
     """
-    __ooo_ns__: str = 'com.sun.star.drawing'
-    __ooo_full_ns__: str = 'com.sun.star.drawing.HorizontalDimensioning'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.drawing"
+    __ooo_full_ns__: str = "com.sun.star.drawing.HorizontalDimensioning"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.drawing.HorizontalDimensioning'
+        return "com.sun.star.drawing.HorizontalDimensioning"
 
-    AUTO = cast("HorizontalDimensioningProto", 'AUTO')
+    AUTO = "AUTO"
     """
     the connection point is chosen automatically,
     
     Set this to have the application select the best horizontal position for the text.
     """
-    CENTERED = cast("HorizontalDimensioningProto", 'CENTERED')
+    CENTERED = "CENTERED"
     """
     The text is positioned at the center.
     
     The text is positioned over the main line.
     """
-    LEFT = cast("HorizontalDimensioningProto", 'LEFT')
+    LEFT = "LEFT"
     """
     the connection line leaves the connected object to the left,
     
@@ -60,7 +58,7 @@ class HorizontalDimensioning(Enum):
     
     The text is positioned to the left.
     """
-    RIGHT = cast("HorizontalDimensioningProto", 'RIGHT')
+    RIGHT = "RIGHT"
     """
     the connection line leaves the connected object to the right,
     
@@ -69,5 +67,5 @@ class HorizontalDimensioning(Enum):
     The text is positioned to the right.
     """
 
-__all__ = ['HorizontalDimensioning']
+__all__ = ["HorizontalDimensioning"]
 

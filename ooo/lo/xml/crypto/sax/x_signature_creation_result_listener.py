@@ -23,7 +23,7 @@ import typing
 from abc import abstractmethod
 from ....uno.x_interface import XInterface as XInterface_8f010a43
 if typing.TYPE_CHECKING:
-    from com.sun.star.xml.crypto.SecurityOperationStatus import SecurityOperationStatusProto
+    from com.sun.star.xml.crypto.SecurityOperationStatus import SecurityOperationStatusProto  # type: ignore
 
 class XSignatureCreationResultListener(XInterface_8f010a43):
     """
@@ -47,4 +47,3 @@ class XSignatureCreationResultListener(XInterface_8f010a43):
         ...
 
 __all__ = ['XSignatureCreationResultListener']
-

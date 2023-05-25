@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.style
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.style.VerticalAlignment import VerticalAlignmentProto
+
 
 class VerticalAlignment(Enum):
     """
@@ -32,26 +30,26 @@ class VerticalAlignment(Enum):
     See Also:
         `API VerticalAlignment <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1style.html#a9c2ed22cfbd21f13df24ea193b310aee>`_
     """
-    __ooo_ns__: str = 'com.sun.star.style'
-    __ooo_full_ns__: str = 'com.sun.star.style.VerticalAlignment'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.style"
+    __ooo_full_ns__: str = "com.sun.star.style.VerticalAlignment"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.style.VerticalAlignment'
+        return "com.sun.star.style.VerticalAlignment"
 
-    BOTTOM = cast("VerticalAlignmentProto", 'BOTTOM')
+    BOTTOM = "BOTTOM"
     """
     set the vertical alignment to the bottom margin from the container object.
     """
-    MIDDLE = cast("VerticalAlignmentProto", 'MIDDLE')
+    MIDDLE = "MIDDLE"
     """
     set the vertical alignment to the top margin from the container object.
     """
-    TOP = cast("VerticalAlignmentProto", 'TOP')
+    TOP = "TOP"
     """
     set the vertical alignment to the center between the top and bottom margins from the container object.
     """
 
-__all__ = ['VerticalAlignment']
+__all__ = ["VerticalAlignment"]
 

@@ -26,7 +26,7 @@ from ..uno.x_interface import XInterface as XInterface_8f010a43
 if typing.TYPE_CHECKING:
     from .x_certificate_extension import XCertificateExtension as XCertificateExtension_6ead10f8
     from ..util.date_time import DateTime as DateTime_84de09d3
-    from com.sun.star.security.CertificateKind import CertificateKindProto
+    from com.sun.star.security.CertificateKind import CertificateKindProto  # type: ignore
 
 class XCertificate(XInterface_8f010a43):
     """
@@ -178,4 +178,3 @@ class XCertificate(XInterface_8f010a43):
 
 
 __all__ = ['XCertificate']
-

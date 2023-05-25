@@ -31,9 +31,9 @@ if typing.TYPE_CHECKING:
     from ..table.shadow_format import ShadowFormat as ShadowFormat_bb840bdf
     from .x_text_frame import XTextFrame as XTextFrame_9a7e0ab5
     from ..util.color import Color as Color_68e908c5
-    from com.sun.star.style.GraphicLocation import GraphicLocationProto
-    from com.sun.star.drawing.FillStyle import FillStyleProto
-    from com.sun.star.text.WrapTextMode import WrapTextModeProto
+    from com.sun.star.style.GraphicLocation import GraphicLocationProto  # type: ignore
+    from com.sun.star.drawing.FillStyle import FillStyleProto  # type: ignore
+    from com.sun.star.text.WrapTextMode import WrapTextModeProto  # type: ignore
 
 class BaseFrameProperties(UserDefinedAttributesSupplier_9fbe1222):
     """
@@ -566,4 +566,3 @@ class BaseFrameProperties(UserDefinedAttributesSupplier_9fbe1222):
 
 
 __all__ = ['BaseFrameProperties']
-

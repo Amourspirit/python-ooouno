@@ -41,3 +41,4 @@ class XFolderPicker2(XFolderPicker_86a0e09, XCancellable_afc30b64):
 
 __all__ = ['XFolderPicker2']
 
+

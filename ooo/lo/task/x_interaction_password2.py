@@ -69,3 +69,4 @@ class XInteractionPassword2(XInteractionPassword_1ba00ee6):
 
 __all__ = ['XInteractionPassword2']
 
+

@@ -66,3 +66,4 @@ class XPresentation2(XPropertySet_bc180bfa, XPresentation_30890f78):
 
 __all__ = ['XPresentation2']
 
+

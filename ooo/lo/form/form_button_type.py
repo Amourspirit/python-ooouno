@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.form
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.form.FormButtonType import FormButtonTypeProto
+
 
 class FormButtonType(Enum):
     """
@@ -32,27 +30,27 @@ class FormButtonType(Enum):
     See Also:
         `API FormButtonType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1form.html#abd774094fc2fbbdf91448f8a60c1798a>`_
     """
-    __ooo_ns__: str = 'com.sun.star.form'
-    __ooo_full_ns__: str = 'com.sun.star.form.FormButtonType'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.form"
+    __ooo_full_ns__: str = "com.sun.star.form.FormButtonType"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.form.FormButtonType'
+        return "com.sun.star.form.FormButtonType"
 
-    PUSH = cast("FormButtonTypeProto", 'PUSH')
+    PUSH = "PUSH"
     """
     requires the button to act like a common push button, means no special action is triggered.
     """
-    RESET = cast("FormButtonTypeProto", 'RESET')
+    RESET = "RESET"
     """
     When the button is clicked, it performs a reset on its containing form.
     """
-    SUBMIT = cast("FormButtonTypeProto", 'SUBMIT')
+    SUBMIT = "SUBMIT"
     """
     When the button is clicked, it performs a submit on its containing form.
     """
-    URL = cast("FormButtonTypeProto", 'URL')
+    URL = "URL"
     """
     When the button is clicked, a URL set for the button is opened.
     
@@ -61,5 +59,5 @@ class FormButtonType(Enum):
     Usually used if the FormSubmitMethod attribute has the value POST.
     """
 
-__all__ = ['FormButtonType']
+__all__ = ["FormButtonType"]
 

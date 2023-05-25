@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.ucb
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.ucb.RemoteContentProviderChangeAction import RemoteContentProviderChangeActionProto
+
 
 class RemoteContentProviderChangeAction(Enum):
     """
@@ -32,22 +30,22 @@ class RemoteContentProviderChangeAction(Enum):
     See Also:
         `API RemoteContentProviderChangeAction <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1ucb.html#abe4a959f1ea6647971dafe5b6c90c7ec>`_
     """
-    __ooo_ns__: str = 'com.sun.star.ucb'
-    __ooo_full_ns__: str = 'com.sun.star.ucb.RemoteContentProviderChangeAction'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.ucb"
+    __ooo_full_ns__: str = "com.sun.star.ucb.RemoteContentProviderChangeAction"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.ucb.RemoteContentProviderChangeAction'
+        return "com.sun.star.ucb.RemoteContentProviderChangeAction"
 
-    ADDED = cast("RemoteContentProviderChangeActionProto", 'ADDED')
+    ADDED = "ADDED"
     """
     The indicator that a remote content provider has been added.
     """
-    REMOVED = cast("RemoteContentProviderChangeActionProto", 'REMOVED')
+    REMOVED = "REMOVED"
     """
     The indicator that a remote content provider has been removed.
     """
 
-__all__ = ['RemoteContentProviderChangeAction']
+__all__ = ["RemoteContentProviderChangeAction"]
 

@@ -26,7 +26,7 @@ from ..uno.x_interface import XInterface as XInterface_8f010a43
 if typing.TYPE_CHECKING:
     from .transliteration_modules_new import TransliterationModulesNew as TransliterationModulesNew_6260108e
     from ..lang.locale import Locale as Locale_70d308fa
-    from com.sun.star.i18n.TransliterationModules import TransliterationModulesProto
+    from com.sun.star.i18n.TransliterationModules import TransliterationModulesProto  # type: ignore
 
 class XTransliteration(XInterface_8f010a43):
     """
@@ -162,4 +162,3 @@ class XTransliteration(XInterface_8f010a43):
         ...
 
 __all__ = ['XTransliteration']
-

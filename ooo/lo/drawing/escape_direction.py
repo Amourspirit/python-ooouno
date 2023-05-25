@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.drawing
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.drawing.EscapeDirection import EscapeDirectionProto
+
 
 class EscapeDirection(Enum):
     """
@@ -32,22 +30,22 @@ class EscapeDirection(Enum):
     See Also:
         `API EscapeDirection <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a554864869ec34ebdfb5ecde01c5c5670>`_
     """
-    __ooo_ns__: str = 'com.sun.star.drawing'
-    __ooo_full_ns__: str = 'com.sun.star.drawing.EscapeDirection'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.drawing"
+    __ooo_full_ns__: str = "com.sun.star.drawing.EscapeDirection"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.drawing.EscapeDirection'
+        return "com.sun.star.drawing.EscapeDirection"
 
-    DOWN = cast("EscapeDirectionProto", 'DOWN')
+    DOWN = "DOWN"
     """
     """
-    HORIZONTAL = cast("EscapeDirectionProto", 'HORIZONTAL')
+    HORIZONTAL = "HORIZONTAL"
     """
     mirror to the horizontal axis
     """
-    LEFT = cast("EscapeDirectionProto", 'LEFT')
+    LEFT = "LEFT"
     """
     the connection line leaves the connected object to the left,
     
@@ -55,7 +53,7 @@ class EscapeDirection(Enum):
     
     The text is positioned to the left.
     """
-    RIGHT = cast("EscapeDirectionProto", 'RIGHT')
+    RIGHT = "RIGHT"
     """
     the connection line leaves the connected object to the right,
     
@@ -63,16 +61,16 @@ class EscapeDirection(Enum):
     
     The text is positioned to the right.
     """
-    SMART = cast("EscapeDirectionProto", 'SMART')
+    SMART = "SMART"
     """
     """
-    UP = cast("EscapeDirectionProto", 'UP')
+    UP = "UP"
     """
     """
-    VERTICAL = cast("EscapeDirectionProto", 'VERTICAL')
+    VERTICAL = "VERTICAL"
     """
     mirror to the vertical axis
     """
 
-__all__ = ['EscapeDirection']
+__all__ = ["EscapeDirection"]
 

@@ -28,7 +28,7 @@ if typing.TYPE_CHECKING:
     from .x_configuration import XConfiguration as XConfiguration_8f0511a0
     from .x_resource import XResource as XResource_3bcd0f90
     from .x_resource_id import XResourceId as XResourceId_5be3103d
-    from com.sun.star.drawing.framework.ResourceActivationMode import ResourceActivationModeProto
+    from com.sun.star.drawing.framework.ResourceActivationMode import ResourceActivationModeProto  # type: ignore
 
 class XConfigurationController(XConfigurationControllerBroadcaster_5e871a2e, XConfigurationControllerRequestQueue_7a5d1ab2, XResourceFactoryManager_3eb91523):
     """
@@ -134,4 +134,3 @@ class XConfigurationController(XConfigurationControllerBroadcaster_5e871a2e, XCo
         ...
 
 __all__ = ['XConfigurationController']
-

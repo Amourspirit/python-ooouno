@@ -23,9 +23,9 @@ import typing
 from abc import abstractproperty
 from ..beans.x_property_set import XPropertySet as XPropertySet_bc180bfa
 if typing.TYPE_CHECKING:
-    from com.sun.star.chart.ChartErrorCategory import ChartErrorCategoryProto
-    from com.sun.star.chart.ChartErrorIndicatorType import ChartErrorIndicatorTypeProto
-    from com.sun.star.chart.ChartRegressionCurveType import ChartRegressionCurveTypeProto
+    from com.sun.star.chart.ChartErrorCategory import ChartErrorCategoryProto  # type: ignore
+    from com.sun.star.chart.ChartErrorIndicatorType import ChartErrorIndicatorTypeProto  # type: ignore
+    from com.sun.star.chart.ChartRegressionCurveType import ChartRegressionCurveTypeProto  # type: ignore
 
 class ChartStatistics(XPropertySet_bc180bfa):
     """
@@ -141,4 +141,3 @@ class ChartStatistics(XPropertySet_bc180bfa):
 
 
 __all__ = ['ChartStatistics']
-

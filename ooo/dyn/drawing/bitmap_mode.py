@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,50 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class BitmapMode(metaclass=UnoEnumMeta, type_name="com.sun.star.drawing.BitmapMode", name_space="com.sun.star.drawing"):
         """Dynamically created class that represents ``com.sun.star.drawing.BitmapMode`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.drawing.BitmapMode import NO_REPEAT as BITMAP_MODE_NO_REPEAT
-        from com.sun.star.drawing.BitmapMode import REPEAT as BITMAP_MODE_REPEAT
-        from com.sun.star.drawing.BitmapMode import STRETCH as BITMAP_MODE_STRETCH
+    from ...lo.drawing.bitmap_mode import BitmapMode as BitmapMode
 
-        class BitmapMode(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API BitmapMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#ad26489b8cfc631a6aa6a1a59fd2e2356>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.drawing.BitmapMode', value)
-
-            __ooo_ns__: str = 'com.sun.star.drawing'
-            __ooo_full_ns__: str = 'com.sun.star.drawing.BitmapMode'
-            __ooo_type_name__: str = 'enum'
-
-            NO_REPEAT = BITMAP_MODE_NO_REPEAT
-            """
-            the bitmap is painted in its original or selected size.
-            """
-            REPEAT = BITMAP_MODE_REPEAT
-            """
-            the bitmap is repeated over the fill area.
-            """
-            STRETCH = BITMAP_MODE_STRETCH
-            """
-            the bitmap is stretched to fill the area.
-
-            The text is stretched so that the longest line goes from the left to the right edge of the shape.
-            """
-    else:
-        # keep document generators happy
-        from ...lo.drawing.bitmap_mode import BitmapMode as BitmapMode
-
-
-__all__ = ['BitmapMode']
+__all__ = ["BitmapMode"]

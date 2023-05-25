@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.sheet
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.sheet.Border import BorderProto
+
 
 class Border(Enum):
     """
@@ -32,34 +30,34 @@ class Border(Enum):
     See Also:
         `API Border <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1sheet.html#aea307cd05a4c363d9cac3828a62f4127>`_
     """
-    __ooo_ns__: str = 'com.sun.star.sheet'
-    __ooo_full_ns__: str = 'com.sun.star.sheet.Border'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.sheet"
+    __ooo_full_ns__: str = "com.sun.star.sheet.Border"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.sheet.Border'
+        return "com.sun.star.sheet.Border"
 
-    BOTTOM = cast("BorderProto", 'BOTTOM')
+    BOTTOM = "BOTTOM"
     """
     selects the bottom border.
     """
-    LEFT = cast("BorderProto", 'LEFT')
+    LEFT = "LEFT"
     """
     selects the left border.
     
     the cells to the right of the deleted cells are moved left.
     """
-    RIGHT = cast("BorderProto", 'RIGHT')
+    RIGHT = "RIGHT"
     """
     selects the right border.
     
     the cells to the right of the inserted cells are moved right.
     """
-    TOP = cast("BorderProto", 'TOP')
+    TOP = "TOP"
     """
     selects the top border.
     """
 
-__all__ = ['Border']
+__all__ = ["Border"]
 

@@ -45,3 +45,4 @@ class XTextFrame(XTextContent_b16e0ba5):
 
 __all__ = ['XTextFrame']
 
+

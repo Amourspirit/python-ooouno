@@ -59,3 +59,4 @@ class XProgressMonitor(XProgressBar_a4cb0b16):
 
 __all__ = ['XProgressMonitor']
 
+

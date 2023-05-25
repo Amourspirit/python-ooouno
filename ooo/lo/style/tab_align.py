@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.style
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.style.TabAlign import TabAlignProto
+
 
 class TabAlign(Enum):
     """
@@ -32,15 +30,15 @@ class TabAlign(Enum):
     See Also:
         `API TabAlign <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1style.html#a806c06853615662029f86b19111fe0a2>`_
     """
-    __ooo_ns__: str = 'com.sun.star.style'
-    __ooo_full_ns__: str = 'com.sun.star.style.TabAlign'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.style"
+    __ooo_full_ns__: str = "com.sun.star.style.TabAlign"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.style.TabAlign'
+        return "com.sun.star.style.TabAlign"
 
-    CENTER = cast("TabAlignProto", 'CENTER')
+    CENTER = "CENTER"
     """
     set the horizontal alignment to the center between the margins from the container object
     
@@ -48,15 +46,15 @@ class TabAlign(Enum):
     
     adjusted to the center
     """
-    DECIMAL = cast("TabAlignProto", 'DECIMAL')
+    DECIMAL = "DECIMAL"
     """
     The decimal point of the text range to the left of this tabulator is aligned to the position of this tabulator.
     """
-    DEFAULT = cast("TabAlignProto", 'DEFAULT')
+    DEFAULT = "DEFAULT"
     """
     The default alignment for tabulators is applied.
     """
-    LEFT = cast("TabAlignProto", 'LEFT')
+    LEFT = "LEFT"
     """
     set the horizontal alignment to the left margin from the container object
     
@@ -66,7 +64,7 @@ class TabAlign(Enum):
     
     The page style is only used for left pages.
     """
-    RIGHT = cast("TabAlignProto", 'RIGHT')
+    RIGHT = "RIGHT"
     """
     set the horizontal alignment to the right margin from the container object
     
@@ -77,5 +75,5 @@ class TabAlign(Enum):
     The page style is only used for right pages.
     """
 
-__all__ = ['TabAlign']
+__all__ = ["TabAlign"]
 

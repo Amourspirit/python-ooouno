@@ -41,3 +41,4 @@ class XQueryDefinition(XPropertySet_bc180bfa, XComponent_98dc0ab5, XContent_79db
 
 __all__ = ['XQueryDefinition']
 
+

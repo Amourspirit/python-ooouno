@@ -27,8 +27,8 @@ from ..x_reset import XReset as XReset_71670917
 from .form import Form as Form_ca1d0c51
 from ...sdb.row_set import RowSet as RowSet_67d208a5
 if typing.TYPE_CHECKING:
-    from com.sun.star.form.TabulatorCycle import TabulatorCycleProto
-    from com.sun.star.form.NavigationBarMode import NavigationBarModeProto
+    from com.sun.star.form.TabulatorCycle import TabulatorCycleProto  # type: ignore
+    from com.sun.star.form.NavigationBarMode import NavigationBarModeProto  # type: ignore
 
 class DataForm(Form_ca1d0c51, RowSet_67d208a5, XDatabaseParameterBroadcaster_ac7f1234, XLoadable_8e680a28, XReset_71670917):
     """
@@ -114,4 +114,3 @@ class DataForm(Form_ca1d0c51, RowSet_67d208a5, XDatabaseParameterBroadcaster_ac7
 
 
 __all__ = ['DataForm']
-

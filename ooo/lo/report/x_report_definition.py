@@ -251,3 +251,4 @@ class XReportDefinition(XDocumentSubStorageSupplier_da021351, XStorageBasedDocum
 
 __all__ = ['XReportDefinition']
 
+

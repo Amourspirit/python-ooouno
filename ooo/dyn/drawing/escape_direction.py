@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,73 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class EscapeDirection(metaclass=UnoEnumMeta, type_name="com.sun.star.drawing.EscapeDirection", name_space="com.sun.star.drawing"):
         """Dynamically created class that represents ``com.sun.star.drawing.EscapeDirection`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.drawing.EscapeDirection import DOWN as ESCAPE_DIRECTION_DOWN
-        from com.sun.star.drawing.EscapeDirection import HORIZONTAL as ESCAPE_DIRECTION_HORIZONTAL
-        from com.sun.star.drawing.EscapeDirection import LEFT as ESCAPE_DIRECTION_LEFT
-        from com.sun.star.drawing.EscapeDirection import RIGHT as ESCAPE_DIRECTION_RIGHT
-        from com.sun.star.drawing.EscapeDirection import SMART as ESCAPE_DIRECTION_SMART
-        from com.sun.star.drawing.EscapeDirection import UP as ESCAPE_DIRECTION_UP
-        from com.sun.star.drawing.EscapeDirection import VERTICAL as ESCAPE_DIRECTION_VERTICAL
+    from ...lo.drawing.escape_direction import EscapeDirection as EscapeDirection
 
-        class EscapeDirection(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API EscapeDirection <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a554864869ec34ebdfb5ecde01c5c5670>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.drawing.EscapeDirection', value)
-
-            __ooo_ns__: str = 'com.sun.star.drawing'
-            __ooo_full_ns__: str = 'com.sun.star.drawing.EscapeDirection'
-            __ooo_type_name__: str = 'enum'
-
-            DOWN = ESCAPE_DIRECTION_DOWN
-            """
-            """
-            HORIZONTAL = ESCAPE_DIRECTION_HORIZONTAL
-            """
-            mirror to the horizontal axis
-            """
-            LEFT = ESCAPE_DIRECTION_LEFT
-            """
-            the connection line leaves the connected object to the left,
-
-            The left edge of the text is adjusted to the left edge of the shape.
-
-            The text is positioned to the left.
-            """
-            RIGHT = ESCAPE_DIRECTION_RIGHT
-            """
-            the connection line leaves the connected object to the right,
-
-            The right edge of the text is adjusted to the right edge of the shape.
-
-            The text is positioned to the right.
-            """
-            SMART = ESCAPE_DIRECTION_SMART
-            """
-            """
-            UP = ESCAPE_DIRECTION_UP
-            """
-            """
-            VERTICAL = ESCAPE_DIRECTION_VERTICAL
-            """
-            mirror to the vertical axis
-            """
-    else:
-        # keep document generators happy
-        from ...lo.drawing.escape_direction import EscapeDirection as EscapeDirection
-
-
-__all__ = ['EscapeDirection']
+__all__ = ["EscapeDirection"]

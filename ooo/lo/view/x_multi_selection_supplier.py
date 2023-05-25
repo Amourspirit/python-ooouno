@@ -88,3 +88,4 @@ class XMultiSelectionSupplier(XSelectionSupplier_fed20e15):
 
 __all__ = ['XMultiSelectionSupplier']
 
+

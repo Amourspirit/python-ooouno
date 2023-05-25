@@ -41,3 +41,4 @@ class XVndSunStarExpandUrlReference(XUriReference_afc30b6f, XVndSunStarExpandUrl
 
 __all__ = ['XVndSunStarExpandUrlReference']
 
+

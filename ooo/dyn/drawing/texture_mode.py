@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,48 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class TextureMode(metaclass=UnoEnumMeta, type_name="com.sun.star.drawing.TextureMode", name_space="com.sun.star.drawing"):
         """Dynamically created class that represents ``com.sun.star.drawing.TextureMode`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.drawing.TextureMode import BLEND as TEXTURE_MODE_BLEND
-        from com.sun.star.drawing.TextureMode import MODULATE as TEXTURE_MODE_MODULATE
-        from com.sun.star.drawing.TextureMode import REPLACE as TEXTURE_MODE_REPLACE
+    from ...lo.drawing.texture_mode import TextureMode as TextureMode
 
-        class TextureMode(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API TextureMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a54e2c5973b14c9a43a7acf8fc80b3edb>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.drawing.TextureMode', value)
-
-            __ooo_ns__: str = 'com.sun.star.drawing'
-            __ooo_full_ns__: str = 'com.sun.star.drawing.TextureMode'
-            __ooo_type_name__: str = 'enum'
-
-            BLEND = TEXTURE_MODE_BLEND
-            """
-            This mixes both data sources in a fixed ratio.
-            """
-            MODULATE = TEXTURE_MODE_MODULATE
-            """
-            This mixes up colors in a way defined by the texture bitmap.
-            """
-            REPLACE = TEXTURE_MODE_REPLACE
-            """
-            This is the standard mode.
-            """
-    else:
-        # keep document generators happy
-        from ...lo.drawing.texture_mode import TextureMode as TextureMode
-
-
-__all__ = ['TextureMode']
+__all__ = ["TextureMode"]

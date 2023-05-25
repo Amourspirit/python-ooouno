@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,46 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class Timing(metaclass=UnoEnumMeta, type_name="com.sun.star.animations.Timing", name_space="com.sun.star.animations"):
         """Dynamically created class that represents ``com.sun.star.animations.Timing`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.animations.Timing import INDEFINITE as TIMING_INDEFINITE
-        from com.sun.star.animations.Timing import MEDIA as TIMING_MEDIA
+    from ...lo.animations.timing import Timing as Timing
 
-        class Timing(uno.Enum):
-            """
-            Enum Class
-
-            ENUM Timing
-
-            See Also:
-                `API Timing <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1animations.html#ad073880fe621cbabcd7a7cf904ef332f>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.animations.Timing', value)
-
-            __ooo_ns__: str = 'com.sun.star.animations'
-            __ooo_full_ns__: str = 'com.sun.star.animations.Timing'
-            __ooo_type_name__: str = 'enum'
-
-            INDEFINITE = TIMING_INDEFINITE
-            """
-            specifies that a duration, end or start time is indefinite
-            """
-            MEDIA = TIMING_MEDIA
-            """
-            specifies a simple duration as the intrinsic media duration.
-
-            This is only valid for elements that define media.
-            """
-    else:
-        # keep document generators happy
-        from ...lo.animations.timing import Timing as Timing
-
-
-__all__ = ['Timing']
+__all__ = ["Timing"]

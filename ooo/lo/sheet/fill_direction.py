@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.sheet
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.sheet.FillDirection import FillDirectionProto
+
 
 class FillDirection(Enum):
     """
@@ -32,30 +30,30 @@ class FillDirection(Enum):
     See Also:
         `API FillDirection <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1sheet.html#aa8eeb1312106b2d89cd26342fa09aac9>`_
     """
-    __ooo_ns__: str = 'com.sun.star.sheet'
-    __ooo_full_ns__: str = 'com.sun.star.sheet.FillDirection'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.sheet"
+    __ooo_full_ns__: str = "com.sun.star.sheet.FillDirection"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.sheet.FillDirection'
+        return "com.sun.star.sheet.FillDirection"
 
-    TO_BOTTOM = cast("FillDirectionProto", 'TO_BOTTOM')
+    TO_BOTTOM = "TO_BOTTOM"
     """
     specifies that rows are filled from top to bottom.
     """
-    TO_LEFT = cast("FillDirectionProto", 'TO_LEFT')
+    TO_LEFT = "TO_LEFT"
     """
     specifies that columns are filled from right to left.
     """
-    TO_RIGHT = cast("FillDirectionProto", 'TO_RIGHT')
+    TO_RIGHT = "TO_RIGHT"
     """
     specifies that columns are filled from left to right.
     """
-    TO_TOP = cast("FillDirectionProto", 'TO_TOP')
+    TO_TOP = "TO_TOP"
     """
     specifies that rows are filled from bottom to top.
     """
 
-__all__ = ['FillDirection']
+__all__ = ["FillDirection"]
 

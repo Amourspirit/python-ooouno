@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.drawing
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.drawing.ColorMode import ColorModeProto
+
 
 class ColorMode(Enum):
     """
@@ -32,23 +30,23 @@ class ColorMode(Enum):
     See Also:
         `API ColorMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a0e887cb85702e0dccbf34d7dbe40443f>`_
     """
-    __ooo_ns__: str = 'com.sun.star.drawing'
-    __ooo_full_ns__: str = 'com.sun.star.drawing.ColorMode'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.drawing"
+    __ooo_full_ns__: str = "com.sun.star.drawing.ColorMode"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.drawing.ColorMode'
+        return "com.sun.star.drawing.ColorMode"
 
-    GREYS = cast("ColorModeProto", 'GREYS')
+    GREYS = "GREYS"
     """
     the graphic is rendered in grayscale on the output device,
     """
-    MONO = cast("ColorModeProto", 'MONO')
+    MONO = "MONO"
     """
     the graphic is rendered in black and white only,
     """
-    STANDARD = cast("ColorModeProto", 'STANDARD')
+    STANDARD = "STANDARD"
     """
     the graphic is rendered in the default color style of the output device,
     
@@ -56,10 +54,10 @@ class ColorMode(Enum):
     
     the connector is drawn with three lines, with the middle line perpendicular to the other two
     """
-    WATERMARK = cast("ColorModeProto", 'WATERMARK')
+    WATERMARK = "WATERMARK"
     """
     the graphic is rendered in a watermark like style,
     """
 
-__all__ = ['ColorMode']
+__all__ = ["ColorMode"]
 

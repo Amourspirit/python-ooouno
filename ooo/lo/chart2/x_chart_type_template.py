@@ -118,3 +118,4 @@ class XChartTypeTemplate(XInterface_8f010a43):
 
 __all__ = ['XChartTypeTemplate']
 
+

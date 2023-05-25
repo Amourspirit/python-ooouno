@@ -60,3 +60,4 @@ class XStringResourceWithLocation(XStringResourcePersistence_cabc130c):
 
 __all__ = ['XStringResourceWithLocation']
 
+

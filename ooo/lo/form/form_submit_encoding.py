@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.form
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.form.FormSubmitEncoding import FormSubmitEncodingProto
+
 
 class FormSubmitEncoding(Enum):
     """
@@ -32,27 +30,27 @@ class FormSubmitEncoding(Enum):
     See Also:
         `API FormSubmitEncoding <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1form.html#a4a4c5c07c0618f59711919741a523ab8>`_
     """
-    __ooo_ns__: str = 'com.sun.star.form'
-    __ooo_full_ns__: str = 'com.sun.star.form.FormSubmitEncoding'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.form"
+    __ooo_full_ns__: str = "com.sun.star.form.FormSubmitEncoding"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.form.FormSubmitEncoding'
+        return "com.sun.star.form.FormSubmitEncoding"
 
-    MULTIPART = cast("FormSubmitEncodingProto", 'MULTIPART')
+    MULTIPART = "MULTIPART"
     """
     Specifies to use \"multipart/form-data\" as submit encoding.
     
     Usually used when the form contains a file upload element.
     """
-    TEXT = cast("FormSubmitEncodingProto", 'TEXT')
+    TEXT = "TEXT"
     """
     specifies to use \"text/plain\"
     
     Usually used if the FormSubmitMethod attribute has the value POST and the content should be reviewed as full text.
     """
-    URL = cast("FormSubmitEncodingProto", 'URL')
+    URL = "URL"
     """
     When the button is clicked, a URL set for the button is opened.
     
@@ -61,5 +59,5 @@ class FormSubmitEncoding(Enum):
     Usually used if the FormSubmitMethod attribute has the value POST.
     """
 
-__all__ = ['FormSubmitEncoding']
+__all__ = ["FormSubmitEncoding"]
 

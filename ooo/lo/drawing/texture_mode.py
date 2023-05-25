@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.drawing
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.drawing.TextureMode import TextureModeProto
+
 
 class TextureMode(Enum):
     """
@@ -32,26 +30,26 @@ class TextureMode(Enum):
     See Also:
         `API TextureMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a54e2c5973b14c9a43a7acf8fc80b3edb>`_
     """
-    __ooo_ns__: str = 'com.sun.star.drawing'
-    __ooo_full_ns__: str = 'com.sun.star.drawing.TextureMode'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.drawing"
+    __ooo_full_ns__: str = "com.sun.star.drawing.TextureMode"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.drawing.TextureMode'
+        return "com.sun.star.drawing.TextureMode"
 
-    BLEND = cast("TextureModeProto", 'BLEND')
+    BLEND = "BLEND"
     """
     This mixes both data sources in a fixed ratio.
     """
-    MODULATE = cast("TextureModeProto", 'MODULATE')
+    MODULATE = "MODULATE"
     """
     This mixes up colors in a way defined by the texture bitmap.
     """
-    REPLACE = cast("TextureModeProto", 'REPLACE')
+    REPLACE = "REPLACE"
     """
     This is the standard mode.
     """
 
-__all__ = ['TextureMode']
+__all__ = ["TextureMode"]
 

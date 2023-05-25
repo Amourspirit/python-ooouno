@@ -23,7 +23,7 @@ import typing
 import uno
 from abc import abstractproperty, ABC
 if typing.TYPE_CHECKING:
-    from com.sun.star.chart.ChartDataRowSource import ChartDataRowSourceProto
+    from com.sun.star.chart.ChartDataRowSource import ChartDataRowSourceProto  # type: ignore
 
 class TabularDataProviderArguments(ABC):
     """
@@ -113,4 +113,3 @@ class TabularDataProviderArguments(ABC):
 
 
 __all__ = ['TabularDataProviderArguments']
-

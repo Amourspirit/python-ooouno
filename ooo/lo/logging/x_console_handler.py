@@ -54,3 +54,4 @@ class XConsoleHandler(XLogHandler_c7f80c27):
 
 __all__ = ['XConsoleHandler']
 
+

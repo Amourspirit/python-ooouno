@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.ucb
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.ucb.Priority import PriorityProto
+
 
 class Priority(Enum):
     """
@@ -32,34 +30,34 @@ class Priority(Enum):
     See Also:
         `API Priority <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1ucb.html#a315655b1bb5848c063491adffde62b15>`_
     """
-    __ooo_ns__: str = 'com.sun.star.ucb'
-    __ooo_full_ns__: str = 'com.sun.star.ucb.Priority'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.ucb"
+    __ooo_full_ns__: str = "com.sun.star.ucb.Priority"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.ucb.Priority'
+        return "com.sun.star.ucb.Priority"
 
-    HIGH = cast("PriorityProto", 'HIGH')
+    HIGH = "HIGH"
     """
     High priority.
     """
-    HIGHEST = cast("PriorityProto", 'HIGHEST')
+    HIGHEST = "HIGHEST"
     """
     Highest priority.
     """
-    LOW = cast("PriorityProto", 'LOW')
+    LOW = "LOW"
     """
     Low priority.
     """
-    LOWEST = cast("PriorityProto", 'LOWEST')
+    LOWEST = "LOWEST"
     """
     Lowest priority.
     """
-    NORMAL = cast("PriorityProto", 'NORMAL')
+    NORMAL = "NORMAL"
     """
     Normal priority.
     """
 
-__all__ = ['Priority']
+__all__ = ["Priority"]
 

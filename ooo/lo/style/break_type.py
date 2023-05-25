@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.style
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.style.BreakType import BreakTypeProto
+
 
 class BreakType(Enum):
     """
@@ -32,44 +30,44 @@ class BreakType(Enum):
     See Also:
         `API BreakType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1style.html#a3ae28cb49c180ec160a0984600b2b925>`_
     """
-    __ooo_ns__: str = 'com.sun.star.style'
-    __ooo_full_ns__: str = 'com.sun.star.style.BreakType'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.style"
+    __ooo_full_ns__: str = "com.sun.star.style.BreakType"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.style.BreakType'
+        return "com.sun.star.style.BreakType"
 
-    COLUMN_AFTER = cast("BreakTypeProto", 'COLUMN_AFTER')
+    COLUMN_AFTER = "COLUMN_AFTER"
     """
     A column break is applied after the object to which it belongs.
     """
-    COLUMN_BEFORE = cast("BreakTypeProto", 'COLUMN_BEFORE')
+    COLUMN_BEFORE = "COLUMN_BEFORE"
     """
     A column break is applied before the object to which it belongs.
     """
-    COLUMN_BOTH = cast("BreakTypeProto", 'COLUMN_BOTH')
+    COLUMN_BOTH = "COLUMN_BOTH"
     """
     A column break is applied before and after the object to which it belongs.
     """
-    NONE = cast("BreakTypeProto", 'NONE')
+    NONE = "NONE"
     """
     No column or page break is applied.
     
     This value specifies that a location is not yet assigned.
     """
-    PAGE_AFTER = cast("BreakTypeProto", 'PAGE_AFTER')
+    PAGE_AFTER = "PAGE_AFTER"
     """
     A page break is applied after the object to which it belongs.
     """
-    PAGE_BEFORE = cast("BreakTypeProto", 'PAGE_BEFORE')
+    PAGE_BEFORE = "PAGE_BEFORE"
     """
     A page break is applied before the object to which it belongs.
     """
-    PAGE_BOTH = cast("BreakTypeProto", 'PAGE_BOTH')
+    PAGE_BOTH = "PAGE_BOTH"
     """
     A page break is applied before and after the object to which it belongs.
     """
 
-__all__ = ['BreakType']
+__all__ = ["BreakType"]
 

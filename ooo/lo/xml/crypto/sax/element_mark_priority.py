@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.xml.crypto.sax
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.xml.crypto.sax.ElementMarkPriority import ElementMarkPriorityProto
+
 
 class ElementMarkPriority(Enum):
     """
@@ -32,23 +30,23 @@ class ElementMarkPriority(Enum):
     See Also:
         `API ElementMarkPriority <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1xml_1_1crypto_1_1sax.html#a513614abfcc788af5f4afd633a9f5d0a>`_
     """
-    __ooo_ns__: str = 'com.sun.star.xml.crypto.sax'
-    __ooo_full_ns__: str = 'com.sun.star.xml.crypto.sax.ElementMarkPriority'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.xml.crypto.sax"
+    __ooo_full_ns__: str = "com.sun.star.xml.crypto.sax.ElementMarkPriority"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.xml.crypto.sax.ElementMarkPriority'
+        return "com.sun.star.xml.crypto.sax.ElementMarkPriority"
 
-    AFTERMODIFY = cast("ElementMarkPriorityProto", 'AFTERMODIFY')
+    AFTERMODIFY = "AFTERMODIFY"
     """
     """
-    BEFOREMODIFY = cast("ElementMarkPriorityProto", 'BEFOREMODIFY')
+    BEFOREMODIFY = "BEFOREMODIFY"
     """
     """
-    MINIMUM = cast("ElementMarkPriorityProto", 'MINIMUM')
+    MINIMUM = "MINIMUM"
     """
     """
 
-__all__ = ['ElementMarkPriority']
+__all__ = ["ElementMarkPriority"]
 

@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,38 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class LockType(metaclass=UnoEnumMeta, type_name="com.sun.star.ucb.LockType", name_space="com.sun.star.ucb"):
         """Dynamically created class that represents ``com.sun.star.ucb.LockType`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.ucb.LockType import WRITE as LOCK_TYPE_WRITE
+    from ...lo.ucb.lock_type import LockType as LockType
 
-        class LockType(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API LockType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1ucb.html#a5893ac36dd21da7bcd19a505205ea180>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.ucb.LockType', value)
-
-            __ooo_ns__: str = 'com.sun.star.ucb'
-            __ooo_full_ns__: str = 'com.sun.star.ucb.LockType'
-            __ooo_type_name__: str = 'enum'
-
-            WRITE = LOCK_TYPE_WRITE
-            """
-            specifies a write lock.
-            """
-    else:
-        # keep document generators happy
-        from ...lo.ucb.lock_type import LockType as LockType
-
-
-__all__ = ['LockType']
+__all__ = ["LockType"]

@@ -42,3 +42,4 @@ class XEmbeddedObjectCreator(XEmbedObjectCreator_14880e61, XEmbedObjectFactory_1
 
 __all__ = ['XEmbeddedObjectCreator']
 
+

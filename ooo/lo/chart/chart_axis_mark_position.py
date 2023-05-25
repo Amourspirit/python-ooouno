@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.chart
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.chart.ChartAxisMarkPosition import ChartAxisMarkPositionProto
+
 
 class ChartAxisMarkPosition(Enum):
     """
@@ -32,30 +30,30 @@ class ChartAxisMarkPosition(Enum):
     See Also:
         `API ChartAxisMarkPosition <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart.html#aed594287d3f18573f625e8f708a27555>`_
     """
-    __ooo_ns__: str = 'com.sun.star.chart'
-    __ooo_full_ns__: str = 'com.sun.star.chart.ChartAxisMarkPosition'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.chart"
+    __ooo_full_ns__: str = "com.sun.star.chart.ChartAxisMarkPosition"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.chart.ChartAxisMarkPosition'
+        return "com.sun.star.chart.ChartAxisMarkPosition"
 
-    AT_AXIS = cast("ChartAxisMarkPositionProto", 'AT_AXIS')
+    AT_AXIS = "AT_AXIS"
     """
     The interval marks are drawn at the axis line.
     
     This makes a difference to \"AT_LABELS\" only when the labels are not placed near the axis (
     """
-    AT_LABELS = cast("ChartAxisMarkPositionProto", 'AT_LABELS')
+    AT_LABELS = "AT_LABELS"
     """
     The interval marks are drawn besides the axis labels.
     """
-    AT_LABELS_AND_AXIS = cast("ChartAxisMarkPositionProto", 'AT_LABELS_AND_AXIS')
+    AT_LABELS_AND_AXIS = "AT_LABELS_AND_AXIS"
     """
     Interval marks are drawn at the axis line and also besides the axis labels.
     
     This makes a difference to \"AT_LABELS\" only when the labels are not placed near the axis (
     """
 
-__all__ = ['ChartAxisMarkPosition']
+__all__ = ["ChartAxisMarkPosition"]
 

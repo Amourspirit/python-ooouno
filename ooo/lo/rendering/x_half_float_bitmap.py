@@ -69,3 +69,4 @@ class XHalfFloatBitmap(XHalfFloatReadOnlyBitmap_ad83120a):
 
 __all__ = ['XHalfFloatBitmap']
 
+

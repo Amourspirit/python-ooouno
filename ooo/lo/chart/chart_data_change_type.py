@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.chart
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.chart.ChartDataChangeType import ChartDataChangeTypeProto
+
 
 class ChartDataChangeType(Enum):
     """
@@ -32,38 +30,38 @@ class ChartDataChangeType(Enum):
     See Also:
         `API ChartDataChangeType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart.html#a37b4d47e7d1600aa406ad115a39fe1da>`_
     """
-    __ooo_ns__: str = 'com.sun.star.chart'
-    __ooo_full_ns__: str = 'com.sun.star.chart.ChartDataChangeType'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.chart"
+    __ooo_full_ns__: str = "com.sun.star.chart.ChartDataChangeType"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.chart.ChartDataChangeType'
+        return "com.sun.star.chart.ChartDataChangeType"
 
-    ALL = cast("ChartDataChangeTypeProto", 'ALL')
+    ALL = "ALL"
     """
     Major changes were applied to the data.
     """
-    COLUMN_DELETED = cast("ChartDataChangeTypeProto", 'COLUMN_DELETED')
+    COLUMN_DELETED = "COLUMN_DELETED"
     """
     The column given in the ChartDataChangeEvent, was deleted.
     """
-    COLUMN_INSERTED = cast("ChartDataChangeTypeProto", 'COLUMN_INSERTED')
+    COLUMN_INSERTED = "COLUMN_INSERTED"
     """
     The column given in the ChartDataChangeEvent, was inserted.
     """
-    DATA_RANGE = cast("ChartDataChangeTypeProto", 'DATA_RANGE')
+    DATA_RANGE = "DATA_RANGE"
     """
     The range of columns and rows, given in the ChartDataChangeEvent, has changed.
     """
-    ROW_DELETED = cast("ChartDataChangeTypeProto", 'ROW_DELETED')
+    ROW_DELETED = "ROW_DELETED"
     """
     The row given in the ChartDataChangeEvent, was deleted.
     """
-    ROW_INSERTED = cast("ChartDataChangeTypeProto", 'ROW_INSERTED')
+    ROW_INSERTED = "ROW_INSERTED"
     """
     The row given in the ChartDataChangeEvent, was inserted.
     """
 
-__all__ = ['ChartDataChangeType']
+__all__ = ["ChartDataChangeType"]
 

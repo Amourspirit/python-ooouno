@@ -136,3 +136,4 @@ class XAcceleratorConfiguration(XUIConfiguration_c4eb0c34, XUIConfigurationPersi
 
 __all__ = ['XAcceleratorConfiguration']
 
+

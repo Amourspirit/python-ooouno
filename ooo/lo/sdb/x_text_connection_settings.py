@@ -40,3 +40,4 @@ class XTextConnectionSettings(XPropertySet_bc180bfa, XExecutableDialog_450f0fa1)
 
 __all__ = ['XTextConnectionSettings']
 
+

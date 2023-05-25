@@ -26,7 +26,7 @@ from .x_sheet_filter_descriptor import XSheetFilterDescriptor as XSheetFilterDes
 from .x_sheet_filter_descriptor2 import XSheetFilterDescriptor2 as XSheetFilterDescriptor2_57f51029
 if typing.TYPE_CHECKING:
     from ..table.cell_address import CellAddress as CellAddress_ae5f0b56
-    from com.sun.star.table.TableOrientation import TableOrientationProto
+    from com.sun.star.table.TableOrientation import TableOrientationProto  # type: ignore
 
 class SheetFilterDescriptor(XPropertySet_bc180bfa, XSheetFilterDescriptor2_57f51029, XSheetFilterDescriptor_47cc0ff7):
     """
@@ -118,4 +118,3 @@ class SheetFilterDescriptor(XPropertySet_bc180bfa, XSheetFilterDescriptor2_57f51
 
 
 __all__ = ['SheetFilterDescriptor']
-

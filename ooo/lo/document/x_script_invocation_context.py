@@ -56,3 +56,4 @@ class XScriptInvocationContext(ABC):
 
 __all__ = ['XScriptInvocationContext']
 
+

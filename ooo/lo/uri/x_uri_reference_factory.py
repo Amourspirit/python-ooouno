@@ -24,7 +24,7 @@ from abc import abstractmethod
 from ..uno.x_interface import XInterface as XInterface_8f010a43
 if typing.TYPE_CHECKING:
     from .x_uri_reference import XUriReference as XUriReference_afc30b6f
-    from com.sun.star.uri.RelativeUriExcessParentSegments import RelativeUriExcessParentSegmentsProto
+    from com.sun.star.uri.RelativeUriExcessParentSegments import RelativeUriExcessParentSegmentsProto  # type: ignore
 
 class XUriReferenceFactory(XInterface_8f010a43):
     """
@@ -64,4 +64,3 @@ class XUriReferenceFactory(XInterface_8f010a43):
         ...
 
 __all__ = ['XUriReferenceFactory']
-

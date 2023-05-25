@@ -80,3 +80,4 @@ class XParametricPolyPolygon2D(XInterface_8f010a43):
 
 __all__ = ['XParametricPolyPolygon2D']
 
+

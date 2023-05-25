@@ -135,3 +135,4 @@ class XObjectInspectorUI(ABC):
 
 __all__ = ['XObjectInspectorUI']
 
+

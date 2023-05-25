@@ -56,3 +56,4 @@ class XAccessibleEventBroadcaster(XInterface_8f010a43):
 
 __all__ = ['XAccessibleEventBroadcaster']
 
+

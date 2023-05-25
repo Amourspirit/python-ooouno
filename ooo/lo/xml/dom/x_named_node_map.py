@@ -107,3 +107,4 @@ class XNamedNodeMap(XInterface_8f010a43):
 
 __all__ = ['XNamedNodeMap']
 
+

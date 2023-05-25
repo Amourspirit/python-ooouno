@@ -22,7 +22,7 @@ from __future__ import annotations
 import typing
 from abc import abstractproperty, ABC
 if typing.TYPE_CHECKING:
-    from com.sun.star.drawing.ConnectorType import ConnectorTypeProto
+    from com.sun.star.drawing.ConnectorType import ConnectorTypeProto  # type: ignore
 
 class ConnectorProperties(ABC):
     """
@@ -74,4 +74,3 @@ class ConnectorProperties(ABC):
 
 
 __all__ = ['ConnectorProperties']
-

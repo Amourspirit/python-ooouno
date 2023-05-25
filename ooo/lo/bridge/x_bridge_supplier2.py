@@ -57,3 +57,4 @@ class XBridgeSupplier2(XInterface_8f010a43):
 
 __all__ = ['XBridgeSupplier2']
 
+

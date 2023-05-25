@@ -54,3 +54,4 @@ class XMasterPasswordHandling2(XMasterPasswordHandling_49900ff7):
 
 __all__ = ['XMasterPasswordHandling2']
 
+

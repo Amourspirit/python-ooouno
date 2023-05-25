@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.drawing
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.drawing.TextFitToSizeType import TextFitToSizeTypeProto
+
 
 class TextFitToSizeType(Enum):
     """
@@ -32,25 +30,25 @@ class TextFitToSizeType(Enum):
     See Also:
         `API TextFitToSizeType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a119322ec5cab271556edacd80f9d780a>`_
     """
-    __ooo_ns__: str = 'com.sun.star.drawing'
-    __ooo_full_ns__: str = 'com.sun.star.drawing.TextFitToSizeType'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.drawing"
+    __ooo_full_ns__: str = "com.sun.star.drawing.TextFitToSizeType"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.drawing.TextFitToSizeType'
+        return "com.sun.star.drawing.TextFitToSizeType"
 
-    ALLLINES = cast("TextFitToSizeTypeProto", 'ALLLINES')
+    ALLLINES = "ALLLINES"
     """
     Nowadays this is the same as PROPORTIONAL.
     """
-    AUTOFIT = cast("TextFitToSizeTypeProto", 'AUTOFIT')
+    AUTOFIT = "AUTOFIT"
     """
     The font size is scaled down (never up!) isotropically to fit the available space.
     
     Auto line-breaks will keep working.
     """
-    NONE = cast("TextFitToSizeTypeProto", 'NONE')
+    NONE = "NONE"
     """
     the area is not filled.
     
@@ -64,7 +62,7 @@ class TextFitToSizeType(Enum):
     
     the line has no special end.
     """
-    PROPORTIONAL = cast("TextFitToSizeTypeProto", 'PROPORTIONAL')
+    PROPORTIONAL = "PROPORTIONAL"
     """
     The bitmap with the rendered glyphs is scaled up or down proportionally to fit the size of the shape.
     
@@ -73,5 +71,5 @@ class TextFitToSizeType(Enum):
     On fontwork custom shapes, the rendering is different: each line of text is separately scaled proportionally to fit the width.
     """
 
-__all__ = ['TextFitToSizeType']
+__all__ = ["TextFitToSizeType"]
 

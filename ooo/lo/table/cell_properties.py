@@ -32,8 +32,8 @@ if typing.TYPE_CHECKING:
     from .table_border2 import TableBorder2 as TableBorder2_ba670b88
     from ..util.cell_protection import CellProtection as CellProtection_c9290c6d
     from ..util.color import Color as Color_68e908c5
-    from com.sun.star.table.CellHoriJustify import CellHoriJustifyProto
-    from com.sun.star.table.CellOrientation import CellOrientationProto
+    from com.sun.star.table.CellHoriJustify import CellHoriJustifyProto  # type: ignore
+    from com.sun.star.table.CellOrientation import CellOrientationProto  # type: ignore
 
 class CellProperties(XPropertySet_bc180bfa):
     """
@@ -339,4 +339,3 @@ class CellProperties(XPropertySet_bc180bfa):
 
 
 __all__ = ['CellProperties']
-

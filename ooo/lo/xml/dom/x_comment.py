@@ -35,3 +35,4 @@ class XComment(XCharacterData_ec070d26):
 
 __all__ = ['XComment']
 
+

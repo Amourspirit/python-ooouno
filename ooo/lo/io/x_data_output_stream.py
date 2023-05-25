@@ -120,3 +120,4 @@ class XDataOutputStream(XOutputStream_a4e00b35):
 
 __all__ = ['XDataOutputStream']
 
+

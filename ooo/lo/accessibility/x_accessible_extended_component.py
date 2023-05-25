@@ -70,3 +70,4 @@ class XAccessibleExtendedComponent(XAccessibleComponent_b2f21269):
 
 __all__ = ['XAccessibleExtendedComponent']
 
+

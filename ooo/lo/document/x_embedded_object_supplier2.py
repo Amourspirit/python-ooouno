@@ -63,3 +63,4 @@ class XEmbeddedObjectSupplier2(XEmbeddedObjectSupplier_8b631174):
 
 __all__ = ['XEmbeddedObjectSupplier2']
 
+

@@ -80,3 +80,4 @@ class XBufferController(XInterface_8f010a43):
 
 __all__ = ['XBufferController']
 
+

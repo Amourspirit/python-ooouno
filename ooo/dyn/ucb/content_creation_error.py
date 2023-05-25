@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,63 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class ContentCreationError(metaclass=UnoEnumMeta, type_name="com.sun.star.ucb.ContentCreationError", name_space="com.sun.star.ucb"):
         """Dynamically created class that represents ``com.sun.star.ucb.ContentCreationError`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.ucb.ContentCreationError import CONTENT_CREATION_FAILED as CONTENT_CREATION_ERROR_CONTENT_CREATION_FAILED
-        from com.sun.star.ucb.ContentCreationError import IDENTIFIER_CREATION_FAILED as CONTENT_CREATION_ERROR_IDENTIFIER_CREATION_FAILED
-        from com.sun.star.ucb.ContentCreationError import NO_CONTENT_BROKER as CONTENT_CREATION_ERROR_NO_CONTENT_BROKER
-        from com.sun.star.ucb.ContentCreationError import NO_CONTENT_PROVIDER as CONTENT_CREATION_ERROR_NO_CONTENT_PROVIDER
-        from com.sun.star.ucb.ContentCreationError import NO_IDENTIFIER_FACTORY as CONTENT_CREATION_ERROR_NO_IDENTIFIER_FACTORY
-        from com.sun.star.ucb.ContentCreationError import UNKNOWN as CONTENT_CREATION_ERROR_UNKNOWN
+    from ...lo.ucb.content_creation_error import ContentCreationError as ContentCreationError
 
-        class ContentCreationError(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API ContentCreationError <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1ucb.html#aa2e437022c4d519cf5488a06e5e81ef4>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.ucb.ContentCreationError', value)
-
-            __ooo_ns__: str = 'com.sun.star.ucb'
-            __ooo_full_ns__: str = 'com.sun.star.ucb.ContentCreationError'
-            __ooo_type_name__: str = 'enum'
-
-            CONTENT_CREATION_FAILED = CONTENT_CREATION_ERROR_CONTENT_CREATION_FAILED
-            """
-            Provider was unable to create the content instance.
-            """
-            IDENTIFIER_CREATION_FAILED = CONTENT_CREATION_ERROR_IDENTIFIER_CREATION_FAILED
-            """
-            Creation of content identifier failed.
-            """
-            NO_CONTENT_BROKER = CONTENT_CREATION_ERROR_NO_CONTENT_BROKER
-            """
-            """
-            NO_CONTENT_PROVIDER = CONTENT_CREATION_ERROR_NO_CONTENT_PROVIDER
-            """
-            No Content Provider for given content identifier available.
-            """
-            NO_IDENTIFIER_FACTORY = CONTENT_CREATION_ERROR_NO_IDENTIFIER_FACTORY
-            """
-            """
-            UNKNOWN = CONTENT_CREATION_ERROR_UNKNOWN
-            """
-            Unknown.
-
-            An unknown I/O error has occurred.
-            """
-    else:
-        # keep document generators happy
-        from ...lo.ucb.content_creation_error import ContentCreationError as ContentCreationError
-
-
-__all__ = ['ContentCreationError']
+__all__ = ["ContentCreationError"]

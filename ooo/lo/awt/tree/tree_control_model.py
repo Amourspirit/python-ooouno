@@ -24,7 +24,7 @@ from abc import abstractproperty
 from ..uno_control_model import UnoControlModel as UnoControlModel_c8ce0c58
 if typing.TYPE_CHECKING:
     from .x_tree_data_model import XTreeDataModel as XTreeDataModel_f9fc0d85
-    from com.sun.star.view.SelectionType import SelectionTypeProto
+    from com.sun.star.view.SelectionType import SelectionTypeProto  # type: ignore
 
 class TreeControlModel(UnoControlModel_c8ce0c58):
     """
@@ -121,4 +121,3 @@ class TreeControlModel(UnoControlModel_c8ce0c58):
 
 
 __all__ = ['TreeControlModel']
-

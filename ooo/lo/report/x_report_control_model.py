@@ -78,3 +78,4 @@ class XReportControlModel(XContainer_d6fb0cc6, XIndexContainer_1c040ebe, XReport
 
 __all__ = ['XReportControlModel']
 
+

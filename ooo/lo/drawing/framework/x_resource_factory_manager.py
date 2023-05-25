@@ -71,3 +71,4 @@ class XResourceFactoryManager(ABC):
 
 __all__ = ['XResourceFactoryManager']
 
+

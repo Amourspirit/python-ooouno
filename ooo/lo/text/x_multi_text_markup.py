@@ -54,3 +54,4 @@ class XMultiTextMarkup(ABC):
 
 __all__ = ['XMultiTextMarkup']
 
+

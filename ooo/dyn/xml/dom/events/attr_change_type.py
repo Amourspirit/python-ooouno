@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,46 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class AttrChangeType(metaclass=UnoEnumMeta, type_name="com.sun.star.xml.dom.events.AttrChangeType", name_space="com.sun.star.xml.dom.events"):
         """Dynamically created class that represents ``com.sun.star.xml.dom.events.AttrChangeType`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.xml.dom.events.AttrChangeType import ADDITION as ATTR_CHANGE_TYPE_ADDITION
-        from com.sun.star.xml.dom.events.AttrChangeType import MODIFICATION as ATTR_CHANGE_TYPE_MODIFICATION
-        from com.sun.star.xml.dom.events.AttrChangeType import REMOVAL as ATTR_CHANGE_TYPE_REMOVAL
+    from .....lo.xml.dom.events.attr_change_type import AttrChangeType as AttrChangeType
 
-        class AttrChangeType(uno.Enum):
-            """
-            Enum Class
-
-            ENUM AttrChangeType
-
-            See Also:
-                `API AttrChangeType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1xml_1_1dom_1_1events.html#adfd54b6d9390eb4c83f1b1a365abc0f9>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.xml.dom.events.AttrChangeType', value)
-
-            __ooo_ns__: str = 'com.sun.star.xml.dom.events'
-            __ooo_full_ns__: str = 'com.sun.star.xml.dom.events.AttrChangeType'
-            __ooo_type_name__: str = 'enum'
-
-            ADDITION = ATTR_CHANGE_TYPE_ADDITION
-            """
-            """
-            MODIFICATION = ATTR_CHANGE_TYPE_MODIFICATION
-            """
-            """
-            REMOVAL = ATTR_CHANGE_TYPE_REMOVAL
-            """
-            """
-    else:
-        # keep document generators happy
-        from .....lo.xml.dom.events.attr_change_type import AttrChangeType as AttrChangeType
-
-
-__all__ = ['AttrChangeType']
+__all__ = ["AttrChangeType"]

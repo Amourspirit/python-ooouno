@@ -53,3 +53,4 @@ class XTypeDescriptionEnumeration(XEnumeration_f2180daa):
 
 __all__ = ['XTypeDescriptionEnumeration']
 
+

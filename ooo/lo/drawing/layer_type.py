@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.drawing
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.drawing.LayerType import LayerTypeProto
+
 
 class LayerType(Enum):
     """
@@ -32,30 +30,30 @@ class LayerType(Enum):
     See Also:
         `API LayerType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a56943a0946e5f15e5e58054b8e7a04a4>`_
     """
-    __ooo_ns__: str = 'com.sun.star.drawing'
-    __ooo_full_ns__: str = 'com.sun.star.drawing.LayerType'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.drawing"
+    __ooo_full_ns__: str = "com.sun.star.drawing.LayerType"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.drawing.LayerType'
+        return "com.sun.star.drawing.LayerType"
 
-    CONTROLSA = cast("LayerTypeProto", 'CONTROLSA')
+    CONTROLSA = "CONTROLSA"
     """
     This is the layer for the controls.
     """
-    DIMENSIONIANG_LINES = cast("LayerTypeProto", 'DIMENSIONIANG_LINES')
+    DIMENSIONIANG_LINES = "DIMENSIONIANG_LINES"
     """
     This is the layer for all measure shapes.
     """
-    LAYOUT = cast("LayerTypeProto", 'LAYOUT')
+    LAYOUT = "LAYOUT"
     """
     This is the layer for all standard shapes.
     """
-    USER_DEFINED = cast("LayerTypeProto", 'USER_DEFINED')
+    USER_DEFINED = "USER_DEFINED"
     """
     There can be zero or more layers of this type.
     """
 
-__all__ = ['LayerType']
+__all__ = ["LayerType"]
 

@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,50 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class FinishReason(metaclass=UnoEnumMeta, type_name="com.sun.star.script.FinishReason", name_space="com.sun.star.script"):
         """Dynamically created class that represents ``com.sun.star.script.FinishReason`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.script.FinishReason import Cancel as FINISH_REASON_Cancel
-        from com.sun.star.script.FinishReason import Error as FINISH_REASON_Error
-        from com.sun.star.script.FinishReason import OK as FINISH_REASON_OK
+    from ...lo.script.finish_reason import FinishReason as FinishReason
 
-        class FinishReason(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API FinishReason <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1script.html#a8ab52fac6ca48179fe55e9a6aa3a345d>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.script.FinishReason', value)
-
-            __ooo_ns__: str = 'com.sun.star.script'
-            __ooo_full_ns__: str = 'com.sun.star.script.FinishReason'
-            __ooo_type_name__: str = 'enum'
-
-            Cancel = FINISH_REASON_Cancel
-            """
-            script in the engine was cancelled.
-
-            script execution was cancelled.
-            """
-            Error = FINISH_REASON_Error
-            """
-            error occurred during script execution or compiling.
-            """
-            OK = FINISH_REASON_OK
-            """
-            script in the engine terminated normally.
-            """
-    else:
-        # keep document generators happy
-        from ...lo.script.finish_reason import FinishReason as FinishReason
-
-
-__all__ = ['FinishReason']
+__all__ = ["FinishReason"]

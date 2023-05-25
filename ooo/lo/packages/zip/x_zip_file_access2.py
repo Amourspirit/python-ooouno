@@ -41,3 +41,4 @@ class XZipFileAccess2(XNameAccess_e2ab0cf6, XZipFileAccess_35f00f25):
 
 __all__ = ['XZipFileAccess2']
 
+

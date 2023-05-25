@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.form
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.form.DataSelectionType import DataSelectionTypeProto
+
 
 class DataSelectionType(Enum):
     """
@@ -32,30 +30,30 @@ class DataSelectionType(Enum):
     See Also:
         `API DataSelectionType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1form.html#abce772d425e368c8a4f81abe7afa7279>`_
     """
-    __ooo_ns__: str = 'com.sun.star.form'
-    __ooo_full_ns__: str = 'com.sun.star.form.DataSelectionType'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.form"
+    __ooo_full_ns__: str = "com.sun.star.form.DataSelectionType"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.form.DataSelectionType'
+        return "com.sun.star.form.DataSelectionType"
 
-    QUERY = cast("DataSelectionTypeProto", 'QUERY')
+    QUERY = "QUERY"
     """
     The control should be filled with the results of a database query.
     """
-    SQL = cast("DataSelectionTypeProto", 'SQL')
+    SQL = "SQL"
     """
     The control should be filled with the results of a database statement.
     """
-    SQLPASSTHROUGH = cast("DataSelectionTypeProto", 'SQLPASSTHROUGH')
+    SQLPASSTHROUGH = "SQLPASSTHROUGH"
     """
     The control should be filled with the results of a database statement, which is not evaluated by the database engine.
     """
-    TABLE = cast("DataSelectionTypeProto", 'TABLE')
+    TABLE = "TABLE"
     """
     The control should be filled with the data of a table.
     """
 
-__all__ = ['DataSelectionType']
+__all__ = ["DataSelectionType"]
 

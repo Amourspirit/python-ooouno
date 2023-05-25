@@ -133,3 +133,4 @@ class XStringResourcePersistence(XStringResourceManager_80421142):
 
 __all__ = ['XStringResourcePersistence']
 
+

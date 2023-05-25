@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.ucb
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.ucb.VerificationMode import VerificationModeProto
+
 
 class VerificationMode(Enum):
     """
@@ -32,26 +30,26 @@ class VerificationMode(Enum):
     See Also:
         `API VerificationMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1ucb.html#ae0c1e5cfd30d96e351c556663af5638b>`_
     """
-    __ooo_ns__: str = 'com.sun.star.ucb'
-    __ooo_full_ns__: str = 'com.sun.star.ucb.VerificationMode'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.ucb"
+    __ooo_full_ns__: str = "com.sun.star.ucb.VerificationMode"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.ucb.VerificationMode'
+        return "com.sun.star.ucb.VerificationMode"
 
-    ALWAYS = cast("VerificationModeProto", 'ALWAYS')
+    ALWAYS = "ALWAYS"
     """
     Always.
     """
-    NEVER = cast("VerificationModeProto", 'NEVER')
+    NEVER = "NEVER"
     """
     Never.
     """
-    ONCE = cast("VerificationModeProto", 'ONCE')
+    ONCE = "ONCE"
     """
     Once.
     """
 
-__all__ = ['VerificationMode']
+__all__ = ["VerificationMode"]
 

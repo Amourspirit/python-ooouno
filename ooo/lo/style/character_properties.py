@@ -28,7 +28,7 @@ if typing.TYPE_CHECKING:
     from ..table.border_line2 import BorderLine2 as BorderLine2_af200b28
     from ..table.shadow_format import ShadowFormat as ShadowFormat_bb840bdf
     from ..util.color import Color as Color_68e908c5
-    from com.sun.star.awt.FontSlant import FontSlantProto
+    from com.sun.star.awt.FontSlant import FontSlantProto  # type: ignore
 
 class CharacterProperties(ABC):
     """
@@ -631,4 +631,3 @@ class CharacterProperties(ABC):
 
 
 __all__ = ['CharacterProperties']
-

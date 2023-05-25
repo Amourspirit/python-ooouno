@@ -50,3 +50,4 @@ class XScenarioEnhanced(XInterface_8f010a43):
 
 __all__ = ['XScenarioEnhanced']
 
+

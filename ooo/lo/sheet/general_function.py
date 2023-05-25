@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.sheet
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.sheet.GeneralFunction import GeneralFunctionProto
+
 
 class GeneralFunction(Enum):
     """
@@ -32,41 +30,41 @@ class GeneralFunction(Enum):
     See Also:
         `API GeneralFunction <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1sheet.html#ad184d5bd9055f3b4fd57ce72c781758d>`_
     """
-    __ooo_ns__: str = 'com.sun.star.sheet'
-    __ooo_full_ns__: str = 'com.sun.star.sheet.GeneralFunction'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.sheet"
+    __ooo_full_ns__: str = "com.sun.star.sheet.GeneralFunction"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.sheet.GeneralFunction'
+        return "com.sun.star.sheet.GeneralFunction"
 
-    AUTO = cast("GeneralFunctionProto", 'AUTO')
+    AUTO = "AUTO"
     """
     specifies the use of a user-defined list.
     
     function is determined automatically.
     """
-    AVERAGE = cast("GeneralFunctionProto", 'AVERAGE')
+    AVERAGE = "AVERAGE"
     """
     average of all numerical values is calculated.
     """
-    COUNT = cast("GeneralFunctionProto", 'COUNT')
+    COUNT = "COUNT"
     """
     all values, including non-numerical values, are counted.
     """
-    COUNTNUMS = cast("GeneralFunctionProto", 'COUNTNUMS')
+    COUNTNUMS = "COUNTNUMS"
     """
     numerical values are counted.
     """
-    MAX = cast("GeneralFunctionProto", 'MAX')
+    MAX = "MAX"
     """
     maximum value of all numerical values is calculated.
     """
-    MIN = cast("GeneralFunctionProto", 'MIN')
+    MIN = "MIN"
     """
     minimum value of all numerical values is calculated.
     """
-    NONE = cast("GeneralFunctionProto", 'NONE')
+    NONE = "NONE"
     """
     no cells are moved.
     
@@ -80,30 +78,30 @@ class GeneralFunction(Enum):
     
     no condition is specified.
     """
-    PRODUCT = cast("GeneralFunctionProto", 'PRODUCT')
+    PRODUCT = "PRODUCT"
     """
     product of all numerical values is calculated.
     """
-    STDEV = cast("GeneralFunctionProto", 'STDEV')
+    STDEV = "STDEV"
     """
     standard deviation is calculated based on a sample.
     """
-    STDEVP = cast("GeneralFunctionProto", 'STDEVP')
+    STDEVP = "STDEVP"
     """
     standard deviation is calculated based on the entire population.
     """
-    SUM = cast("GeneralFunctionProto", 'SUM')
+    SUM = "SUM"
     """
     sum of all numerical values is calculated.
     """
-    VAR = cast("GeneralFunctionProto", 'VAR')
+    VAR = "VAR"
     """
     variance is calculated based on a sample.
     """
-    VARP = cast("GeneralFunctionProto", 'VARP')
+    VARP = "VARP"
     """
     variance is calculated based on the entire population.
     """
 
-__all__ = ['GeneralFunction']
+__all__ = ["GeneralFunction"]
 

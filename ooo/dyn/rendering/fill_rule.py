@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,45 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class FillRule(metaclass=UnoEnumMeta, type_name="com.sun.star.rendering.FillRule", name_space="com.sun.star.rendering"):
         """Dynamically created class that represents ``com.sun.star.rendering.FillRule`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.rendering.FillRule import EVEN_ODD as FILL_RULE_EVEN_ODD
-        from com.sun.star.rendering.FillRule import NON_ZERO as FILL_RULE_NON_ZERO
+    from ...lo.rendering.fill_rule import FillRule as FillRule
 
-        class FillRule(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API FillRule <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1rendering.html#a9a534b0377c9ca41983d53b0dae0d5a4>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.rendering.FillRule', value)
-
-            __ooo_ns__: str = 'com.sun.star.rendering'
-            __ooo_full_ns__: str = 'com.sun.star.rendering.FillRule'
-            __ooo_type_name__: str = 'enum'
-
-            EVEN_ODD = FILL_RULE_EVEN_ODD
-            """
-            Fill every area, where, when traveling along a line, an uneven number of intersections with polygon edges have happened.
-            """
-            NON_ZERO = FILL_RULE_NON_ZERO
-            """
-            Fill every area, where, when traveling along a line, the summed winding number (that is, -1 for a counter-clockwise-oriented polygon, and +1 for a clockwise-oriented) is non-zero.
-
-            For example, a poly-polygon consisting of two concentric circles with similar orientation is filled the same way as if only the outer circle would exist. If both have opposite orientation, then the filled representation looks the same as if filled with the EVEN_ODD fill rule.
-            """
-    else:
-        # keep document generators happy
-        from ...lo.rendering.fill_rule import FillRule as FillRule
-
-
-__all__ = ['FillRule']
+__all__ = ["FillRule"]

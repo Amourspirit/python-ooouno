@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,65 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class VerticalDimensioning(metaclass=UnoEnumMeta, type_name="com.sun.star.drawing.VerticalDimensioning", name_space="com.sun.star.drawing"):
         """Dynamically created class that represents ``com.sun.star.drawing.VerticalDimensioning`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.drawing.VerticalDimensioning import AUTO as VERTICAL_DIMENSIONING_AUTO
-        from com.sun.star.drawing.VerticalDimensioning import BOTTOM as VERTICAL_DIMENSIONING_BOTTOM
-        from com.sun.star.drawing.VerticalDimensioning import CENTERED as VERTICAL_DIMENSIONING_CENTERED
-        from com.sun.star.drawing.VerticalDimensioning import TOP as VERTICAL_DIMENSIONING_TOP
+    from ...lo.drawing.vertical_dimensioning import VerticalDimensioning as VerticalDimensioning
 
-        class VerticalDimensioning(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API VerticalDimensioning <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a3d694e7ac991a1dc3541f7d166f0b126>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.drawing.VerticalDimensioning', value)
-
-            __ooo_ns__: str = 'com.sun.star.drawing'
-            __ooo_full_ns__: str = 'com.sun.star.drawing.VerticalDimensioning'
-            __ooo_type_name__: str = 'enum'
-
-            AUTO = VERTICAL_DIMENSIONING_AUTO
-            """
-            the connection point is chosen automatically,
-
-            Set this to have the application select the best horizontal position for the text.
-            """
-            BOTTOM = VERTICAL_DIMENSIONING_BOTTOM
-            """
-            the connection line leaves the connected object from the bottom,
-
-            The text is positioned below the main line.
-
-            The bottom edge of the text is adjusted to the bottom edge of the shape.
-            """
-            CENTERED = VERTICAL_DIMENSIONING_CENTERED
-            """
-            The text is positioned at the center.
-
-            The text is positioned over the main line.
-            """
-            TOP = VERTICAL_DIMENSIONING_TOP
-            """
-            the connection line leaves the connected object from the top,
-
-            The text is positioned above the main line.
-
-            The top edge of the text is adjusted to the top edge of the shape.
-            """
-    else:
-        # keep document generators happy
-        from ...lo.drawing.vertical_dimensioning import VerticalDimensioning as VerticalDimensioning
-
-
-__all__ = ['VerticalDimensioning']
+__all__ = ["VerticalDimensioning"]

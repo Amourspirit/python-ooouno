@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.form
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.form.NavigationBarMode import NavigationBarModeProto
+
 
 class NavigationBarMode(Enum):
     """
@@ -32,15 +30,15 @@ class NavigationBarMode(Enum):
     See Also:
         `API NavigationBarMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1form.html#ad79e40635743aa91020c7ddf34c3af31>`_
     """
-    __ooo_ns__: str = 'com.sun.star.form'
-    __ooo_full_ns__: str = 'com.sun.star.form.NavigationBarMode'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.form"
+    __ooo_full_ns__: str = "com.sun.star.form.NavigationBarMode"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.form.NavigationBarMode'
+        return "com.sun.star.form.NavigationBarMode"
 
-    CURRENT = cast("NavigationBarModeProto", 'CURRENT')
+    CURRENT = "CURRENT"
     """
     a navigation bar is provided and navigation will be performed on the current/active form.
     
@@ -48,18 +46,18 @@ class NavigationBarMode(Enum):
     
     This is the default and most often encountered mode.
     """
-    NONE = cast("NavigationBarModeProto", 'NONE')
+    NONE = "NONE"
     """
     no navigation bar is provided and navigation on the current form is only possible with the keyboard (TAB/SHIFT TAB).
     
     Note that when this mode is set, a simultaneous TabulatorCycle value of TabulatorCycle.CURRENT means that you cannot travel between records anymore.
     """
-    PARENT = cast("NavigationBarModeProto", 'PARENT')
+    PARENT = "PARENT"
     """
     a navigation bar is provided and navigation will be performed on the parent of the current/active form.
     
     This option is usually used for forms containing a grid control only. In such a form, the control has its own navigation elements, so there is no need to use the navigation bar for the form, but rather for its parent.
     """
 
-__all__ = ['NavigationBarMode']
+__all__ = ["NavigationBarMode"]
 

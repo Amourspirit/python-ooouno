@@ -28,7 +28,7 @@ from .x_diagram_positioning import XDiagramPositioning as XDiagramPositioning_18
 from .x_second_axis_title_supplier import XSecondAxisTitleSupplier as XSecondAxisTitleSupplier_680a10b9
 from ..xml.user_defined_attributes_supplier import UserDefinedAttributesSupplier as UserDefinedAttributesSupplier_9fbe1222
 if typing.TYPE_CHECKING:
-    from com.sun.star.chart.ChartDataRowSource import ChartDataRowSourceProto
+    from com.sun.star.chart.ChartDataRowSource import ChartDataRowSourceProto  # type: ignore
 
 class Diagram(UserDefinedAttributesSupplier_9fbe1222, XPropertySet_bc180bfa, XAxisSupplier_c81b0c5b, XDiagram_8e1e0a27, XDiagramPositioning_18f60eba, XSecondAxisTitleSupplier_680a10b9):
     """
@@ -92,4 +92,3 @@ class Diagram(UserDefinedAttributesSupplier_9fbe1222, XPropertySet_bc180bfa, XAx
 
 
 __all__ = ['Diagram']
-

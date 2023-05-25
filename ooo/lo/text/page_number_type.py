@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.text
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.text.PageNumberType import PageNumberTypeProto
+
 
 class PageNumberType(Enum):
     """
@@ -32,26 +30,26 @@ class PageNumberType(Enum):
     See Also:
         `API PageNumberType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1text.html#aeffd73e249af906f303724f66f1f01c5>`_
     """
-    __ooo_ns__: str = 'com.sun.star.text'
-    __ooo_full_ns__: str = 'com.sun.star.text.PageNumberType'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.text"
+    __ooo_full_ns__: str = "com.sun.star.text.PageNumberType"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.text.PageNumberType'
+        return "com.sun.star.text.PageNumberType"
 
-    CURRENT = cast("PageNumberTypeProto", 'CURRENT')
+    CURRENT = "CURRENT"
     """
     The number of the current page is displayed.
     """
-    NEXT = cast("PageNumberTypeProto", 'NEXT')
+    NEXT = "NEXT"
     """
     The number of the next page is displayed if there is any, otherwise the field is empty.
     """
-    PREV = cast("PageNumberTypeProto", 'PREV')
+    PREV = "PREV"
     """
     The number of the previous page is displayed if there is any, otherwise the field is empty.
     """
 
-__all__ = ['PageNumberType']
+__all__ = ["PageNumberType"]
 

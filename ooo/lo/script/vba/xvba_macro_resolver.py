@@ -54,3 +54,4 @@ class XVBAMacroResolver(ABC):
 
 __all__ = ['XVBAMacroResolver']
 
+

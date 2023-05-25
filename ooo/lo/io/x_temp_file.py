@@ -59,3 +59,4 @@ class XTempFile(XSeekable_79540954, XStream_678908a4):
 
 __all__ = ['XTempFile']
 
+

@@ -163,3 +163,4 @@ class XSingleSelectQueryComposer(XSingleSelectQueryAnalyzer_66ad10b7):
 
 __all__ = ['XSingleSelectQueryComposer']
 
+

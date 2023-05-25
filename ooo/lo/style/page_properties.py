@@ -30,8 +30,8 @@ if typing.TYPE_CHECKING:
     from ..text.x_text import XText as XText_690408ca
     from ..text.x_text_columns import XTextColumns as XTextColumns_b17f0bab
     from ..util.color import Color as Color_68e908c5
-    from com.sun.star.style.GraphicLocation import GraphicLocationProto
-    from com.sun.star.style.PageStyleLayout import PageStyleLayoutProto
+    from com.sun.star.style.GraphicLocation import GraphicLocationProto  # type: ignore
+    from com.sun.star.style.PageStyleLayout import PageStyleLayoutProto  # type: ignore
 
 class PageProperties(ABC):
     """
@@ -838,4 +838,3 @@ class PageProperties(ABC):
 
 
 __all__ = ['PageProperties']
-

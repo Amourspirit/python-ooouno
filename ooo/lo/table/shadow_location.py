@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.table
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.table.ShadowLocation import ShadowLocationProto
+
 
 class ShadowLocation(Enum):
     """
@@ -32,34 +30,34 @@ class ShadowLocation(Enum):
     See Also:
         `API ShadowLocation <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1table.html#a9ab4ece6abe8ce0c4ad3123d6e3916c0>`_
     """
-    __ooo_ns__: str = 'com.sun.star.table'
-    __ooo_full_ns__: str = 'com.sun.star.table.ShadowLocation'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.table"
+    __ooo_full_ns__: str = "com.sun.star.table.ShadowLocation"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.table.ShadowLocation'
+        return "com.sun.star.table.ShadowLocation"
 
-    BOTTOM_LEFT = cast("ShadowLocationProto", 'BOTTOM_LEFT')
+    BOTTOM_LEFT = "BOTTOM_LEFT"
     """
     shadow is located along the lower and left sides.
     """
-    BOTTOM_RIGHT = cast("ShadowLocationProto", 'BOTTOM_RIGHT')
+    BOTTOM_RIGHT = "BOTTOM_RIGHT"
     """
     shadow is located along the lower and right sides.
     """
-    NONE = cast("ShadowLocationProto", 'NONE')
+    NONE = "NONE"
     """
     no shadow.
     """
-    TOP_LEFT = cast("ShadowLocationProto", 'TOP_LEFT')
+    TOP_LEFT = "TOP_LEFT"
     """
     shadow is located along the upper and left sides.
     """
-    TOP_RIGHT = cast("ShadowLocationProto", 'TOP_RIGHT')
+    TOP_RIGHT = "TOP_RIGHT"
     """
     shadow is located along the upper and right sides.
     """
 
-__all__ = ['ShadowLocation']
+__all__ = ["ShadowLocation"]
 

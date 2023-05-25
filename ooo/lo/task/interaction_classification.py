@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.task
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.task.InteractionClassification import InteractionClassificationProto
+
 
 class InteractionClassification(Enum):
     """
@@ -32,30 +30,30 @@ class InteractionClassification(Enum):
     See Also:
         `API InteractionClassification <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1task.html#ab0d207be361f7bd99bb18090b7a9e47b>`_
     """
-    __ooo_ns__: str = 'com.sun.star.task'
-    __ooo_full_ns__: str = 'com.sun.star.task.InteractionClassification'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.task"
+    __ooo_full_ns__: str = "com.sun.star.task.InteractionClassification"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.task.InteractionClassification'
+        return "com.sun.star.task.InteractionClassification"
 
-    ERROR = cast("InteractionClassificationProto", 'ERROR')
+    ERROR = "ERROR"
     """
     An error.
     """
-    INFO = cast("InteractionClassificationProto", 'INFO')
+    INFO = "INFO"
     """
     Some information for the client/user (which will typically lead to the selection of an com.sun.star.task.XInteractionApprove continuation).
     """
-    QUERY = cast("InteractionClassificationProto", 'QUERY')
+    QUERY = "QUERY"
     """
     A query for the client/user (which will typically lead to the selection of an com.sun.star.task.XInteractionApprove or com.sun.star.task.XInteractionDisapprove continuation).
     """
-    WARNING = cast("InteractionClassificationProto", 'WARNING')
+    WARNING = "WARNING"
     """
     A warning, less severe than an error.
     """
 
-__all__ = ['InteractionClassification']
+__all__ = ["InteractionClassification"]
 

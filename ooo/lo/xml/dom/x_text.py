@@ -47,3 +47,4 @@ class XText(XCharacterData_ec070d26):
 
 __all__ = ['XText']
 
+

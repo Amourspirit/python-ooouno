@@ -50,3 +50,4 @@ class XDocumentIndexMark(XTextContent_b16e0ba5):
 
 __all__ = ['XDocumentIndexMark']
 
+

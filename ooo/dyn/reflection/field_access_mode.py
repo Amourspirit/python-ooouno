@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,55 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class FieldAccessMode(metaclass=UnoEnumMeta, type_name="com.sun.star.reflection.FieldAccessMode", name_space="com.sun.star.reflection"):
         """Dynamically created class that represents ``com.sun.star.reflection.FieldAccessMode`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.reflection.FieldAccessMode import CONST as FIELD_ACCESS_MODE_CONST
-        from com.sun.star.reflection.FieldAccessMode import READONLY as FIELD_ACCESS_MODE_READONLY
-        from com.sun.star.reflection.FieldAccessMode import READWRITE as FIELD_ACCESS_MODE_READWRITE
-        from com.sun.star.reflection.FieldAccessMode import WRITEONLY as FIELD_ACCESS_MODE_WRITEONLY
+    from ...lo.reflection.field_access_mode import FieldAccessMode as FieldAccessMode
 
-        class FieldAccessMode(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API FieldAccessMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1reflection.html#a95a71baf95250ba8716608067ba245f9>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.reflection.FieldAccessMode', value)
-
-            __ooo_ns__: str = 'com.sun.star.reflection'
-            __ooo_full_ns__: str = 'com.sun.star.reflection.FieldAccessMode'
-            __ooo_type_name__: str = 'enum'
-
-            CONST = FIELD_ACCESS_MODE_CONST
-            """
-            Deprecated.
-
-            Not used anymore.
-            """
-            READONLY = FIELD_ACCESS_MODE_READONLY
-            """
-            readable only
-            """
-            READWRITE = FIELD_ACCESS_MODE_READWRITE
-            """
-            readable and writeable
-            """
-            WRITEONLY = FIELD_ACCESS_MODE_WRITEONLY
-            """
-            writeable only
-            """
-    else:
-        # keep document generators happy
-        from ...lo.reflection.field_access_mode import FieldAccessMode as FieldAccessMode
-
-
-__all__ = ['FieldAccessMode']
+__all__ = ["FieldAccessMode"]

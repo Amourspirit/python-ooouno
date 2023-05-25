@@ -266,7 +266,7 @@ Passing incorrect type will result in a typing error for type checkers such as `
     # Fails type checking because FILL_DATE_DAY is not SolverConstraintOperatorProto
     solve_operation(3, FILL_DATE_DAY)
 
-    `Screenshot <https://github.com/Amourspirit/python-ooouno/assets/4193389/2fe7e4cb-e952-4fca-b74c-85a45324d7dc>`__ of type error.
+`Screenshot <https://github.com/Amourspirit/python-ooouno/assets/4193389/2fe7e4cb-e952-4fca-b74c-85a45324d7dc>`__ of type error.
 
 .. figure:: https://github.com/Amourspirit/python-ooouno/assets/4193389/2fe7e4cb-e952-4fca-b74c-85a45324d7dc
     :alt: Enum protocol error

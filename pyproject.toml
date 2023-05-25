@@ -36,6 +36,7 @@ secondary = false
 [tool.poetry.dependencies]
 python = "^3.7"
 types-unopy = ">=1.2.3"
+typing-extensions = "^4.6.2"
 
 
 [tool.poetry.group.dev.dependencies]
@@ -45,6 +46,13 @@ oooenv = ">=0.1.0"
 unotools = ">=0.3.3"
 kwargshelper = ">=2.7.1"
 stickytape = "^0.2.1"
+
+
+[tool.poetry.group.docs.dependencies]
+sphinx = "5.3.0"
+esbonio = "^0.16.1"
+sphinx-rtd-dark-mode = "^1.2.4"
+sphinxcontrib-globalsubs = "^0.1.1"
 
 [build-system]
 requires = ["poetry-core"]

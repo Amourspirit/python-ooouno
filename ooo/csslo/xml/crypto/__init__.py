@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2023 :Barry-Thomas-Paul: Moss
+# Copyright 2023-2024 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationW
 from ....lo.xml.crypto.cipher_id import CipherID as CipherID
 from ....lo.xml.crypto.digest_id import DigestID as DigestID
 from ....lo.xml.crypto.gpgse_initializer import GPGSEInitializer as GPGSEInitializer
+from ....lo.xml.crypto.kdfid import KDFID as KDFID
 from ....lo.xml.crypto.nss_initializer import NSSInitializer as NSSInitializer
 from ....lo.xml.crypto.nss_profile import NSSProfile as NSSProfile
 from ....lo.xml.crypto.se_initializer import SEInitializer as SEInitializer

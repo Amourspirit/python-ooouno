@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2023 :Barry-Thomas-Paul: Moss
+# Copyright 2023-2024 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -96,6 +96,8 @@ with suppress(ImportError):
 with suppress(ImportError):
     from ...dyn.text.column_separator_style import ColumnSeparatorStyleEnum as ColumnSeparatorStyleEnum
 with suppress(ImportError):
+    from ...dyn.text.content_control import ContentControl as ContentControl
+with suppress(ImportError):
     from ...dyn.text.content_index import ContentIndex as ContentIndex
 with suppress(ImportError):
     from ...dyn.text.content_index_mark import ContentIndexMark as ContentIndexMark
@@ -183,6 +185,8 @@ with suppress(ImportError):
     from ...dyn.text.label_follow import LabelFollow as LabelFollow
 with suppress(ImportError):
     from ...dyn.text.label_follow import LabelFollowEnum as LabelFollowEnum
+with suppress(ImportError):
+    from ...dyn.text.line_break import LineBreak as LineBreak
 with suppress(ImportError):
     from ...dyn.text.line_numbering_properties import LineNumberingProperties as LineNumberingProperties
 with suppress(ImportError):
@@ -425,6 +429,8 @@ with suppress(ImportError):
     from ...dyn.text.x_bookmarks_supplier import XBookmarksSupplier as XBookmarksSupplier
 with suppress(ImportError):
     from ...dyn.text.x_chapter_numbering_supplier import XChapterNumberingSupplier as XChapterNumberingSupplier
+with suppress(ImportError):
+    from ...dyn.text.x_content_controls_supplier import XContentControlsSupplier as XContentControlsSupplier
 with suppress(ImportError):
     from ...dyn.text.x_default_numbering_provider import XDefaultNumberingProvider as XDefaultNumberingProvider
 with suppress(ImportError):

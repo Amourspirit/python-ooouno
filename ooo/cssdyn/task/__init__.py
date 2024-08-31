@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2023 :Barry-Thomas-Paul: Moss
+# Copyright 2023-2024 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -39,6 +39,8 @@ with suppress(ImportError):
     from ...dyn.task.error_code_io_exception import ErrorCodeIOException as ErrorCodeIOException
 with suppress(ImportError):
     from ...dyn.task.error_code_request import ErrorCodeRequest as ErrorCodeRequest
+with suppress(ImportError):
+    from ...dyn.task.error_code_request2 import ErrorCodeRequest2 as ErrorCodeRequest2
 with suppress(ImportError):
     from ...dyn.task.interaction_classification import InteractionClassification as InteractionClassification
 with suppress(ImportError):

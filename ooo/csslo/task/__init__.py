@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2023 :Barry-Thomas-Paul: Moss
+# Copyright 2023-2024 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -26,6 +26,7 @@ from ...lo.task.document_password_request import DocumentPasswordRequest as Docu
 from ...lo.task.document_password_request2 import DocumentPasswordRequest2 as DocumentPasswordRequest2
 from ...lo.task.error_code_io_exception import ErrorCodeIOException as ErrorCodeIOException
 from ...lo.task.error_code_request import ErrorCodeRequest as ErrorCodeRequest
+from ...lo.task.error_code_request2 import ErrorCodeRequest2 as ErrorCodeRequest2
 from ...lo.task.interaction_classification import InteractionClassification as InteractionClassification
 from ...lo.task.interaction_handler import InteractionHandler as InteractionHandler
 from ...lo.task.interaction_request_string_resolver import InteractionRequestStringResolver as InteractionRequestStringResolver

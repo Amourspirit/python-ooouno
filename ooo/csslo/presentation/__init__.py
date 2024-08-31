@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2023 :Barry-Thomas-Paul: Moss
+# Copyright 2023-2024 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -67,6 +67,7 @@ from ...lo.presentation.x_shape_event_listener import XShapeEventListener as XSh
 from ...lo.presentation.x_slide_show import XSlideShow as XSlideShow
 from ...lo.presentation.x_slide_show_controller import XSlideShowController as XSlideShowController
 from ...lo.presentation.x_slide_show_listener import XSlideShowListener as XSlideShowListener
+from ...lo.presentation.x_slide_show_navigation_listener import XSlideShowNavigationListener as XSlideShowNavigationListener
 from ...lo.presentation.x_slide_show_view import XSlideShowView as XSlideShowView
 from ...lo.presentation.x_transition import XTransition as XTransition
 from ...lo.presentation.x_transition_factory import XTransitionFactory as XTransitionFactory

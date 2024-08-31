@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2023 :Barry-Thomas-Paul: Moss
+# Copyright 2023-2024 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -131,6 +131,8 @@ with suppress(ImportError):
     from ...dyn.presentation.x_slide_show_controller import XSlideShowController as XSlideShowController
 with suppress(ImportError):
     from ...dyn.presentation.x_slide_show_listener import XSlideShowListener as XSlideShowListener
+with suppress(ImportError):
+    from ...dyn.presentation.x_slide_show_navigation_listener import XSlideShowNavigationListener as XSlideShowNavigationListener
 with suppress(ImportError):
     from ...dyn.presentation.x_slide_show_view import XSlideShowView as XSlideShowView
 with suppress(ImportError):

@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2023 :Barry-Thomas-Paul: Moss
+# Copyright 2023-2024 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -17,6 +17,5 @@
 import warnings
 warnings.filterwarnings('module')
 warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
-from ....lo.xml.xslt.xslt2_transformer import XSLT2Transformer as XSLT2Transformer
 from ....lo.xml.xslt.xslt_transformer import XSLTTransformer as XSLTTransformer
 from ....lo.xml.xslt.xxslt_transformer import XXSLTTransformer as XXSLTTransformer

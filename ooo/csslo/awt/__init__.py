@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2023 :Barry-Thomas-Paul: Moss
+# Copyright 2023-2024 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -57,6 +57,8 @@ from ...lo.awt.animated_images_control import AnimatedImagesControl as AnimatedI
 from ...lo.awt.animated_images_control_model import AnimatedImagesControlModel as AnimatedImagesControlModel
 from ...lo.awt.async_callback import AsyncCallback as AsyncCallback
 from ...lo.awt.char_set import CharSet as CharSet
+from ...lo.awt.color_stop import ColorStop as ColorStop
+from ...lo.awt.color_stop_sequence import ColorStopSequence as ColorStopSequence
 from ...lo.awt.command import Command as Command
 from ...lo.awt.container_window_provider import ContainerWindowProvider as ContainerWindowProvider
 from ...lo.awt.device_capability import DeviceCapability as DeviceCapability
@@ -83,6 +85,7 @@ from ...lo.awt.font_underline import FontUnderline as FontUnderline
 from ...lo.awt.font_weight import FontWeight as FontWeight
 from ...lo.awt.font_width import FontWidth as FontWidth
 from ...lo.awt.gradient import Gradient as Gradient
+from ...lo.awt.gradient2 import Gradient2 as Gradient2
 from ...lo.awt.gradient_style import GradientStyle as GradientStyle
 from ...lo.awt.image_align import ImageAlign as ImageAlign
 from ...lo.awt.image_draw_mode import ImageDrawMode as ImageDrawMode

@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2023 :Barry-Thomas-Paul: Moss
+# Copyright 2023-2024 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -77,8 +77,10 @@ from ...lo.document.x_document_event_listener import XDocumentEventListener as X
 from ...lo.document.x_document_insertable import XDocumentInsertable as XDocumentInsertable
 from ...lo.document.x_document_languages import XDocumentLanguages as XDocumentLanguages
 from ...lo.document.x_document_properties import XDocumentProperties as XDocumentProperties
+from ...lo.document.x_document_properties2 import XDocumentProperties2 as XDocumentProperties2
 from ...lo.document.x_document_properties_supplier import XDocumentPropertiesSupplier as XDocumentPropertiesSupplier
 from ...lo.document.x_document_recovery import XDocumentRecovery as XDocumentRecovery
+from ...lo.document.x_document_recovery2 import XDocumentRecovery2 as XDocumentRecovery2
 from ...lo.document.x_document_revision_list_persistence import XDocumentRevisionListPersistence as XDocumentRevisionListPersistence
 from ...lo.document.x_document_sub_storage_supplier import XDocumentSubStorageSupplier as XDocumentSubStorageSupplier
 from ...lo.document.x_embedded_object_resolver import XEmbeddedObjectResolver as XEmbeddedObjectResolver

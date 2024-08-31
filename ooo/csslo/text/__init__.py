@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2023 :Barry-Thomas-Paul: Moss
+# Copyright 2023-2024 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -48,6 +48,7 @@ from ...lo.text.chapter_format import ChapterFormat as ChapterFormat
 from ...lo.text.chapter_numbering_rule import ChapterNumberingRule as ChapterNumberingRule
 from ...lo.text.character_compression_type import CharacterCompressionType as CharacterCompressionType
 from ...lo.text.column_separator_style import ColumnSeparatorStyle as ColumnSeparatorStyle
+from ...lo.text.content_control import ContentControl as ContentControl
 from ...lo.text.content_index import ContentIndex as ContentIndex
 from ...lo.text.content_index_mark import ContentIndexMark as ContentIndexMark
 from ...lo.text.control_character import ControlCharacter as ControlCharacter
@@ -83,6 +84,7 @@ from ...lo.text.illustrations_index import IllustrationsIndex as IllustrationsIn
 from ...lo.text.in_content_metadata import InContentMetadata as InContentMetadata
 from ...lo.text.invalid_text_content_exception import InvalidTextContentException as InvalidTextContentException
 from ...lo.text.label_follow import LabelFollow as LabelFollow
+from ...lo.text.line_break import LineBreak as LineBreak
 from ...lo.text.line_numbering_properties import LineNumberingProperties as LineNumberingProperties
 from ...lo.text.mail_merge import MailMerge as MailMerge
 from ...lo.text.mail_merge_event import MailMergeEvent as MailMergeEvent
@@ -184,6 +186,7 @@ from ...lo.text.x_auto_text_group import XAutoTextGroup as XAutoTextGroup
 from ...lo.text.x_bookmark_insert_tool import XBookmarkInsertTool as XBookmarkInsertTool
 from ...lo.text.x_bookmarks_supplier import XBookmarksSupplier as XBookmarksSupplier
 from ...lo.text.x_chapter_numbering_supplier import XChapterNumberingSupplier as XChapterNumberingSupplier
+from ...lo.text.x_content_controls_supplier import XContentControlsSupplier as XContentControlsSupplier
 from ...lo.text.x_default_numbering_provider import XDefaultNumberingProvider as XDefaultNumberingProvider
 from ...lo.text.x_dependent_text_field import XDependentTextField as XDependentTextField
 from ...lo.text.x_document_index import XDocumentIndex as XDocumentIndex

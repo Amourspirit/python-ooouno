@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2023 :Barry-Thomas-Paul: Moss
+# Copyright 2023-2024 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -77,6 +77,8 @@ with suppress(ImportError):
     from ...dyn.configuration.update import Update as Update
 with suppress(ImportError):
     from ...dyn.configuration.update_root_element import UpdateRootElement as UpdateRootElement
+with suppress(ImportError):
+    from ...dyn.configuration.x_documentation import XDocumentation as XDocumentation
 with suppress(ImportError):
     from ...dyn.configuration.x_read_write_access import XReadWriteAccess as XReadWriteAccess
 with suppress(ImportError):

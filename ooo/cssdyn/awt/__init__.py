@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2023 :Barry-Thomas-Paul: Moss
+# Copyright 2023-2024 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -104,6 +104,10 @@ with suppress(ImportError):
 with suppress(ImportError):
     from ...dyn.awt.char_set import CharSetEnum as CharSetEnum
 with suppress(ImportError):
+    from ...dyn.awt.color_stop import ColorStop as ColorStop
+with suppress(ImportError):
+    from ...dyn.awt.color_stop_sequence import ColorStopSequence as ColorStopSequence
+with suppress(ImportError):
     from ...dyn.awt.command import Command as Command
 with suppress(ImportError):
     from ...dyn.awt.command import CommandEnum as CommandEnum
@@ -181,6 +185,8 @@ with suppress(ImportError):
     from ...dyn.awt.font_width import FontWidthEnum as FontWidthEnum
 with suppress(ImportError):
     from ...dyn.awt.gradient import Gradient as Gradient
+with suppress(ImportError):
+    from ...dyn.awt.gradient2 import Gradient2 as Gradient2
 with suppress(ImportError):
     from ...dyn.awt.gradient_style import GradientStyle as GradientStyle
 with suppress(ImportError):

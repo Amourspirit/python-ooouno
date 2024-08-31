@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2023 :Barry-Thomas-Paul: Moss
+# Copyright 2023-2024 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -27,6 +27,8 @@ with suppress(ImportError):
     from ....dyn.datatransfer.clipboard.clipboard_manager import ClipboardManager as ClipboardManager
 with suppress(ImportError):
     from ....dyn.datatransfer.clipboard.generic_clipboard import GenericClipboard as GenericClipboard
+with suppress(ImportError):
+    from ....dyn.datatransfer.clipboard.lok_clipboard import LokClipboard as LokClipboard
 with suppress(ImportError):
     from ....dyn.datatransfer.clipboard.rendering_capabilities import RenderingCapabilities as RenderingCapabilities
 with suppress(ImportError):

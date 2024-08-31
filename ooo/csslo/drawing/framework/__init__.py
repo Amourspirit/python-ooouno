@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2023 :Barry-Thomas-Paul: Moss
+# Copyright 2023-2024 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -22,10 +22,7 @@ from ....lo.drawing.framework.basic_pane_factory import BasicPaneFactory as Basi
 from ....lo.drawing.framework.basic_tool_bar_factory import BasicToolBarFactory as BasicToolBarFactory
 from ....lo.drawing.framework.basic_view_factory import BasicViewFactory as BasicViewFactory
 from ....lo.drawing.framework.border_type import BorderType as BorderType
-from ....lo.drawing.framework.configuration import Configuration as Configuration
 from ....lo.drawing.framework.configuration_change_event import ConfigurationChangeEvent as ConfigurationChangeEvent
-from ....lo.drawing.framework.configuration_controller import ConfigurationController as ConfigurationController
-from ....lo.drawing.framework.module_controller import ModuleController as ModuleController
 from ....lo.drawing.framework.resource_activation_mode import ResourceActivationMode as ResourceActivationMode
 from ....lo.drawing.framework.resource_id import ResourceId as ResourceId
 from ....lo.drawing.framework.tab_bar_button import TabBarButton as TabBarButton

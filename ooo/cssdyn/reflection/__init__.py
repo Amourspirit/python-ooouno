@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2023 :Barry-Thomas-Paul: Moss
+# Copyright 2023-2024 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -23,6 +23,8 @@ warnings.warn('The cssdyn namespace is deprecated. Use dyn instead.', Deprecatio
 
 with suppress(ImportError):
     from ...dyn.reflection.core_reflection import CoreReflection as CoreReflection
+with suppress(ImportError):
+    from ...dyn.reflection.dump import Dump as Dump
 with suppress(ImportError):
     from ...dyn.reflection.field_access_mode import FieldAccessMode as FieldAccessMode
 with suppress(ImportError):
@@ -53,6 +55,8 @@ with suppress(ImportError):
     from ...dyn.reflection.x_constant_type_description import XConstantTypeDescription as XConstantTypeDescription
 with suppress(ImportError):
     from ...dyn.reflection.x_constants_type_description import XConstantsTypeDescription as XConstantsTypeDescription
+with suppress(ImportError):
+    from ...dyn.reflection.x_dump import XDump as XDump
 with suppress(ImportError):
     from ...dyn.reflection.x_enum_type_description import XEnumTypeDescription as XEnumTypeDescription
 with suppress(ImportError):

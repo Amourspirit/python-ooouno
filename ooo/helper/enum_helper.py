@@ -1,9 +1,10 @@
 # coding: utf-8
 from __future__ import annotations
 from typing import Any
+import sys
 import uno
 from enum import Enum, EnumMeta, _EnumDict
-
+from .enums.enum_helper import EnumHelper
 
 def uno_enum_class_new(cls, value):
     """
@@ -45,7 +46,6 @@ def uno_enum_class_new(cls, value):
 def uno_enum_class_ne(self, other):
     return not self.__eq__(other)
 
-
 class UnoEnumMeta(type):
     """
     Get access to Uno Enum values without having to directly import them.
@@ -67,8 +67,10 @@ class UnoEnumMeta(type):
 
         ``from com.sun.star.sheet.FillMode import LINEAR, SIMPLE, GROWTH`` is valid import but cumbersome.
 
-        This metaclass use a just in time approach. If the enum is not yet an attribute it is automatiacally added dynamically.
-        All subsequent calls automatically use the dynamically added attribute.
+        This metaclass gets all the enum names using reflection and then looks up the values dynamically.
+        When the class is constructed all the value of the enum are present.
+
+        This class also support contains, len, and iteration.
     """
     _initialized = False  # This class var is important. It is always False.
     # The instances will override this with their own,
@@ -91,7 +93,16 @@ class UnoEnumMeta(type):
         cls.__ooo_full_ns__ = type_name
         cls.__ooo_ns__ = name_space
         cls.__ooo_enum_name__: str = cls.__get_enum_name()
+        info = EnumHelper.get_enum_info(type_name)
+        if not info:
+            raise ValueError(f"Enumeration {type_name} not found.")
+        cls._names = info.get_enum_names()
+        for enum_name in cls._names:
+            e = uno.Enum(type_name, enum_name)
+            super().__setattr__(enum_name, e)
+
         cls._initialized = True
+
 
     def __call__(cls, value) -> uno.Enum:
         """
@@ -129,25 +140,6 @@ class UnoEnumMeta(type):
             return value
         raise TypeError("%r is not a valid %s" % (value, cls.__name__))
 
-    def __getattr__(cls, __name: str) -> uno.Enum | Any:
-        if cls._initialized:
-            # Provide the caller attributes in whatever ways interest you.
-            try:
-                key = __name
-                e = uno.Enum(cls.typeName, __name)
-                # metaclass __dict__ is a mappingproxy
-                # the only way to set attribute is to call super
-                super().__setattr__(key, e)
-                return cls.__dict__[key]
-            except Exception:
-                raise AttributeError(
-                    f"Enum {cls.typeName} has no attribute {__name}")
-        else:
-            try:
-                # Transparent access to instance vars.
-                return cls.__dict__[__name]
-            except KeyError:
-                raise AttributeError(__name)
 
     def __setattr__(cls, key, value):
         if cls._initialized:
@@ -157,6 +149,23 @@ class UnoEnumMeta(type):
             # the only way to set attribute is to call super
             super().__setattr__(key, value)  # Transparent access.
 
+    def __len__(cls) -> int:
+        return len(cls._names)
+
+    
+    def __iter__(cls):
+        for name in cls._names:
+            yield getattr(cls, name)
+    
+    def __contains__(cls, value: Any) -> bool:
+        if isinstance(value, str):
+            return value in cls._names
+        if isinstance(value, uno.Enum):
+            if value.typeName != cls.typeName:
+                return False
+            return value.value in cls._names
+        return False
+    
     def __get_enum_name(cls) -> str:
         return cls.__ooo_full_ns__.rsplit(sep=".", maxsplit=1)[1]
 
@@ -214,10 +223,23 @@ class ConstEnumMeta(EnumMeta):
         cls.__ooo_enum_name__: str = cls.__ooo_name__ + "Enum"
         cls._initialized = True
 
-    def __call__(cls, value, names=None, *, module=None, qualname=None, type=None, start=1):
-        if isinstance(value, str) and value != cls.__ooo_enum_name__:
-            return cls.__get_enum_from_str(value)
-        return super().__call__(value=value, names=names, module=module, qualname=qualname, type=type, start=start)
+    # pytyon 3.12 has a different signature for __call__
+
+    if sys.version_info >= (3, 12):
+        # enum.py call is as follows:
+        # def __call__(cls, value, names=_not_given, *values, module=None, qualname=None, type=None, start=1, boundary=None):
+        def __call__(cls, value, names=None, *values, module=None, qualname=None, type=None, start=1, boundary=None):
+            if isinstance(value, str) and value != cls.__ooo_enum_name__:
+                return cls.__get_enum_from_str(value)
+            if names is None:
+                return super().__call__(value=value, *values, module=module, qualname=qualname, type=type, start=start, boundary=boundary)
+            return super().__call__(value=value, names=names, module=module, qualname=qualname, type=type, start=start, boundary=boundary)
+    else:
+
+        def __call__(cls, value, names=None, *, module=None, qualname=None, type=None, start=1):
+            if isinstance(value, str) and value != cls.__ooo_enum_name__:
+                return cls.__get_enum_from_str(value)
+            return super().__call__(value=value, names=names, module=module, qualname=qualname, type=type, start=start)
 
     def __get_enum_name(cls) -> str:
         return cls.__ooo_full_ns__.rsplit(sep=".", maxsplit=1)[1]

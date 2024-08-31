@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2023 :Barry-Thomas-Paul: Moss
+# Copyright 2023-2024 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -39,6 +39,7 @@ from ...lo.chart2.data_point_geometry3_d import DataPointGeometry3D as DataPoint
 from ...lo.chart2.data_point_label import DataPointLabel as DataPointLabel
 from ...lo.chart2.data_point_properties import DataPointProperties as DataPointProperties
 from ...lo.chart2.data_series import DataSeries as DataSeries
+from ...lo.chart2.data_table import DataTable as DataTable
 from ...lo.chart2.diagram import Diagram as Diagram
 from ...lo.chart2.error_bar import ErrorBar as ErrorBar
 from ...lo.chart2.exponential_regression_curve import ExponentialRegressionCurve as ExponentialRegressionCurve
@@ -95,6 +96,7 @@ from ...lo.chart2.x_data_point_custom_label_field import XDataPointCustomLabelFi
 from ...lo.chart2.x_data_provider_access import XDataProviderAccess as XDataProviderAccess
 from ...lo.chart2.x_data_series import XDataSeries as XDataSeries
 from ...lo.chart2.x_data_series_container import XDataSeriesContainer as XDataSeriesContainer
+from ...lo.chart2.x_data_table import XDataTable as XDataTable
 from ...lo.chart2.x_default_size_transmitter import XDefaultSizeTransmitter as XDefaultSizeTransmitter
 from ...lo.chart2.x_diagram import XDiagram as XDiagram
 from ...lo.chart2.x_diagram_provider import XDiagramProvider as XDiagramProvider

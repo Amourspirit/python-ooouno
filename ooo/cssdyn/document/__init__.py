@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2023 :Barry-Thomas-Paul: Moss
+# Copyright 2023-2024 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -152,9 +152,13 @@ with suppress(ImportError):
 with suppress(ImportError):
     from ...dyn.document.x_document_properties import XDocumentProperties as XDocumentProperties
 with suppress(ImportError):
+    from ...dyn.document.x_document_properties2 import XDocumentProperties2 as XDocumentProperties2
+with suppress(ImportError):
     from ...dyn.document.x_document_properties_supplier import XDocumentPropertiesSupplier as XDocumentPropertiesSupplier
 with suppress(ImportError):
     from ...dyn.document.x_document_recovery import XDocumentRecovery as XDocumentRecovery
+with suppress(ImportError):
+    from ...dyn.document.x_document_recovery2 import XDocumentRecovery2 as XDocumentRecovery2
 with suppress(ImportError):
     from ...dyn.document.x_document_revision_list_persistence import XDocumentRevisionListPersistence as XDocumentRevisionListPersistence
 with suppress(ImportError):

@@ -9,7 +9,7 @@ ooouno
 
 **ooouno** is a library of all *(more than 4300)* classes, typings and types for the LibreOffice `API <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star.html>`_.
 
-**ooouno** is for version ``7.4`` of LibreOffice `API <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star.html>`_.
+**ooouno** is for version ``2024.2`` of LibreOffice `API <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star.html>`_.
 
 More about `LibreOffice <https://www.libreoffice.org/>`_.
 
@@ -31,13 +31,6 @@ CONDA
     $ conda install -c conda-forge ooouno
 
 
-For LibreOffice <= ``7.3``
-    ``$ conda install -c conda-forge "ooouno>=0.2.5, <1.0"``
-
-
-For LibreOffice <= ``7.2``
-    ``$ conda install -c conda-forge "ooouno<0.2"``
-
 PIP
 ---
 
@@ -46,13 +39,6 @@ PIP
 .. code-block:: bash
 
     $ pip install ooouno
-
-For LibreOffice <= ``7.3``
-    ``pip install "ooouno>= 0.2.5, < 1.0"``
-
-For LibreOffice <= ``7.2``
-    ``pip install "ooouno<0.2"``
-
 
 Usage
 =====

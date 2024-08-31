@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2023 :Barry-Thomas-Paul: Moss
+# Copyright 2023-2024 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -182,6 +182,8 @@ with suppress(ImportError):
 with suppress(ImportError):
     from ...dyn.util.x_closeable import XCloseable as XCloseable
 with suppress(ImportError):
+    from ...dyn.util.x_complex_color import XComplexColor as XComplexColor
+with suppress(ImportError):
     from ...dyn.util.x_data_editor import XDataEditor as XDataEditor
 with suppress(ImportError):
     from ...dyn.util.x_data_editor_listener import XDataEditorListener as XDataEditorListener
@@ -269,6 +271,8 @@ with suppress(ImportError):
     from ...dyn.util.x_text_search import XTextSearch as XTextSearch
 with suppress(ImportError):
     from ...dyn.util.x_text_search2 import XTextSearch2 as XTextSearch2
+with suppress(ImportError):
+    from ...dyn.util.x_theme import XTheme as XTheme
 with suppress(ImportError):
     from ...dyn.util.x_time_stamped import XTimeStamped as XTimeStamped
 with suppress(ImportError):

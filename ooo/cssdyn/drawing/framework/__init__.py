@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2023 :Barry-Thomas-Paul: Moss
+# Copyright 2023-2024 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -32,13 +32,7 @@ with suppress(ImportError):
 with suppress(ImportError):
     from ....dyn.drawing.framework.border_type import BorderType as BorderType
 with suppress(ImportError):
-    from ....dyn.drawing.framework.configuration import Configuration as Configuration
-with suppress(ImportError):
     from ....dyn.drawing.framework.configuration_change_event import ConfigurationChangeEvent as ConfigurationChangeEvent
-with suppress(ImportError):
-    from ....dyn.drawing.framework.configuration_controller import ConfigurationController as ConfigurationController
-with suppress(ImportError):
-    from ....dyn.drawing.framework.module_controller import ModuleController as ModuleController
 with suppress(ImportError):
     from ....dyn.drawing.framework.resource_activation_mode import ResourceActivationMode as ResourceActivationMode
 with suppress(ImportError):

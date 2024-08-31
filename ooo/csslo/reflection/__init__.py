@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2023 :Barry-Thomas-Paul: Moss
+# Copyright 2023-2024 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -18,6 +18,7 @@ import warnings
 warnings.filterwarnings('module')
 warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ...lo.reflection.core_reflection import CoreReflection as CoreReflection
+from ...lo.reflection.dump import Dump as Dump
 from ...lo.reflection.field_access_mode import FieldAccessMode as FieldAccessMode
 from ...lo.reflection.invalid_type_name_exception import InvalidTypeNameException as InvalidTypeNameException
 from ...lo.reflection.invocation_target_exception import InvocationTargetException as InvocationTargetException
@@ -33,6 +34,7 @@ from ...lo.reflection.x_array_type_description import XArrayTypeDescription as X
 from ...lo.reflection.x_compound_type_description import XCompoundTypeDescription as XCompoundTypeDescription
 from ...lo.reflection.x_constant_type_description import XConstantTypeDescription as XConstantTypeDescription
 from ...lo.reflection.x_constants_type_description import XConstantsTypeDescription as XConstantsTypeDescription
+from ...lo.reflection.x_dump import XDump as XDump
 from ...lo.reflection.x_enum_type_description import XEnumTypeDescription as XEnumTypeDescription
 from ...lo.reflection.x_idl_array import XIdlArray as XIdlArray
 from ...lo.reflection.x_idl_class import XIdlClass as XIdlClass

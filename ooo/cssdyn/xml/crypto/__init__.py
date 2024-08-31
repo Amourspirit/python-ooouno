@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2023 :Barry-Thomas-Paul: Moss
+# Copyright 2023-2024 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -31,6 +31,10 @@ with suppress(ImportError):
     from ....dyn.xml.crypto.digest_id import DigestIDEnum as DigestIDEnum
 with suppress(ImportError):
     from ....dyn.xml.crypto.gpgse_initializer import GPGSEInitializer as GPGSEInitializer
+with suppress(ImportError):
+    from ....dyn.xml.crypto.kdfid import KDFID as KDFID
+with suppress(ImportError):
+    from ....dyn.xml.crypto.kdfid import KDFIDEnum as KDFIDEnum
 with suppress(ImportError):
     from ....dyn.xml.crypto.nss_initializer import NSSInitializer as NSSInitializer
 with suppress(ImportError):

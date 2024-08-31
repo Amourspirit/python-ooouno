@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2023 :Barry-Thomas-Paul: Moss
+# Copyright 2023-2024 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -92,6 +92,7 @@ from ...lo.util.x_cloneable import XCloneable as XCloneable
 from ...lo.util.x_close_broadcaster import XCloseBroadcaster as XCloseBroadcaster
 from ...lo.util.x_close_listener import XCloseListener as XCloseListener
 from ...lo.util.x_closeable import XCloseable as XCloseable
+from ...lo.util.x_complex_color import XComplexColor as XComplexColor
 from ...lo.util.x_data_editor import XDataEditor as XDataEditor
 from ...lo.util.x_data_editor_listener import XDataEditorListener as XDataEditorListener
 from ...lo.util.x_flush_listener import XFlushListener as XFlushListener
@@ -136,6 +137,7 @@ from ...lo.util.x_string_substitution import XStringSubstitution as XStringSubst
 from ...lo.util.x_string_width import XStringWidth as XStringWidth
 from ...lo.util.x_text_search import XTextSearch as XTextSearch
 from ...lo.util.x_text_search2 import XTextSearch2 as XTextSearch2
+from ...lo.util.x_theme import XTheme as XTheme
 from ...lo.util.x_time_stamped import XTimeStamped as XTimeStamped
 from ...lo.util.xurl_transformer import XURLTransformer as XURLTransformer
 from ...lo.util.x_unique_id_factory import XUniqueIDFactory as XUniqueIDFactory

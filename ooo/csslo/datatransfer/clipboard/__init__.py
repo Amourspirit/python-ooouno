@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2023 :Barry-Thomas-Paul: Moss
+# Copyright 2023-2024 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationW
 from ....lo.datatransfer.clipboard.clipboard_event import ClipboardEvent as ClipboardEvent
 from ....lo.datatransfer.clipboard.clipboard_manager import ClipboardManager as ClipboardManager
 from ....lo.datatransfer.clipboard.generic_clipboard import GenericClipboard as GenericClipboard
+from ....lo.datatransfer.clipboard.lok_clipboard import LokClipboard as LokClipboard
 from ....lo.datatransfer.clipboard.rendering_capabilities import RenderingCapabilities as RenderingCapabilities
 from ....lo.datatransfer.clipboard.system_clipboard import SystemClipboard as SystemClipboard
 from ....lo.datatransfer.clipboard.x_clipboard import XClipboard as XClipboard

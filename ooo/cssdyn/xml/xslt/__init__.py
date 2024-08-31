@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2023 :Barry-Thomas-Paul: Moss
+# Copyright 2023-2024 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -21,8 +21,6 @@ import warnings
 warnings.filterwarnings('module')
 warnings.warn('The cssdyn namespace is deprecated. Use dyn instead.', DeprecationWarning, stacklevel=2)
 
-with suppress(ImportError):
-    from ....dyn.xml.xslt.xslt2_transformer import XSLT2Transformer as XSLT2Transformer
 with suppress(ImportError):
     from ....dyn.xml.xslt.xslt_transformer import XSLTTransformer as XSLTTransformer
 with suppress(ImportError):

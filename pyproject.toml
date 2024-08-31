@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "ooouno"
-version = "2.1.2"
+version = "3.0.0"
 description = "Interfaces and classes for LibreOffice (uno)"
 authors = [":Barry-Thomas-Paul: Moss <vibrationoflife@protonmail.com>"]
 license = "Apache Software License"
@@ -25,24 +25,25 @@ classifiers = [
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
 ]
+
 
 [[tool.poetry.source]]
 name = "pypi-test"
 url = "https://test.pypi.org/legacy/"
-default = false
-secondary = false
+priority = "supplemental"
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = "^3.8"
 types-unopy = ">=1.2.3"
-typing-extensions = "^4.6.2"
+typing-extensions = "^4.12"
 
 
 [tool.poetry.group.dev.dependencies]
 pytest = ">=7.3.1"
-black = {extras = ["d"], version = ">=23.1.0"}
-oooenv = ">=0.1.0"
+black = {extras = ["d"], version = ">=24.8"}
+oooenv = ">=0.2.4"
 unotools = ">=0.3.3"
 kwargshelper = ">=2.7.1"
 stickytape = "^0.2.1"
@@ -62,4 +63,4 @@ build-backend = "poetry.core.masonry.api"
 extended-select=["ANN", "C4", "N", "SIM", "TCH"]
 ignore=["E502"]
 show-fixes=true
-target="py37"
+target="py38"

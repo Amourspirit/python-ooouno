@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2023 :Barry-Thomas-Paul: Moss
+# Copyright 2023-2024 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -69,6 +69,8 @@ with suppress(ImportError):
     from ...dyn.chart2.data_point_properties import DataPointProperties as DataPointProperties
 with suppress(ImportError):
     from ...dyn.chart2.data_series import DataSeries as DataSeries
+with suppress(ImportError):
+    from ...dyn.chart2.data_table import DataTable as DataTable
 with suppress(ImportError):
     from ...dyn.chart2.diagram import Diagram as Diagram
 with suppress(ImportError):
@@ -185,6 +187,8 @@ with suppress(ImportError):
     from ...dyn.chart2.x_data_series import XDataSeries as XDataSeries
 with suppress(ImportError):
     from ...dyn.chart2.x_data_series_container import XDataSeriesContainer as XDataSeriesContainer
+with suppress(ImportError):
+    from ...dyn.chart2.x_data_table import XDataTable as XDataTable
 with suppress(ImportError):
     from ...dyn.chart2.x_default_size_transmitter import XDefaultSizeTransmitter as XDefaultSizeTransmitter
 with suppress(ImportError):

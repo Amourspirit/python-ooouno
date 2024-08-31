@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2023 :Barry-Thomas-Paul: Moss
+# Copyright 2023-2024 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -45,6 +45,7 @@ from ...lo.configuration.simple_set_access import SimpleSetAccess as SimpleSetAc
 from ...lo.configuration.simple_set_update import SimpleSetUpdate as SimpleSetUpdate
 from ...lo.configuration.update import Update as Update
 from ...lo.configuration.update_root_element import UpdateRootElement as UpdateRootElement
+from ...lo.configuration.x_documentation import XDocumentation as XDocumentation
 from ...lo.configuration.x_read_write_access import XReadWriteAccess as XReadWriteAccess
 from ...lo.configuration.x_template_container import XTemplateContainer as XTemplateContainer
 from ...lo.configuration.x_template_instance import XTemplateInstance as XTemplateInstance

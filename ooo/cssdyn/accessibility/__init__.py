@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2023 :Barry-Thomas-Paul: Moss
+# Copyright 2023-2024 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -101,8 +101,6 @@ with suppress(ImportError):
     from ...dyn.accessibility.x_accessible_relation_set import XAccessibleRelationSet as XAccessibleRelationSet
 with suppress(ImportError):
     from ...dyn.accessibility.x_accessible_selection import XAccessibleSelection as XAccessibleSelection
-with suppress(ImportError):
-    from ...dyn.accessibility.x_accessible_state_set import XAccessibleStateSet as XAccessibleStateSet
 with suppress(ImportError):
     from ...dyn.accessibility.x_accessible_table import XAccessibleTable as XAccessibleTable
 with suppress(ImportError):
